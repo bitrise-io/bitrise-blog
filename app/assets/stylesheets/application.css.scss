@@ -1,0 +1,178 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+ body {
+   background-color: #f9fbff;
+   font-family: 'Gotham SSm A', 'Gotham SSm B';
+ }
+
+ h2 {
+   margin: 0 0 20px 0;
+ }
+
+ .navigation {
+   position: fixed;
+   background-color: #8151a8;
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   letter-spacing: 0.5px;
+   z-index: 100;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 83px;
+   align-items: center;
+
+   .logo {
+     background-image: asset-url("logo.svg");
+     background-size: 116px auto;
+     background-color: #3bc3a3;
+     background-position: center;
+     width: 160px;
+     height: 45px;
+     margin-left: 20px;
+     border-radius: 3px;
+     background-repeat: no-repeat;
+     display: block;
+     padding: 0;
+   }
+
+   a {
+     padding: 16px 10px;
+     margin-left: 4px;
+     margin-right: 4px;
+     padding: 16px 10px;
+     font-size: 14px;
+     font-weight: 300;
+     color: white;
+     text-decoration: none;
+     transition: color 0.2s;
+
+     &:hover {
+       color: black;
+     }
+   }
+
+   .spacer {
+     flex-grow: 1;
+   }
+ }
+
+ .more {
+   a {
+     text-transform: uppercase;
+     padding: 10px 15px;
+     border: 1px solid #b8dcff;
+     color: #3895ff;
+     border-radius: 3px;
+     text-decoration: none;
+     transition: .3s color,.3s background,.3s border-color;
+
+     &:hover {
+       background: #3895ff;
+       border-color: #3895ff;
+       color: #fff;
+     }
+   }
+ }
+
+ .content {
+   margin: 50px auto;
+   width: 80%;
+   background-color: #fff;
+   box-shadow: 0 0 1px 0 rgba(18,32,73,.08), 0 8px 32px 0 rgba(55,92,192,.08);
+   border-radius: 3px;
+
+   .inner-content {
+     padding: 25px;
+   }
+ }
+
+ .article {
+   h2 {
+     letter-spacing: -.03em;
+     line-height: 1.2;
+     color: #171c2a;
+
+     a {
+       text-decoration: none;
+       color: inherit;
+
+       &:hover {
+         text-decoration: underline;
+       }
+     }
+   }
+
+  p {
+    font-weight: 300;
+    font-size: 1.1em;
+    line-height: 1.5;
+    color: #171c2a;
+  }
+ }
+
+ .featured {
+   margin-bottom: 20px;
+
+   .article-container {
+     display: flex;
+     flex-flow: row wrap;
+
+     .image-container {
+       padding: 0 20px;
+       flex: 1;
+
+       img {
+         max-width: 100%;
+         max-height: 100%;
+       }
+     }
+
+     .article {
+       flex: 1;
+     }
+   }
+ }
+
+ .articles {
+   display: flex;
+   flex-flow: row wrap;
+
+   .article-container {
+     display: flex;
+     flex-flow: column wrap;
+     flex: 1;
+     padding: 20px 20px 0 20px;
+     flex-basis: 28%;
+     margin-bottom: 20px;
+
+     .image-container {
+       padding: 0 20px;
+       flex: 1;
+
+       img {
+         max-width: 100%;
+         max-height: 100%;
+       }
+     }
+
+     .article {
+       flex: 1;
+     }
+   }
+ }

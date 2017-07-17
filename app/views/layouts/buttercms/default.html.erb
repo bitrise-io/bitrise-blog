@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= content_for?(:html_title) ? "#{content_for(:html_title)} | My Blog" : "My Blog" %></title>
+
+    <meta name="description" content="<%= content_for?(:meta_description) ? content_for(:meta_description) : "My Blog" %>">
+
+    <link rel="alternate" type="application/atom+xml" title="My Blog - Atom" href="<%= buttercms_blog_atom_path %>">
+    <link rel="alternate" type="application/rss+xml" title="My Blog - RSS" href="<%= buttercms_blog_rss_path %>">
+
+    <!-- See https://buttercms.com/docs/#cssstyling -->
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" media="screen" href="//cloud.typography.com/7981312/721124/css/fonts.css">
+    <link rel="stylesheet" media="screen" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400,300,200,500,600,700,900">
+</head>
+<body>
+    <div class="navigation">
+      <a class="logo" href="https://www.bitrise.io"></a>
+      <a tabindex="-1" href="https://www.bitrise.io/integrations">Integrations</a>
+      <a tabindex="-1" href="https://www.bitrise.io/pricing">Pricing</a>
+      <a tabindex="-1" href="https://www.bitrise.io/cli">CLI</a>
+      <a tabindex="-1" href="https://www.bitrise.io/contact">Contact</a>
+      <a tabindex="-1" href="http://devcenter.bitrise.io">Docs</a>
+      <div class="spacer"></div>
+      <a class="v3-button transparent" tabindex="-1" href="/users/sign_in">Log in</a>
+      <a class="v3-button transparent" tabindex="-1" href="/users/sign_in">Sign up!</a>
+    </div>
+    <div>
+      <%= link_to "Blog home", buttercms_blog_path %>
+    </div>
+
+    <div class="content">
+      <div class="inner-content">
+        <%= yield %>
+      </div>
+    </div>
+</body>
+</html>
