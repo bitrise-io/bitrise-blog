@@ -1,5 +1,7 @@
 class Buttercms::PostsController < Buttercms::BaseController
   def index
+    @categories = ButterCMS::Category.all
+    
     tag = ButterCMS::Tag.find("prio", include: 'recent_posts')
     @featured_post = tag.data.recent_posts.first unless tag.nil?
 

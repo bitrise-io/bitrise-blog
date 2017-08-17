@@ -79,7 +79,6 @@
        background-position: center;
        width: 160px;
        height: 45px;
-       margin-left: 20px;
        border-radius: 3px;
        background-repeat: no-repeat;
        display: block;
@@ -153,8 +152,18 @@
 
  .categories {
    background-color: #e9d8f7;
-   height: 46px;
+   height: 45px;
    width: 100%;
+
+   a {
+     text-transform: uppercase;
+     color: #8151a8;
+     text-decoration: none;
+     padding: 0 10px;
+     line-height: 45px;
+     font-weight: 300;
+     font-size: 12px;
+   }
  }
 
  .header {
