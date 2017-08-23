@@ -4,23 +4,19 @@
   </div>
 
   <div class="article">
-    <p class="category featured">featured</p>
-    <% post.categories.each do |category| %>
-      <p class="category"><%= category.name %></p>
-    <% end %>
+    <div class="article-categories">
+      <p class="category featured">featured</p>
+      <% post.categories.each do |category| %>
+        <p class="category"><%= category.name %></p>
+      <% end %>
+    </div>
 
     <h2><%= link_to post.title, buttercms_post_path(post.slug), :title => post.title %></h2>
-
-    <!-- Post summary -->
+    <h3>Published on <%= post.published.to_time.strftime('%B %e, %Y') %></h3>
     <p><%= post.summary %></p>
 
-    <!-- Post categories -->
-    <!-- <% post.categories.each do |category| %>
-      <%= link_to category.name, buttercms_category_path(category.slug), :title => category.name %>
-    <% end %> -->
-
     <div class="more">
-      <%= link_to 'read more...', buttercms_post_path(post.slug), :title => 'read more...' %>
+      <%= link_to 'Read more', buttercms_post_path(post.slug), :title => 'read more...' %>
     </div>
   </div>
 </div>

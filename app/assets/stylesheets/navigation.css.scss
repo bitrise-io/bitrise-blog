@@ -1,0 +1,88 @@
+.navigation {
+  position: fixed;
+  background-color: #8151a8;
+  width: 100%;
+  top: 0;
+  left: 0;
+
+ .navigation-bar {
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   letter-spacing: 0.5px;
+   z-index: 100;
+   width: 100%;
+   height: 83px;
+   align-items: center;
+
+   .burger {
+     width: 83px;
+     height: 83px;
+     outline: none;
+     background-image: image-url('burger.svg');
+     background-size: 27px auto;
+     background-position: center;
+     background-color: transparent;
+     background-repeat: no-repeat;
+     cursor: pointer;
+   }
+
+    .logo {
+      background-image: asset-url("logo.svg");
+      background-size: 116px auto;
+      background-color: #3bc3a3;
+      background-position: center;
+      width: 160px;
+      height: 45px;
+      border-radius: 3px;
+      background-repeat: no-repeat;
+      display: block;
+      padding: 0;
+    }
+
+    a {
+      padding: 16px 10px;
+      margin-left: 4px;
+      margin-right: 4px;
+      padding: 16px 10px;
+      font-size: 14px;
+      font-weight: 300;
+      color: white;
+      text-decoration: none;
+      transition: color 0.2s;
+
+      &:hover {
+        color: black;
+      }
+
+      &.login {
+        border: 1px solid white;
+        padding: 10px;
+        font-weight: 500;
+        border-radius: 3px;
+
+        &:hover {
+          background-color: white;
+          color: #8151a8;
+        }
+      }
+
+      &.signup {
+        margin-right: 20px;
+        padding: 11px 35px;
+        background-color: #3bc3a3;
+        border-radius: 3px;
+        font-weight: 500;
+
+        &:hover {
+          background-color: #3aa792;
+          color: #fff;
+        }
+      }
+    }
+
+    .spacer {
+      flex-grow: 1;
+    }
+  }
+}
