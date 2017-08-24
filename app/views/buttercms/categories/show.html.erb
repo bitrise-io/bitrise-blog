@@ -1,13 +1,21 @@
-<%= content_for :html_title, @category.name %>
+<%= content_for :html_title, @category.name.capitalize %>
+<%= render :partial => 'hero' %>
 
-<!-- Category name -->
-<h2><%= @category.name %></h2>
+<div class="category-content">
+  <div class="category-header">
+    <!-- Category name -->
+    <h2>Articles for <span class="category-name"><%= @category.name %></span></h2>
+  </div>
 
-<!-- Recent posts -->
-<h4>Recent posts</h4>
+  <div class="articles">
+    <!-- List of posts -->
+    <% @category.recent_posts.each do |post| %>
+      <%= render :partial => 'buttercms/posts/post', :locals => {:post => post} %>
+    <% end %>
+  </div>
 
-<ul>
-  <% @category.recent_posts.each do |post| %>
-    <li><%= render :partial => 'buttercms/posts/post', :locals => {:post => post} %></li>
-  <% end %>
-</ul>
+  <div class="default-button load-more">
+    <a href="#">Load more</a>
+  </div>
+</div>
+<%= render :partial => 'buttercms/base/try_bitrise' %>

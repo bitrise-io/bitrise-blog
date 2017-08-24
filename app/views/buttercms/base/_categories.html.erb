@@ -1,7 +1,7 @@
 <div class="categories">
   <div class="content-wrapper">
     <% @categories.each do |category| %>
-      <a class="category screen" href="#"><%= category.name %></a>
+      <%= link_to category.name.capitalize, buttercms_category_path(category.slug), :title => category.name, class: "category screen" %>
     <% end %>
     <a class="category tablet" href="#">select category</a>
   </div>

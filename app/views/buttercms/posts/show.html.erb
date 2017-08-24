@@ -35,27 +35,38 @@
     <%= @post.body.html_safe %>
   </div>
 
-  <div class="next-post">
-    <!-- Link to Next Post -->
-    <% if @next_post %>
-      <%= link_to @next_post.title, buttercms_post_path(@next_post.slug), :title => @next_post.title, class: "next-post-button" %>
-    <% end %>
+  <div class="share-article">
+    <h3>Share this article</h3>
+    <div class="social-icons">
+      <span class="fb-container"><%= svg("social_icons/facebook")%></span>
+      <span class="twitter-container"><%= svg("social_icons/twitter")%></span>
+      <span class="linkedin-container"><%= svg("social_icons/linkedin")%></span>
+      <span class="yc-container"><%= svg("social_icons/ycombinator")%></span>
+    </div>
   </div>
 
-  <!--
-  // For sharing, we recommend https://www.addthis.com/get/sharing or https://sumome.com/app/share
-  -->
-
-  <div id="disqus_thread"></div>
-  <script type="text/javascript">
-      /* * * CONFIGURATION VARIABLES * * */
-      var disqus_shortname = 'XXXXXXXX';
-
-      /* * * DON'T EDIT BELOW THIS LINE * * */
-      (function() {
-          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-      })();
-  </script>
+  <!-- Link to Next Post -->
+  <% if @next_post %>
+    <div class="next-post">
+      <%= link_to "Next: #{@next_post.title}", buttercms_post_path(@next_post.slug), :title => @next_post.title, class: "next-post-button" %>
+    </div>
+  <% end %>
 </div>
+<%= render :partial => 'buttercms/base/try_bitrise' %>
+<!--
+// For sharing, we recommend https://www.addthis.com/get/sharing or https://sumome.com/app/share
+-->
+<div class="post-content">
+  <div id="disqus_thread" class="disqus-container"></div>
+</div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'XXXXXXXX';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
