@@ -300,8 +300,17 @@ h2 {
 		font-size: 26px;
 		font-weight: bold;
 	}
-	& code {
+	& pre {
 		background-color: #EBEBEB;
+		font-size: 14px;
+		padding: 15px;
+		line-height: 120%;
+		display: block;
+		white-space: pre-wrap;
+	}
+	& p code {
+		background-color: #EBEBEB;
+		padding: 1px 5px;
 	}
 	& .author-info {
 		width: 70%;
