@@ -1,7 +1,7 @@
 class Buttercms::PostsController < Buttercms::BaseController
+  before_action :set_variables
+
   def index
-    @categories = ButterCMS::Category.all
-    
     tag = ButterCMS::Tag.find("prio", include: 'recent_posts')
     @featured_post = tag.data.recent_posts.first unless tag.nil?
 
@@ -16,5 +16,10 @@ class Buttercms::PostsController < Buttercms::BaseController
 
     @next_post = @post.meta.next_post
     @previous_post = @post.meta.previous_post
+  end
+
+private
+  def set_variables
+    @categories = ButterCMS::Category.all
   end
 end

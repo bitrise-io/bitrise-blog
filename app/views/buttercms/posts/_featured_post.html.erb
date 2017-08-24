@@ -16,7 +16,9 @@
     <p><%= post.summary %></p>
 
     <div class="more">
-      <%= link_to 'Read more', buttercms_post_path(post.slug), :title => 'read more...' %>
+      <a class="read-more" title="read more..." href="<%= buttercms_post_path(post.slug) %>">
+        Read more <%= svg('right_arrow') %>
+      </a>
     </div>
   </div>
 </div>
