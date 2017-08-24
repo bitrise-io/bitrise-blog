@@ -1,0 +1,181 @@
+body > .footer {
+
+	.top-footer {
+		@include mixin_display_flex();
+		@include mixin_flex_direction(row);
+		@include mixin_flex_wrap(wrap);
+		padding-top: 20px;
+		padding-bottom: 50px;
+		background-color: $v3_default_verylightgrey;
+
+		.socials, .product, .company, .support {
+			@include mixin_paddingX(25px);
+
+			h4 {
+				color: $v3_default_purple;
+				font-size: 12px;
+				font-weight: bold;
+			}
+
+			.separator {
+				height: 2px;
+				margin: 10px auto;
+				background-color: $v3_default_purple;
+			}
+
+			.social-icons {
+				$horizontalspacing: 15px;
+
+				margin: - $horizontalspacing / 2;
+				@include paddingY(15px);
+
+				a {
+					padding: $horizontalspacing / 2;
+					display: inline-block;
+					@include mixin_transition(opacity, $default_transitiontime_short);
+
+					svg {
+						@include squaresize(24px);
+						fill: $v3_default_purple;
+					}
+
+					&:not(:hover) {
+						opacity: 0.8;
+					}
+				}
+			}
+
+			.status-page {
+				@include mixin_paddingY(10px);
+				font-size: 12px;
+				font-weight: 300;
+				border-radius: 7px;
+				text-align: left;
+				color: white;
+				max-width: 280px;
+				border: none;
+
+				&.critical {
+					background-color: $v3_default_status_critical;
+				}
+				&.major {
+					background-color: $v3_default_status_major;
+				}
+				&.minor {
+					background-color: $v3_default_status_minor;
+				}
+				&.none {
+					background-color: $v3_default_status_none;
+				}
+
+				&:before {
+					content: "Status: ";
+					font-weight: bold;
+					display: inline;
+					height: 30px;
+					margin: 0 auto;
+					background-size: contain;
+					background-position: center;
+					background-repeat: no-repeat;
+				}
+			}
+		}
+
+		.socials {
+			@include mixin_flex_grow(3);
+		}
+
+		.product, .company, .support {
+			@include mixin_flex_grow(1);
+
+			a {
+				color: $v3_default_verydarkgrey;
+				display: block;
+				font-size: 12px;
+				font-weight: 300;
+				border-bottom: 1px solid $v3_default_lightgrey;
+				@include mixin_paddingY(10px);
+
+				&:hover {
+					color: $v3_default_purple;
+				}
+			}
+		}
+
+		@include media_big {
+
+			.socials, .product, .company, .support {
+				@include mixin_marginY(30px);
+				@include mixin_flex_grow(0);
+				width: 50%;
+			}
+		}
+
+		@media(max-width: 640px) {
+			@include mixin_flex_direction(column);
+
+			.socials, .product, .company, .support {
+				width: auto;
+				@include mixin_marginY(20px);
+
+				.status-page {
+					max-width: 100%;
+				}
+			}
+		}
+	}
+
+	.bottom-footer {
+		background-color: $default_darkshadowcolor;
+		@include mixin_display_flex();
+		@include mixin_flex_direction(row);
+		@include mixin_justify_content(space-between);
+		align-content: space-between;
+		-webkit-align-content: space-between;
+		@include mixin_align_items(center);
+		@include mixin_paddingX(25px);
+		@include mixin_paddingY(35px);
+
+		@include media_small {
+			@include mixin_paddingY(15px);
+			@include mixin_flex_direction(column);
+
+			a, h4 {
+				@include mixin_paddingY(15px);
+			}
+
+			.copyright {
+				text-align: center !important;
+			}
+		}
+
+		h4 {
+			color: $v3_default_purple;
+			font-size: 11px;
+			font-weight: 400;
+			line-height: 11px;
+			text-transform: uppercase;
+			@include mixin_display_flex();
+
+			@include media_small {
+				font-size: 10px;
+			}
+
+			.heart {
+				width: 30px;
+				height: 12px;
+				background-image: image-url("landing/footer_heart.svg");
+				background-size: contain;
+				background-position: center;
+			}
+		}
+
+		.copyright {
+			color: $v3_default_mediumdarkgrey;
+			font-size: 10px;
+			font-weight: 300;
+			max-width: 130px;
+			text-align: right;
+		}
+	}
+}

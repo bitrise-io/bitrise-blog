@@ -10,9 +10,15 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
- *= require_self
  */
+
+@import "blog";
+@import "categories";
+@import "constants";
+@import "footer";
+@import "hero";
+@import "media";
+@import "navigation";
 
 body {
 	background-color: #f9fbff;
@@ -397,6 +403,7 @@ h2 {
 	& .disqus-container {
 		width: 70%;
 		margin: 0 auto;
+		padding: 50px 0;
 	}
 }
 .try-wrapper {
@@ -405,7 +412,7 @@ h2 {
 	align-items: center;
 	height: 240px;
 	color: white;
-	margin: 50px 0px;
+	margin-top: 50px;
 	& .container {
 		flex-flow: column;
 		text-align: center;

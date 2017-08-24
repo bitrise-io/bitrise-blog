@@ -47,9 +47,9 @@
 
   <!-- Link to Next Post -->
   <% if @next_post %>
-    <div class="next-post">
+    <!-- <div class="next-post">
       <%= link_to "Next: #{@next_post.title}", buttercms_post_path(@next_post.slug), :title => @next_post.title, class: "next-post-button" %>
-    </div>
+    </div> -->
   <% end %>
 </div>
 <%= render :partial => 'buttercms/base/try_bitrise' %>
