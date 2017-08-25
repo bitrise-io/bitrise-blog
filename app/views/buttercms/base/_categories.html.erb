@@ -1,5 +1,6 @@
 <div class="categories">
   <div class="content-wrapper">
+    <%= link_to "Home", "/", :title => "Home", class: "category screen" %>
     <% @categories.each do |category| %>
       <%= link_to category.name.capitalize, buttercms_category_path(category.slug), :title => category.name, class: "category screen" %>
     <% end %>
