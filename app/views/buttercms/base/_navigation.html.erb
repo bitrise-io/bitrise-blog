@@ -1,17 +1,34 @@
-<div class="navigation">
-  <div class="content-wrapper">
-    <div class="navigation-bar">
-      <a class="logo" href="https://www.bitrise.io"></a>
-      <a class="screen" href="https://www.bitrise.io/integrations">Integrations</a>
-      <a class="screen" href="https://www.bitrise.io/pricing">Pricing</a>
-      <a class="screen" href="https://www.bitrise.io/cli">CLI</a>
-      <a class="screen" href="https://www.bitrise.io/contact">Contact</a>
-      <a class="screen" href="http://devcenter.bitrise.io">Docs</a>
-      <div class="spacer screen"></div>
-      <a class="screen login" href="/users/sign_in">Log in</a>
-      <a class="screen signup" href="/users/sign_in">Sign up!</a>
-      <div class="tablet burger" />
-      </div>
-    </div>
+<nav class="menu">
+  <div class="menu-content">
+    <a class="logo" href="https://www.bitrise.io"><%= svg("logo") %></a>
+    <ul class="menu-options">
+      <li class="menu-option">
+        <a href="https://www.bitrise.io/integrations">Integrations</a>
+      </li>
+      <li class="menu-option">
+        <a href="https://www.bitrise.io/pricing">Pricing</a>
+      </li>
+      <li class="menu-option">
+        <a href="https://www.bitrise.io/cli">CLI</a>
+      </li>
+      <li class="menu-option">
+        <a href="https://www.bitrise.io/contact">Contact</a>
+      </li>
+      <li class="menu-option">
+        <a href="http://devcenter.bitrise.io">Docs</a>
+      </li>
+      <li class="side-menu-options">
+        <ul>
+          <li class="side-menu-option login">
+            <a href="/users/sign_in">Log in</a>
+          </li>
+          <li class="side-menu-option signup">
+            <a href="/users/sign_in">Sign up!</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <button class="tablet burger" />
+    </button>
   </div>
-</div>
+</nav>
