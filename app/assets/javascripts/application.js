@@ -13,4 +13,24 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require react
+//= require react_ujs
+//= require components
+//= require underscore
 //= require_tree .
+
+function formatDate(dateString) {
+	var date = new Date(Date.parse(dateString));
+	var monthNames = [
+		"January", "February", "March",
+		"April", "May", "June", "July",
+		"August", "September", "October",
+		"November", "December"
+	];
+
+	var day = date.getDate();
+	var monthIndex = date.getMonth();
+	var year = date.getFullYear();
+
+	return monthNames[monthIndex] + ' ' + day + ', ' + year;
+}
