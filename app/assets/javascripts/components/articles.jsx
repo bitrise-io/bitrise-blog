@@ -25,6 +25,7 @@ class Articles extends React.Component {
 		super();
 		this.state = {
 			articles: [],
+			allArticlesShown: false,
 		};
 		this.fetchArticles();
 	}
@@ -68,7 +69,9 @@ class Articles extends React.Component {
 			});
 	}
 	loadAllPosts() {
+		const allArticlesShown = true;
 		this.fetchArticles(null);
+		this.setState({allArticlesShown});
 	}
 	render() {
 		const articles = this.state.articles.map((articleData) => {
@@ -83,7 +86,7 @@ class Articles extends React.Component {
 			<div>
 				<div id="articles-container" className="articles">{articles}</div>
 
-				<div className="default-button load-more">
+				<div className="default-button load-more" hidden={this.state.allArticlesShown}>
 					<a onClick={() => this.loadAllPosts()}>View all articles</a>
 				</div>
 			</div>
