@@ -6,6 +6,7 @@ nav {
   $padding-x: 50px;
   $padding-y: 15px;
   @include position(fixed, 0, 0);
+  z-index: 500;
   @include size(100%, $navbar-height);
 
   &:before {
@@ -127,10 +128,46 @@ nav {
     }
     @include media-below-big {
       ul.menu-options {
-        display: none;
-      }
-      ul.opened {
-        display: block;
+        @include position(absolute, null, 0, 0);
+        z-index: -1;
+        width: 100%;
+        @include margin-y(0);
+        padding-left: 0;
+        list-style: none;
+        background-color: $v3_default_purple_tint;
+        color: white;
+        @include transition(transform 0.3s);
+
+        &.opened {
+          @include transform(translateY(100%));
+        }
+
+        .side-menu-options ul {
+          @include margin-y(0);
+          padding-left: 0;
+          list-style: none;
+        }
+        li.menu-option, li.side-menu-option {
+          border-bottom: 1px solid $v3_default_purple;
+
+          a {
+            display: block;
+            padding: 16px $padding-x;
+            font-size: 14px;
+            font-weight: 300;
+            color: white;
+            text-decoration: none;
+            @include transition(background-color $default_transitiontime_short);
+
+            &:hover, &:focus {
+              background-color: $default_purpletint;
+            }
+          }
+        }
+
+        li.side-menu-option.signup {
+          font-weight: 500;
+        }
       }
       button.burger {
         @include size($navbar-height, $navbar-height);
@@ -145,12 +182,12 @@ nav {
         @include no-focus-styling;
 
         &:hover, &:focus, &.open {
-          background-color: rgba(black, 0.2);
+          background-color: $v3_default_purple_tint;
         }
 
         &.open {
           &:hover, &:focus {
-            background-color: rgba(black, 0.4);
+            background-color: $default_purpletint;
           }
         }
 
