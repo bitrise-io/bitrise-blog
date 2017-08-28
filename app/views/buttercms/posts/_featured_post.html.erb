@@ -7,7 +7,7 @@
     <div class="article-categories">
       <p class="category featured">featured</p>
       <% post.categories.each do |category| %>
-        <p class="category"><%= category.name %></p>
+        <%= link_to category.name, buttercms_category_path(category.slug), class: "category" %>
       <% end %>
     </div>
 

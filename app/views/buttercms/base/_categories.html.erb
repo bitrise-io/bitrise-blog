@@ -4,6 +4,5 @@
     <% @categories.each do |category| %>
       <%= link_to category.name.capitalize, buttercms_category_path(category.slug), :title => category.name, class: "category" %>
     <% end %>
-    <a href="#">select category</a>
   </div>
 </div>
