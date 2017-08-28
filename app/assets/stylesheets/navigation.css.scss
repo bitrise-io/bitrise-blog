@@ -1,98 +1,12 @@
-// .navigation {
-//   position: fixed;
-//   background-color: #8151a8;
-//   width: 100%;
-//   top: 0;
-//   left: 0;
-
-//  .navigation-bar {
-//    display: flex;
-//    flex-direction: row;
-//    justify-content: space-between;
-//    letter-spacing: 0.5px;
-//    z-index: 100;
-//    width: 100%;
-//    height: 83px;
-//    align-items: center;
-
-//    .burger {
-//      width: 83px;
-//      height: 83px;
-//      outline: none;
-//      background-image: image-url('burger.svg');
-//      background-size: 27px auto;
-//      background-position: center;
-//      background-color: transparent;
-//      background-repeat: no-repeat;
-//      cursor: pointer;
-//    }
-
-//     .logo {
-//       background-image: asset-url("logo.svg");
-//       background-size: 116px auto;
-//       background-color: #3bc3a3;
-//       background-position: center;
-//       width: 160px;
-//       height: 45px;
-//       border-radius: 3px;
-//       background-repeat: no-repeat;
-//       display: block;
-//       padding: 0;
-//     }
-
-//     a {
-//       padding: 16px 10px;
-//       margin-left: 4px;
-//       margin-right: 4px;
-//       padding: 16px 10px;
-//       font-size: 14px;
-//       font-weight: 300;
-//       color: white;
-//       text-decoration: none;
-//       transition: color 0.2s;
-
-//       &:hover {
-//         color: black;
-//       }
-
-//       &.login {
-//         border: 1px solid white;
-//         padding: 10px;
-//         font-weight: 500;
-//         border-radius: 3px;
-
-//         &:hover {
-//           background-color: white;
-//           color: #8151a8;
-//         }
-//       }
-
-//       &.signup {
-//         margin-right: 20px;
-//         padding: 11px 35px;
-//         background-color: #3bc3a3;
-//         border-radius: 3px;
-//         font-weight: 500;
-
-//         &:hover {
-//           background-color: #3aa792;
-//           color: #fff;
-//         }
-//       }
-//     }
-
-//     .spacer {
-//       flex-grow: 1;
-//     }
-//   }
-// }
-
 @import "default";
 @import "constants";
 
 nav {
+  $navbar-height: 83px;
+  $padding-x: 50px;
+  $padding-y: 15px;
   @include position(fixed, 0, 0);
-  @include size(100%, 83px);
+  @include size(100%, $navbar-height);
 
   &:before {
     content: "";
@@ -106,7 +20,7 @@ nav {
     @include size(100%);
     @include align-items(center);
     @include box-sizing(border-box);
-    padding: 15px 50px;
+    padding: $padding-y $padding-x;
 
     a.logo {
       @include border-radius($v3_default_radius);
@@ -118,89 +32,131 @@ nav {
       }
     }
 
-    ul.menu-options {
-      @include flex-grow(1);
-      @include display-flex;
-      @include align-items(stretch);
-      @include align-self(stretch);
-      @include margin-y(0);
-      padding-left: 0;
-      list-style: none;
-
-      li.menu-option {
+    @include media-above-inclusive-big {
+      ul.menu-options {
+        @include flex-grow(1);
         @include display-flex;
         @include align-items(stretch);
+        @include align-self(stretch);
+        @include margin-y(0);
+        padding-left: 0;
+        list-style: none;
 
-        &:hover a {
-          color: black;
+        li.menu-option {
+          @include display-flex;
+          @include align-items(stretch);
+
+          &:hover a {
+            color: black;
+          }
+
+          a {
+            @include padding-x(20px);
+            text-decoration: none;
+            @include display-flex;
+            @include align-items(center);
+            color: white;
+            @include transition(color $default_transitiontime_short);
+          }
         }
 
-        a {
-          @include padding-x(20px);
-          text-decoration: none;
+        li.side-menu-options {
           @include display-flex;
           @include align-items(center);
-          color: white;
-        }
-      }
+          margin-left: auto;
 
-      li.side-menu-options {
-        @include display-flex;
-        @include align-items(center);
-        margin-left: auto;
+          ul {
+            @include display-flex;
+            @include margin-y(0);
+            padding-left: 0;
+            list-style: none;
 
-        ul {
-          @include display-flex;
-          @include margin-y(0);
-          padding-left: 0;
-          list-style: none;
+            li {
+              margin-left: 10px;
+              white-space: nowrap;
+              @include transition(border-color $default_transitiontime_short, color $default_transitiontime_short, background-color $default_transitiontime_short);
 
-          li {
-            margin-left: 10px;
-            @include transition(border-color $default_transitiontime_short, color $default_transitiontime_short, background-color $default_transitiontime_short);
+              a {
+                display: block;
+                @include padding-y(10px);
+              }
 
-            a {
-              display: block;
-              @include padding-y(10px);
-            }
+              &.login {
+                @include border-radius($v3_default_radius);
+                border: 1px solid white;
 
-            &.login {
-              @include border-radius($v3_default_radius);
-              border: 1px solid white;
-
-              &:hover, &:focus {
-                background-color: white;
-                a {
-                  color: $v3_default_purple;
+                &:hover, &:focus {
+                  background-color: white;
+                  a {
+                    color: $v3_default_purple;
+                  }
                 }
               }
-            }
 
-            &.login a {
-              @include padding-x(15px);
-              color: white;
-              text-decoration: none;
-              font-weight: 300;
-            }
+              &.login a {
+                @include padding-x(15px);
+                color: white;
+                text-decoration: none;
+                font-weight: 300;
+              }
 
-            &.signup {
-              @include border-radius($v3_default_radius);
-              background-color: $v3_default_green;
-              border: 1px solid $v3_default_green;
+              &.signup {
+                @include border-radius($v3_default_radius);
+                background-color: $v3_default_green;
+                border: 1px solid $v3_default_green;
 
-              &:hover, &:focus {
-                background-color: $v3_default_green_tint;
-                border-color: $v3_default_green_tint;
+                &:hover, &:focus {
+                  background-color: $v3_default_green_tint;
+                  border-color: $v3_default_green_tint;
+                }
+              }
+
+              &.signup a {
+                @include padding-x(35px);
+                color: white;
+                text-decoration: none;
+                font-weight: 300;
               }
             }
-
-            &.signup a {
-              @include padding-x(35px);
-              color: white;
-              text-decoration: none;
-              font-weight: 300;
-            }
           }
+        }
+      }
+      button.burger {
+        display: none;
+      }
+    }
+    @include media-below-big {
+      ul.menu-options {
+        display: none;
+      }
+      ul.opened {
+        display: block;
+      }
+      button.burger {
+        @include size($navbar-height, $navbar-height);
+        //margin-top: -$padding-y;
+        margin-right: -$padding-x;
+        margin-left: auto;
+        border: none;
+        padding: 0;
+        background-color: transparent;
+        cursor: pointer;
+        @include transition(background-color $default_transitiontime_short);
+        @include no-focus-styling;
+
+        &:hover, &:focus, &.open {
+          background-color: rgba(black, 0.2);
+        }
+
+        &.open {
+          &:hover, &:focus {
+            background-color: rgba(black, 0.4);
+          }
+        }
+
+        svg {
+          @include size(27px);
+          fill: white;
         }
       }
     }
