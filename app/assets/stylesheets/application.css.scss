@@ -418,21 +418,26 @@ h2 {
 	}
 	& .publish-date-and-tags {
 		display: flex;
+		flex-wrap: wrap;
 		align-items: center;
 		width: $row-width;
-		margin: 0 auto;
+		margin: 10px auto;
+
 		& .publish-date {
 			color: #959595;
+			margin: 0 0 10px 0;
 		}
 		& .divider-slash {
 			color: #959595;
-			margin: 0px 5px;
+			margin: 0px 5px 10px 5px;
+
 		}
 		& .category-element {
 			color: #8151a8;
 			text-decoration: none;
 			font-weight: bold;
 			cursor: pointer;
+			margin: 0 0 10px 0;
 		}
 	}
 	& .post-featured-image {
@@ -547,15 +552,12 @@ h2 {
 	}
 }
 
-.share-article-vertical {
-	width: 15%;
-}
-
 .share-article, .share-article-vertical {
 	display: flex;
 	align-items: center;
 	flex-flow: column;
 	padding: 20px 0;
+
 	& h3 {
 		color: #959595;
 		font-weight: 300;
@@ -586,6 +588,13 @@ h2 {
 		& .yc-container svg {
 			fill: #F17420;
 		}
+	}
+}
+.share-article-vertical {
+	width: 15%;
+
+	@include media-below-big {
+		display: none;
 	}
 }
 .v3-button {
