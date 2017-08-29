@@ -443,7 +443,6 @@ h2 {
 	}
 	& .post-body {
 		width: $row-width;
-		margin: 0 auto;
 		& img {
 			max-width: 100%;
 		}
@@ -536,7 +535,23 @@ h2 {
 	}
 }
 
-.share-article {
+.post-body-wrapper {
+	display: flex;
+
+	& .hidden {
+		display: none;
+	}
+
+	& .share-article-vertical-hidden {
+		margin: 0 auto;
+	}
+}
+
+.share-article-vertical {
+	width: 15%;
+}
+
+.share-article, .share-article-vertical {
 	display: flex;
 	align-items: center;
 	flex-flow: column;
@@ -553,6 +568,9 @@ h2 {
 	& .social-icons {
 		width: 100%;
 		text-align: center;
+		position: sticky;
+		top: 200px;
+
 		& span {
 			margin: 0 5px;
 		}

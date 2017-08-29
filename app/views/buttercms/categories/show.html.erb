@@ -7,15 +7,6 @@
     <h2>Articles for <span class="category-name"><%= @category.name %></span></h2>
   </div>
 
-  <!-- <div class="articles">
-    <% @category.recent_posts.each do |post| %>
-      <%= render :partial => 'buttercms/posts/post', :locals => {:post => post} %>
-    <% end %>
-  </div>
-  <div class="default-button load-more">
-    <a href="#">Load more</a>
-  </div>
-  -->
   <!-- List of posts -->
   <%= react_component('CategoryArticles', {category: @category}) %>
 

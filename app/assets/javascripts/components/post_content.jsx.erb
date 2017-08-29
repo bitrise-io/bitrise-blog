@@ -1,0 +1,62 @@
+class PostContent extends React.Component {
+	constructor(){
+		super();
+		this.state = {
+			bottomShareVisible: false,
+		};
+
+	}
+
+	componentDidMount() {
+		var parentClass = this;
+		$("body").on("scroll", function(e){
+			let bottomShareVisible = false;
+			if (isScrolledIntoView($(".share-article"))) {
+				bottomShareVisible = true;
+			}
+			parentClass.setState({bottomShareVisible})
+		})
+	}
+
+	postBody(rawPostBody) {
+		return {__html: rawPostBody};
+	}
+
+	render() {
+		let bottomShareClasses = "share-article";
+		bottomShareClasses += this.state.bottomShareVisible ? "" : " hidden";
+		let sideShareClasses = "share-article-vertical";
+		sideShareClasses += this.state.bottomShareVisible ? " hidden" : "";
+		let postBodyClasses = "post-body";
+		postBodyClasses += this.state.bottomShareVisible ? " share-article-vertical-hidden" : "";
+
+		return (
+			<% environment.context_class.instance_eval { include ApplicationHelper } %>
+			<div>
+				<div className="post-body-wrapper">
+					<div className={sideShareClasses}>
+					<div className="social-icons">
+						<h3>Share</h3>
+						<div className="fb-container"><%= svg("social_icons/facebook")%></div>
+						<div className="twitter-container"><%= svg("social_icons/twitter")%></div>
+						<div className="linkedin-container"><%= svg("social_icons/linkedin")%></div>
+						<div className="yc-container"><%= svg("social_icons/ycombinator")%></div>
+					</div>
+					</div>
+
+					<div className={postBodyClasses} dangerouslySetInnerHTML={this.postBody(this.props.post_body)}></div>
+				</div>
+
+				<div className={bottomShareClasses}>
+					<h3>Share this article</h3>
+					<div className="social-icons">
+					<span className="fb-container"><%= svg("social_icons/facebook")%></span>
+					<span className="twitter-container"><%= svg("social_icons/twitter")%></span>
+					<span className="linkedin-container"><%= svg("social_icons/linkedin")%></span>
+					<span className="yc-container"><%= svg("social_icons/ycombinator")%></span>
+					</div>
+				</div>
+			</div>
+		);
+	}
+}
