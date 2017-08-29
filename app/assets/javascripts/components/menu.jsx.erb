@@ -20,7 +20,7 @@ class Menu extends React.Component {
 			<% environment.context_class.instance_eval { include ApplicationHelper } %>
 			<nav className="menu">
 				<div className="menu-content">
-					<a className="logo" href="https://www.bitrise.io"><%= svg("logo") %></a>
+					<a className="logo" href="/"><%= svg("logo") %></a>
 					<ul className={menuOprionsClasses}>
 						<li className="menu-option">
 							<a href="https://www.bitrise.io/integrations">Integrations</a>
@@ -40,10 +40,10 @@ class Menu extends React.Component {
 						<li className="side-menu-options">
 							<ul>
 								<li className="side-menu-option login">
-									<a href="/users/sign_in">Log in</a>
+									<a href="https://www.bitrise.io/users/sign_in?utm_source=bitriseblog&utm_medium=web&utm_campaign=static">Log in</a>
 								</li>
 								<li className="side-menu-option signup">
-									<a href="/users/sign_in">Sign up!</a>
+									<a href="https://www.bitrise.io/users/sign_in?utm_source=bitriseblog&utm_medium=web&utm_campaign=static">Sign up!</a>
 								</li>
 							</ul>
 						</li>

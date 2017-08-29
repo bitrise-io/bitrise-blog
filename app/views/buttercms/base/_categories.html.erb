@@ -1,8 +1,1 @@
-<div class="categories">
-  <div class="content-wrapper">
-    <%= link_to "Home", "/", :title => "Home", class: "category" %>
-    <% @categories.each do |category| %>
-      <%= link_to category.name.capitalize, buttercms_category_path(category.slug), :title => category.name, class: "category" %>
-    <% end %>
-  </div>
-</div>
+<%= react_component('Categories', { categories: @categories.map{|c| {path: buttercms_category_path(c.slug), name: c.name.capitalize}} }) %>
