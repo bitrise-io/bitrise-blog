@@ -15,9 +15,11 @@
 //= require turbolinks
 //= require react
 //= require react_ujs
+//= require_tree ./elements
 //= require components
 //= require underscore
 //= require_tree .
+
 
 function formatDate(dateString) {
 	var date = new Date(Date.parse(dateString));
