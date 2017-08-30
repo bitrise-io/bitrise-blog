@@ -14,35 +14,38 @@
 
 @import "default";
 @import "constants";
+@import "author";
 @import "blog";
 @import "categories";
 @import "footer";
 @import "hero";
 @import "navigation";
 
+$sidebar-width: 195px;
+
 html {
-    @include display-flex;
-    @include flex-direction(column);
-    width: 100%;
+	@include display-flex;
+	@include flex-direction(column);
+	width: 100%;
 	min-height: 100%;
 	overflow: hidden;
-    height: 100%;
+	height: 100%;
 }
 
 body {
 	@include flex-grow(1);
-    @include display-flex;
-    @include flex-direction(column);
-    @include size(100%);
-    @include min-size($screen-minimum, $screen-small);
-    margin: 0;
-    -webkit-font-smoothing: subpixel-antialiased;
+	@include display-flex;
+	@include flex-direction(column);
+	@include size(100%);
+	@include min-size($screen-minimum, $screen-small);
+	margin: 0;
+	-webkit-font-smoothing: subpixel-antialiased;
 	background-color: #f9fbff;
 	font-family: 'Gotham HTF';
 	margin: 0;
 	padding: 83px 0 0 0;
 	height: 100%;
-    overflow: auto;
+	overflow: auto;
 
 	.content-wrapper {
 		max-width: 1200px;
@@ -405,18 +408,24 @@ h2 {
 	$row-width: 700px;
 	width: 1084px;
 	margin: 0 auto;
+	font-family: "freight-text-pro";
 
 	@media screen and (max-width: 1084px) {
 		width: 100%;
 		padding: 0 20px;
 		box-sizing: border-box;
 	}
-	& h2 {
+	h2 {
 		color: black;
 		font-size: 26px;
 		font-weight: bold;
 	}
-	& pre {
+	h3 {
+		color: black;
+		font-size: 21px;
+		font-weight: bold;
+	}
+	pre {
 		background-color: #EBEBEB;
 		font-size: 14px;
 		padding: 15px;
@@ -424,44 +433,49 @@ h2 {
 		display: block;
 		white-space: pre-wrap;
 	}
-	& p code {
+	p code {
 		background-color: #EBEBEB;
 		padding: 1px 5px;
 	}
-	& .author-info {
-		width: $row-width;
-		margin: 0 auto;
+	.author-info-container {
 		display: flex;
-		align-items: center;
-		padding: 62px 0px 45px 0px;
-		& a {
-			text-decoration: none;
-			color: #252525;
-		}
-		& img {
-			max-width: 60px;
-			border-radius: 50px;
-		}
-		& .name-and-title {
-			margin-left: 17px;
-		}
-		& .name-and-title p {
-			margin: 0;
-			color: #959595;
+		font-family: "Gotham HTF";
+		@include media-above-inclusive-big {
+			&::before {
+				content: "";
+				flex-shrink: 0;
+				width: $sidebar-width;
+			}
+			&::after {
+				content: "";
+				flex-shrink: 0;
+				width: $sidebar-width;
+			}
 		}
 	}
-	& .post-title {
+	.post-title {
+		display: flex;
 		font-size: 40px;
-		width: $row-width;
-		margin: 0 auto;
 		font-family: 'Gotham HTF';
+		@include media-above-inclusive-big {
+			&::before {
+				content: "";
+				flex-shrink: 0;
+				width: $sidebar-width;
+			}
+			&::after {
+				content: "";
+				flex-shrink: 0;
+				width: $sidebar-width;
+			}
+		}
 	}
 	& .publish-date-and-tags {
 		display: flex;
 		flex-wrap: wrap;
 		align-items: center;
-		width: $row-width;
 		margin: 10px auto;
+		font-family: "Gotham HTF";
 
 		& .publish-date {
 			color: #959595;
@@ -479,26 +493,55 @@ h2 {
 			cursor: pointer;
 			margin: 0 0 10px 0;
 		}
+		@include media-above-inclusive-big {
+			&::before {
+				content: "";
+				flex-shrink: 0;
+				width: $sidebar-width;
+			}
+			&::after {
+				content: "";
+				flex-shrink: 0;
+				width: $sidebar-width;
+			}
+		}
 	}
 	& .post-featured-image {
 		text-align: center;
 		width: 100%;
-		height: 400px;
-		background-size: cover;
-		background-position: center;
+		height: auto;
 	}
 	& .post-featured-image img {
-		max-width: 100%;
+		width: 100%;
+		display: block;
 	}
 	& .post-body {
-		width: $row-width;
-		margin: 0 auto;
+		flex-grow: 1;
 
-		& img {
+		img {
 			max-width: 100%;
 		}
-		& a {
+		a {
 			color: #00bc98;
+		}
+		blockquote {
+			@include media-above-inclusive-big {
+				$border-width: 5px;
+				$padding-left: 10px;
+
+				margin-left: -$border-width - $padding-left;
+				border-left: solid $v3_default_neon $border-width;
+				padding-left: $padding-left;
+			}
+
+			@include media-below-big {
+				$border-width: 5px;
+				$padding-left: 10px;
+
+				margin-left: 0;
+				border-left: solid $v3_default_neon $border-width;
+				padding-left: $padding-left;
+			}
 		}
 	}
 	& .next-post {
@@ -589,12 +632,12 @@ h2 {
 .post-body-wrapper {
 	display: flex;
 
-	& .hidden {
-		display: none;
-	}
-
-	& .share-article-vertical-hidden {
-		margin: 0 auto;
+	&::after {
+		content: "";
+		flex-shrink: 0;
+		@include media-above-inclusive-big {
+			width: $sidebar-width;
+		}
 	}
 }
 
@@ -603,6 +646,7 @@ h2 {
 	align-items: center;
 	flex-flow: column;
 	padding: 20px 0;
+	font-family: "Gotham HTF";
 
 	& h3 {
 		color: #959595;
@@ -635,21 +679,52 @@ h2 {
 	}
 }
 .share-article-vertical {
-	width: 15%;
-	position: absolute;
-	height: 100%;
-	top: 400px;
+	width: $sidebar-width;
+	flex-shrink: 0;
 
-	& .social-icons {
+	.social-icons {
 		width: 100%;
 		text-align: center;
-		position: sticky;
+
+		&.hidden {
+			display: none;
+		}
+		&.fixed {
+			position: fixed;
+			top: 103px;
+		}
 	}
 
 	@include media-below-big {
 		display: none;
 	}
 }
+.author-info {
+	width: 100%;
+	margin: 0 auto;
+	display: flex;
+	align-items: center;
+	padding: 62px 0px 45px 0px;
+	a {
+		text-decoration: none;
+		color: #252525;
+		@include media-above-inclusive-small {
+			white-space: nowrap;
+		}
+	}
+	img {
+		max-width: 60px;
+		border-radius: 50px;
+	}
+	.name-and-title {
+		margin-left: 17px;
+	}
+	.name-and-title p {
+		margin: 0;
+		color: #959595;
+	}
+}
+
 .v3-button {
 	text-decoration: none;
 	padding: 10px;

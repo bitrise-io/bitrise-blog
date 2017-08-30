@@ -1,22 +1,10 @@
 <%= content_for :html_title, "#{@author.first_name} #{@author.last_name}" %>
 <%= content_for :meta_description, @author.bio %>
 
-<!-- Author name -->
-<h2><%= @author.first_name %> <%= @author.last_name %></h2>
 
-<!-- Author profile -->
-<% if @author.profile_image %>
-  <img src="<%= @author.profile_image %>" />
-<% end %>
-
-<p>Title: <%= @author.title %></p>
-<p>Bio: <%= @author.bio %></p>
-
+<%= render partial: 'author_header', locals: {author: @author} %>
 <div class="author-content">
-  <div class="author-header">
-    <!-- Author name -->
-    <h2>Articles of <span class="author-name"><%= @author.first_name %></span></h2>
-  </div>
   <!-- List of posts -->
   <%= react_component('AuthorArticles', {author: @author}) %>
 </div>
+<%= render :partial => 'buttercms/base/try_bitrise' %>

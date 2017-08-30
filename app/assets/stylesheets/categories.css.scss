@@ -18,6 +18,8 @@
 	.content-wrapper {
 		display: flex;
 		@include transition(top 0.3s);
+		margin: initial;
+		padding: 0 $navbar-padding-x;
 
 		@include media-below-big {
 			display: flex;

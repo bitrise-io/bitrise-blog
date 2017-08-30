@@ -46,3 +46,13 @@ function isScrolledIntoView(elem) {
 
 	return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
 }
+
+function isElementVisible(elem) {
+	var docViewTop = $(window).scrollTop();
+	var docViewBottom = docViewTop + $(window).height();
+
+	var elemTop = $(elem).offset().top;
+	var elemBottom = elemTop + $(elem).height();
+
+	return ((elemBottom >= (docViewTop + 83) && elemTop < docViewBottom) || (elemBottom >= docViewBottom && elemTop < docViewBottom));
+}

@@ -3,8 +3,6 @@
 
 nav {
   $navbar-height: 83px;
-  $padding-x: 50px;
-  $padding-y: 15px;
   @include position(fixed, 0, 0);
   z-index: 500;
   @include size(100%, $navbar-height);
@@ -21,7 +19,7 @@ nav {
     @include size(100%);
     @include align-items(center);
     @include box-sizing(border-box);
-    padding: $padding-y $padding-x;
+    padding: $navbar-padding-y $navbar-padding-x;
 
     a.logo {
       @include border-radius($v3_default_radius);
@@ -152,7 +150,7 @@ nav {
 
           a {
             display: block;
-            padding: 16px $padding-x;
+            padding: 16px $navbar-padding-x;
             font-size: 14px;
             font-weight: 300;
             color: white;
@@ -171,8 +169,8 @@ nav {
       }
       button.burger {
         @include size($navbar-height, $navbar-height);
-        //margin-top: -$padding-y;
-        margin-right: -$padding-x;
+        //margin-top: -$navbar-padding-y;
+        margin-right: -$navbar-padding-x;
         margin-left: auto;
         border: none;
         padding: 0;
