@@ -3,15 +3,7 @@
 
 <div class="post-content">
   <!-- Post author -->
-  <div class="author-info">
-    <img src="<%= @post.author.profile_image %>">
-    <div class="name-and-title">
-      <%= link_to "#{@post.author.first_name} #{@post.author.last_name}", buttercms_author_path(@post.author.slug) %>
-      <% if !@post.author.title.eql? "" %>
-        <p><%= @post.author.title %></p>
-      <% end %>
-    </div>
-  </div>
+  <%= render partial: "author", locals: {author: @post.author} %>
 
   <!-- Post title -->
   <h1 class="post-title"><%= @post.title %></h1>
@@ -26,39 +18,10 @@
   </div>
 
   <!-- Post featured image -->
-  <div class="post-featured-image">
-    <img src="<%= @post.featured_image %>">
-  </div>
-<!--
-  <div class="post-body-wrapper">
-    <div class="share-article-vertical">
-      <div class="social-icons">
-        <h3>Share</h3>
-        <div class="fb-container"><%= svg("social_icons/facebook")%></div>
-        <div class="twitter-container"><%= svg("social_icons/twitter")%></div>
-        <div class="linkedin-container"><%= svg("social_icons/linkedin")%></div>
-        <div class="yc-container"><%= svg("social_icons/ycombinator")%></div>
-      </div>
-    </div>
+  <div class="post-featured-image" style="background-image: url('<%= @post.featured_image %>')"></div>
 
-
-    <div class="post-body">
-      <%= @post.body.html_safe %>
-    </div>
-  </div>
-
-  <div class="share-article">
-    <h3>Share this article</h3>
-    <div class="social-icons">
-      <span class="fb-container"><%= svg("social_icons/facebook")%></span>
-      <span class="twitter-container"><%= svg("social_icons/twitter")%></span>
-      <span class="linkedin-container"><%= svg("social_icons/linkedin")%></span>
-      <span class="yc-container"><%= svg("social_icons/ycombinator")%></span>
-    </div>
-  </div>
--->
-<!-- Post body -->
-<%= react_component('PostContent', {post_body: @post.body.html_safe}) %>
+  <!-- Post body -->
+  <%= react_component('PostContent', {post_body: @post.body.html_safe}) %>
 
   <!-- Link to Next Post -->
   <% if @next_post %>

@@ -1,0 +1,9 @@
+<div class="author-info">
+    <img src="<%= author.profile_image %>">
+    <div class="name-and-title">
+        <%= link_to "#{author.first_name} #{author.last_name}", buttercms_author_path(author.slug) %>
+        <% if !author.title.eql? "" %>
+            <p><%= author.title %></p>
+        <% end %>
+    </div>
+</div>

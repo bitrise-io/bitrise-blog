@@ -12,11 +12,11 @@
 <p>Title: <%= @author.title %></p>
 <p>Bio: <%= @author.bio %></p>
 
-<!-- Recent posts -->
-<h4>Recent posts</h4>
-
-<ul>
-  <% @author.recent_posts.each do |post| %>
-    <li><%= render :partial => 'buttercms/posts/post', :locals => {:post => post} %></li>
-  <% end %>
-</ul>
+<div class="author-content">
+  <div class="author-header">
+    <!-- Author name -->
+    <h2>Articles of <span class="author-name"><%= @author.first_name %></span></h2>
+  </div>
+  <!-- List of posts -->
+  <%= react_component('AuthorArticles', {author: @author}) %>
+</div>

@@ -2,7 +2,7 @@ class PostContent extends React.Component {
 	constructor(){
 		super();
 		this.state = {
-			bottomShareVisible: false,
+			sideShareVisible: false,
 		};
 
 	}
@@ -10,11 +10,14 @@ class PostContent extends React.Component {
 	componentDidMount() {
 		var parentClass = this;
 		$("body").on("scroll", function(e){
-			let bottomShareVisible = false;
-			if (isScrolledIntoView($(".share-article"))) {
-				bottomShareVisible = true;
+			let sideShareVisible = true;
+			if (isScrolledIntoView($(".share-article")) || isScrolledIntoView($(".footer"))
+				|| isScrolledIntoView($(".try-wrapper"))  || isScrolledIntoView($(".disqus-container"))
+				|| isScrolledIntoView($(".publish-date-and-tags")) || isScrolledIntoView($(".disqus-container iframe"))
+				|| isScrolledIntoView($(".start-building-button")) || isScrolledIntoView($(".status-page"))) {
+				sideShareVisible = false;
 			}
-			parentClass.setState({bottomShareVisible})
+			parentClass.setState({sideShareVisible})
 		})
 	}
 
@@ -23,12 +26,10 @@ class PostContent extends React.Component {
 	}
 
 	render() {
-		let bottomShareClasses = "share-article";
-		bottomShareClasses += this.state.bottomShareVisible ? "" : " hidden";
 		let sideShareClasses = "share-article-vertical";
-		sideShareClasses += this.state.bottomShareVisible ? " hidden" : "";
+		sideShareClasses += this.state.sideShareVisible ? "" : " hidden";
 		let postBodyClasses = "post-body";
-		postBodyClasses += this.state.bottomShareVisible ? " share-article-vertical-hidden" : "";
+		postBodyClasses += this.state.sideShareVisible ? " share-article-vertical-hidden" : "";
 
 		return (
 			<% environment.context_class.instance_eval { include ApplicationHelper } %>
@@ -47,7 +48,7 @@ class PostContent extends React.Component {
 					<div className={postBodyClasses} dangerouslySetInnerHTML={this.postBody(this.props.post_body)}></div>
 				</div>
 
-				<div className={bottomShareClasses}>
+				<div className="share-article">
 					<h3>Share this article</h3>
 					<div className="social-icons">
 					<span className="fb-container"><%= svg("social_icons/facebook")%></span>

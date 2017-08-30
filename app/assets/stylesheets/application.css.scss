@@ -269,111 +269,132 @@ h2 {
 .articles {
 	display: flex;
 	flex-flow: wrap;
-	justify-content: space-between;
 
 	.article-container {
-		flex-basis: 30%;
+		flex-basis: 33%;
 		min-height: 250px;
 		box-sizing: border-box;
 
 		padding: 0 20px;
-		margin: 5px -20px;
+		margin: 5px 0px;
 
 		display: flex;
 		flex-flow: column wrap;
 
 		background-color: #ffffff;
 		border-radius: 5px;
+		cursor: pointer;
+		max-width: 33%;
 
 		&:hover {
 			background-color: #f3f3f3;
 		}
 
-
 		@include media-below-big {
 			flex-basis: 50%;
+			max-width: 50%;
 		}
 
-		@include media-below-small {
+		@media screen and (max-width: 650px) {
 			flex-basis: 100%;
+			max-width: 100%;
 		}
+		a {
+			width: 100%;
+			height: 100%;
+			text-decoration: none;
 
-		.header-container {
-			display: flex;
-			flex-direction: row;
-			max-height: 37px;
-
-			.category, .date {
-				flex: 1;
-				text-transform: uppercase;
-				font-size: 12px;
-			}
-
-			.category {
-				color: #8151a8;
-				font-weight: 300;
-			}
-
-			.date {
-				color: #7d7d7d;
-				font-weight: 100;
-				text-align: right;
-			}
-		}
-		@include media-above-inclusive-big {
-			.image-container {
-				flex: 1;
-				overflow: hidden;
-				border-radius: 5px;
+			.header-container {
 				display: flex;
-				align-items: center;
-				max-height: 200px;
+				flex-direction: row;
+				max-height: 37px;
 
-				img {
-					width: 100%;
-					height: auto;
+				.category, .date {
+					flex: 1;
+					text-transform: uppercase;
+					font-size: 12px;
+				}
+
+				.category {
+					color: #8151a8;
+					font-weight: 300;
+				}
+
+				.date {
+					color: #7d7d7d;
+					font-weight: 100;
+					text-align: right;
 				}
 			}
-		}
+			@include media-above-inclusive-big {
+				.image-container {
+					flex: 1;
+					overflow: hidden;
+					border-radius: 5px;
+					display: flex;
+					height: 220px;
+					width: 390px;
+					background-size: cover;
+					background-position-y: center;
+					max-width: 100%;
 
-		@include media-below-big {
-			.image-container {
-				flex: 1;
-				overflow: hidden;
-				border-radius: 5px;
-				display: flex;
-				align-items: center;
-				max-height: 500px;
-
-				img {
-					width: 100%;
-					height: auto;
-				}
-			}
-		}
-
-		.article {
-			padding-top: 10px;
-			flex: 1;
-
-			h2 {
-				font-size: 24px;
-				line-height: 32px;
-
-				a {
-					color: #252525;
-
-					&:hover {
-						text-decoration: none;
+					img {
+						width: 100%;
+						height: auto;
 					}
 				}
 			}
 
-			p {
-				color: #959595;
-				font-size: 16px;
-				font-weight: 100;
-				line-height: 20px;
+			@include media-below-big {
+				.image-container {
+					flex: 1;
+					overflow: hidden;
+					border-radius: 5px;
+					display: flex;
+					align-items: center;
+					height: 220px;
+					width: 390px;
+					background-size: cover;
+					background-position: center;
+					max-width: 100%;
+
+					img {
+						width: 100%;
+						height: auto;
+					}
+				}
+			}
+
+			@media screen and (max-width: 650px) {
+				.image-container {
+					height: 220px;
+					width: 100%;
+				}
+			}
+
+			.article {
+				padding-top: 10px;
+				flex: 1;
+
+				h2 {
+					font-size: 24px;
+					line-height: 32px;
+
+					a {
+						color: #252525;
+
+						&:hover {
+							text-decoration: none;
+						}
+					}
+				}
+
+				p {
+					color: #959595;
+					font-size: 16px;
+					font-weight: 100;
+					line-height: 20px;
+				}
 			}
 		}
 	}
@@ -381,9 +402,15 @@ h2 {
 
 
 .post-content {
-	$row-width: 70%;
-	width: 80%;
+	$row-width: 700px;
+	width: 1084px;
 	margin: 0 auto;
+
+	@media screen and (max-width: 1084px) {
+		width: 100%;
+		padding: 0 20px;
+		box-sizing: border-box;
+	}
 	& h2 {
 		color: black;
 		font-size: 26px;
@@ -427,7 +454,7 @@ h2 {
 		font-size: 40px;
 		width: $row-width;
 		margin: 0 auto;
-		//font-family: 'Gotham HFT';
+		font-family: 'Gotham HTF';
 	}
 	& .publish-date-and-tags {
 		display: flex;
@@ -455,12 +482,18 @@ h2 {
 	}
 	& .post-featured-image {
 		text-align: center;
+		width: 100%;
+		height: 400px;
+		background-size: cover;
+		background-position: center;
 	}
 	& .post-featured-image img {
 		max-width: 100%;
 	}
 	& .post-body {
 		width: $row-width;
+		margin: 0 auto;
+
 		& img {
 			max-width: 100%;
 		}
@@ -583,8 +616,6 @@ h2 {
 	& .social-icons {
 		width: 100%;
 		text-align: center;
-		position: sticky;
-		top: 200px;
 
 		& span {
 			margin: 0 5px;
@@ -605,6 +636,15 @@ h2 {
 }
 .share-article-vertical {
 	width: 15%;
+	position: absolute;
+	height: 100%;
+	top: 400px;
+
+	& .social-icons {
+		width: 100%;
+		text-align: center;
+		position: sticky;
+	}
 
 	@include media-below-big {
 		display: none;

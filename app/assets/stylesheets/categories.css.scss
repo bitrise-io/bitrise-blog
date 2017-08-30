@@ -34,17 +34,17 @@
 		}
 	}
 }
-.category-content {
+.category-content, .author-content {
 	max-width: 1200px;
 	padding: 0 60px;
 	margin: 0 auto;
-	& .category-header {
+	& .category-header, .author-header {
 		display: flex;
 		padding: 52px 0px 49px 0px;
 		& h2 {
 			margin: 0 auto;
 			font-weight: 300;
-			& .category-name {
+			& .category-name, .author-name {
 				color: #8151a8;
 				font-weight: bold;
 			}
@@ -64,6 +64,7 @@
 	font-size: 12px;
 	padding: 0 0 0 50px;
 	@include no-focus-styling;
+	font-family: 'Gotham HTF';
 
 	@include media-above-inclusive-big {
 		display: none;

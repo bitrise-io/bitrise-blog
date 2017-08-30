@@ -6,13 +6,12 @@ class Buttercms::CategoriesController < Buttercms::BaseController
   end
 
   def fetch_posts
-    if params[:page]
-      @posts = ButterCMS::Post.all(:page => params[:page], :page_size => 3, category_slug: params[:slug])
-      @number_of_posts = @posts.meta.count
-      @next_page = @posts.meta.next_page
-    else
-      @posts = ButterCMS::Post.all
-    end
+    page = params[:page] || 1
+    page_size = params[:page] ? 3 : 100
+
+    @posts = ButterCMS::Post.all(:page => page, :page_size => page_size, category_slug: params[:slug])
+    @number_of_posts = @posts.meta.count
+    @next_page = @posts.meta.next_page
 
     respond_to do |format|
       format.json{ json_response({posts: @posts, total_count: @number_of_posts, next_page: @next_page}) }
