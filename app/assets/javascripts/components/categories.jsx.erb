@@ -1,8 +1,6 @@
 const Category = (props) => {
-	let classes = "category";
-	classes += props.visible ? "" : "";
 	return (
-		<a href={props.data.path} title={props.data.name} className={classes} >{props.data.name}</a>
+		<a href={props.data.path} title={props.data.name} className="category" >{props.data.name}</a>
 	);
 }
 
@@ -34,8 +32,13 @@ class Categories extends React.Component {
 		});
 
 		return (
+			<% environment.context_class.instance_eval { include ApplicationHelper } %>
 			<div className="categories">
 				<div className={contentWrapperClasses}>
+					<a href="/" title="Home" className="category home" >
+						<%= svg('home_button') %>
+						<span>Home</span>
+					</a>
 					{categories}
 					<button className="category-select" onClick={() => this.onSelectCategory()}>select category...</button>
 				</div>
