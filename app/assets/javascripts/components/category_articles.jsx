@@ -9,14 +9,11 @@ class CategoryArticles extends React.Component {
 		};
 	}
 	componentDidMount() {
-		const urlPath = "/categories/" + this.props.category.name + "/posts";
-		fetchArticles(this, urlPath);
+		this.loadMorePosts();
 	}
 	loadMorePosts() {
 		const urlPath = "/categories/" + this.props.category.name + "/posts";
-		this.setState({isLoading: true}, () => {
-			fetchArticles(this, urlPath);
-		});
+		fetchArticles(this, urlPath);
 	}
 	render() {
 		const articles = this.state.articles.map((articleData) => {

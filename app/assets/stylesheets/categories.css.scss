@@ -20,14 +20,14 @@
 			display: flex;
 			align-items: center;
 			span {
-				padding-left: 5px;
+				padding-left: 10px;
 			}
 		}
 
 		svg {
-			width: 15px;
+			width: 13px;
 			stroke: $v3_default_purple;
-			stroke-width: 3px;
+			stroke-width: 8px;
 			@include padding-y(1px);
 		}
 	}
@@ -82,7 +82,7 @@
 	font-size: 12px;
 	padding: 0 0 0 50px;
 	@include no-focus-styling;
-	font-family: 'Gotham HTF';
+	font-family: 'Gotham HTF', sans-serif;
 
 	@include media-above-inclusive-big {
 		display: none;

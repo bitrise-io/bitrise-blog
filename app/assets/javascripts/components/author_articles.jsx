@@ -9,14 +9,11 @@ class AuthorArticles extends React.Component {
 		};
 	}
 	componentDidMount() {
-		const urlPath = "/authors/" + this.props.author.slug + "/posts";
-		fetchArticles(this, urlPath);
+		this.loadMorePosts();
 	}
 	loadMorePosts() {
 		const urlPath = "/authors/" + this.props.author.slug + "/posts";
-		this.setState({isLoading: true}, () => {
-			fetchArticles(this, urlPath);
-		});
+		fetchArticles(this, urlPath);
 	}
 	render() {
 		const articles = this.state.articles.map((articleData) => {
@@ -33,7 +30,7 @@ class AuthorArticles extends React.Component {
 
 				<Progress visible={this.state.isLoading} />
 
-				<div className="default-button load-more" hidden={this.state.allArticlesShown}>
+				<div className="default-button load-more" hidden={this.state.allArticlesShown || this.state.isLoading}>
 					<a onClick={() => this.loadMorePosts()}>Load more</a>
 				</div>
 			</div>
