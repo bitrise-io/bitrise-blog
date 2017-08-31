@@ -5,61 +5,18 @@ class AuthorArticles extends React.Component {
 			articles: [],
 			nextPage: 1,
 			allArticlesShown: false,
+			isLoading: false,
 		};
 	}
 	componentDidMount() {
-		this.fetchArticles();
-	}
-	fetchArticles() {
-		const requestHeaders = new Headers();
-		requestHeaders.append("Content-Type", "application/json");
-		requestHeaders.append("Accept", "application/json");
-		const params = {
-			method: "POST",
-			headers: requestHeaders,
-			body: JSON.stringify({
-				page: this.state.nextPage,
-			}),
-		};
-		var urlPath = "/authors/" + this.props.author.slug + "/posts";
-
-		fetch(urlPath, params)
-			.then((response) => {
-				if (response.ok) {
-					return response.json();
-				} else {
-					console.log(response.statusText);
-				}
-			})
-			.then(response => {
-				console.log(response)
-				const articles = this.state.articles.slice();
-				response.posts.forEach((anArticleData) => {
-					article = {
-						category: anArticleData.categories[0].table.name,
-						featuredImage: anArticleData.featured_image,
-						link: "/" + anArticleData.slug,
-						publishDate: formatDate(anArticleData.published),
-						slug: anArticleData.slug,
-						summary: anArticleData.summary,
-						title: anArticleData.title,
-					};
-					if (!_.find(articles, {slug: article.slug})) {
-						articles.push(article);
-					}
-				});
-				if (articles.length == response.total_count) {
-					const allArticlesShown = true;
-					this.setState({allArticlesShown});
-				}
-				const nextPage = response.next_page;
-
-				this.setState({articles});
-				this.setState({nextPage});
-			});
+		const urlPath = "/authors/" + this.props.author.slug + "/posts";
+		fetchArticles(this, urlPath);
 	}
 	loadMorePosts() {
-		this.fetchArticles();
+		const urlPath = "/authors/" + this.props.author.slug + "/posts";
+		this.setState({isLoading: true}, () => {
+			fetchArticles(this, urlPath);
+		});
 	}
 	render() {
 		const articles = this.state.articles.map((articleData) => {
@@ -73,6 +30,8 @@ class AuthorArticles extends React.Component {
 		return (
 			<div>
 				<div id="articles-container" className="articles">{articles}</div>
+
+				<Progress visible={this.state.isLoading} />
 
 				<div className="default-button load-more" hidden={this.state.allArticlesShown}>
 					<a onClick={() => this.loadMorePosts()}>Load more</a>

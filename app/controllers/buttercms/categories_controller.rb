@@ -7,9 +7,7 @@ class Buttercms::CategoriesController < Buttercms::BaseController
 
 	def fetch_posts
 		page = params[:page] || 1
-		page_size = params[:page] ? 3 : 100
-
-		puts "page: #{page}, page_size: #{page_size}"
+		page_size = params[:page] ? 6 : 100
 
 		@posts = ButterCMS::Post.all(
 			page: page,

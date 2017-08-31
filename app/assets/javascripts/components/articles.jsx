@@ -30,7 +30,7 @@ class Articles extends React.Component {
 				}
 			})
 			.then(response => {
-				const articles = this.state.articles.slice();
+				let articles = this.state.articles.slice();
 				response.forEach((anArticleData) => {
 					const articleCategory = anArticleData.categories.length > 0 ? anArticleData.categories[0].table.name : "";
 					article = {
