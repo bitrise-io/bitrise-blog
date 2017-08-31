@@ -61,33 +61,13 @@ h2 {
 	font-weight: 500;
 }
 
-.more {
-	margin-top: auto;
-
-	a {
-		display: flex;
-		align-items: center;
-		max-width: 150px;
-
-		& svg {
-			width: 30px;
-			height: 30px;
-			fill: #8151a8;
-			margin-left: 15px;
-		}
-		&:hover svg {
-			fill: white;
-		}
-	}
-}
-
 .default-button {
 	margin-top: auto;
 
 	a {
 		padding: 10px 15px;
-		border: 1px solid #8151a8;
-		color: #8151a8;
+		border: 1px solid $v3_default_purple;
+		color: $v3_default_purple;
 		border-radius: 5px;
 		text-decoration: none;
 		transition: .3s color,.3s background,.3s border-color;
@@ -95,8 +75,34 @@ h2 {
 		cursor: pointer;
 
 		&:hover {
-			background-color: #8151a8;
+			background-color: $v3_default_purple;
 			color: #fff;
+		}
+	}
+}
+
+.more {
+	margin-bottom: 5px;
+
+	a {
+		display: flex;
+		align-items: center;
+		max-width: 150px;
+		flex-direction: column;
+		@include padding-y(5px);
+
+		svg {
+			width: 25px;
+			height: 25px;
+			fill: $v3_default_purple;
+			margin-left: 15px;
+		}
+		&:hover svg {
+			fill: white;
+		}
+		.button-content-wrapper {
+			display: flex;
+			align-items: center;
 		}
 	}
 }
@@ -153,7 +159,7 @@ h2 {
 		&.category {
 			display: inline;
 			text-transform: uppercase;
-			color: #8151a8;
+			color: $v3_default_purple;
 			background-color: #ffffff;
 			border-radius: 5px;
 			padding: 5px 10px;
@@ -214,7 +220,7 @@ h2 {
 				p.category {
 					font-size: 14px;
 					font-weight: 300;
-					color: #8151a8;
+					color: $v3_default_purple;
 					text-transform: uppercase;
 					padding: 7px 10px;
 
@@ -229,7 +235,7 @@ h2 {
 					display: flex;
 					align-items: center;
 					text-transform: uppercase;
-					color: #8151a8;
+					color: $v3_default_purple;
 					background-color: #ffffff;
 					border-radius: 5px;
 					padding: 5px 10px;
@@ -260,6 +266,8 @@ h2 {
 				font-size: 16px;
 				font-weight: 100;
 				line-height: 20px;
+				border-top: solid 1px #cffaee;
+				padding-top: 10px;
 			}
 			@include media-below-big {
 				p {
@@ -320,7 +328,7 @@ h2 {
 				}
 
 				.category {
-					color: #8151a8;
+					color: $v3_default_purple;
 					font-weight: 300;
 				}
 
@@ -488,7 +496,7 @@ h2 {
 
 		}
 		& .category-element {
-			color: #8151a8;
+			color: $v3_default_purple;
 			text-decoration: none;
 			font-weight: bold;
 			cursor: pointer;
@@ -551,15 +559,15 @@ h2 {
 		text-align: right;
 		& .next-post-button {
 			padding: 10px 15px;
-			border: 1px solid #8151a8;
-			color: #8151a8;
+			border: 1px solid $v3_default_purple;
+			color: $v3_default_purple;
 			border-radius: 5px;
 			text-decoration: none;
 			transition: .3s color,.3s background,.3s border-color;
 			line-height: 46px;
 
 			&:hover {
-				background-color: #8151a8;
+				background-color: $v3_default_purple;
 				color: #fff;
 			}
 		}
@@ -618,9 +626,9 @@ h2 {
 		padding-bottom: 10px;
 	}
 	& a {
-		background: #8151a8;
+		background: $v3_default_purple;
 		padding: 15px 20px;
-		border: 1px solid #8151a8;
+		border: 1px solid $v3_default_purple;
 		color: white;
 		border-radius: 5px;
 		text-decoration: none;
@@ -723,6 +731,29 @@ h2 {
 	.name-and-title p {
 		margin: 0;
 		color: #959595;
+	}
+}
+.progress-container {
+	$svg-size: 50px;
+	text-align: center;
+
+	svg {
+		fill: $v3_default_purple;
+		width: $svg-size;
+		height: $svg-size;
+		@include keyframes(rotate) {
+			from {
+				@include transform(rotate(0deg));
+			}
+			to {
+				@include transform(rotate(360deg));
+			}
+		};
+		@include animation(rotate 1s linear infinite);
+	}
+
+	&.hidden {
+		display: none;
 	}
 }
 

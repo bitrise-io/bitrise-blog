@@ -15,9 +15,9 @@
     <h3>Published on <%= post.published.to_time.strftime('%B %e, %Y') %></h3>
     <p><%= post.summary %></p>
 
-    <div class="more default-button">
+    <div class="default-button more">
       <a class="read-more" title="read more..." href="<%= buttercms_post_path(post.slug) %>">
-        Read more <%= svg('right_arrow') %>
+        <div class="button-content-wrapper"><span>Read more</span><%= svg('right_arrow') %></div>
       </a>
     </div>
   </div>

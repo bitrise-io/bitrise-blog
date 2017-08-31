@@ -4,9 +4,11 @@ class Articles extends React.Component {
 		this.state = {
 			articles: [],
 			allArticlesShown: false,
+			isLoading: false,
 		};
 		this.fetchArticles();
 	}
+
 	fetchArticles(page=1) {
 		const requestHeaders = new Headers();
 		requestHeaders.append("Content-Type", "application/json");
@@ -30,8 +32,9 @@ class Articles extends React.Component {
 			.then(response => {
 				const articles = this.state.articles.slice();
 				response.forEach((anArticleData) => {
+					const articleCategory = anArticleData.categories.length > 0 ? anArticleData.categories[0].table.name : "";
 					article = {
-						category: anArticleData.categories[0].table.name,
+						category: articleCategory,
 						featuredImage: anArticleData.featured_image,
 						link: "/" + anArticleData.slug,
 						publishDate: formatDate(anArticleData.published),
@@ -43,13 +46,19 @@ class Articles extends React.Component {
 						articles.push(article);
 					}
 				});
-				this.setState({articles});
+				this.setState({
+					articles: articles,
+					isLoading: false,
+				});
 			});
 	}
 	loadAllPosts() {
-		const allArticlesShown = true;
-		this.fetchArticles(null);
-		this.setState({allArticlesShown});
+		this.setState({isLoading: true}, () => {
+			this.fetchArticles(null);
+			this.setState({
+				allArticlesShown: true,
+			});
+		});
 	}
 	render() {
 		const articles = this.state.articles.map((articleData) => {
@@ -63,6 +72,8 @@ class Articles extends React.Component {
 		return (
 			<div>
 				<div id="articles-container" className="articles">{articles}</div>
+
+				<Progress visible={this.state.isLoading} />
 
 				<div className="default-button load-more" hidden={this.state.allArticlesShown}>
 					<a onClick={() => this.loadAllPosts()}>View all articles</a>
