@@ -12,7 +12,7 @@ class CategoryArticles extends React.Component {
 		this.loadMorePosts();
 	}
 	loadMorePosts() {
-		const urlPath = "/categories/" + this.props.category.name + "/posts";
+		const urlPath = `/categories/${this.props.category.name}/posts`;
 		fetchArticles(this, urlPath);
 	}
 	render() {

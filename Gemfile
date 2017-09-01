@@ -12,6 +12,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'buttercms-rails'
 gem 'react-rails'
 gem 'underscore-rails'
+gem 'gibbon'
+gem 'rest-client'
 
 group :development, :test do
   gem 'byebug', platform: :mri

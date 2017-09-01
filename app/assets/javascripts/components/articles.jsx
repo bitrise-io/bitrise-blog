@@ -36,7 +36,7 @@ class Articles extends React.Component {
 					article = {
 						category: articleCategory,
 						featuredImage: anArticleData.featured_image,
-						link: "/" + anArticleData.slug,
+						link: `/${anArticleData.slug}`,
 						publishDate: formatDate(anArticleData.published),
 						slug: anArticleData.slug,
 						summary: anArticleData.summary,

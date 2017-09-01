@@ -12,7 +12,7 @@ class AuthorArticles extends React.Component {
 		this.loadMorePosts();
 	}
 	loadMorePosts() {
-		const urlPath = "/authors/" + this.props.author.slug + "/posts";
+		const urlPath = `/authors/${this.props.author.slug}/posts`;
 		fetchArticles(this, urlPath);
 	}
 	render() {

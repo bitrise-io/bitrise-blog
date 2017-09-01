@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-
   scope :module => 'buttercms' do
+    post '/subscribe_user' => 'base#subscribe_user'
     post '/posts/list' => 'posts#fetch_posts'
     post '/categories/:slug/posts' => 'categories#fetch_posts'
     post '/authors/:slug/posts' => 'authors#fetch_posts'

@@ -1,7 +1,8 @@
+const requestHeaders = new Headers();
+requestHeaders.append("Content-Type", "application/json");
+requestHeaders.append("Accept", "application/json");
+
 var fetchArticles = (component, urlPath) => {
-	const requestHeaders = new Headers();
-	requestHeaders.append("Content-Type", "application/json");
-	requestHeaders.append("Accept", "application/json");
 	const params = {
 		method: "POST",
 		headers: requestHeaders,
@@ -24,7 +25,7 @@ var fetchArticles = (component, urlPath) => {
 					article = {
 						category: anArticleData.categories[0].table.name,
 						featuredImage: anArticleData.featured_image,
-						link: "/" + anArticleData.slug,
+						link: `/${anArticleData.slug}`,
 						publishDate: formatDate(anArticleData.published),
 						slug: anArticleData.slug,
 						summary: anArticleData.summary,
@@ -43,4 +44,22 @@ var fetchArticles = (component, urlPath) => {
 				});
 			});
 	});
-}
+};
+
+var subscribeUserToNewsletter = (email) => {
+	const params = {
+		method: "POST",
+		headers: requestHeaders,
+		body: JSON.stringify({
+			email: email,
+		}),
+	};
+
+	return fetch("/subscribe_user", params)
+		.then((response) => {
+			return response.json();
+		})
+		.then((json) => {
+			return json.message;
+		});
+};
