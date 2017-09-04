@@ -63,3 +63,7 @@ var subscribeUserToNewsletter = (email) => {
 			return json.message;
 		});
 };
+
+var searchPost = (keyWord) => {
+	console.log("search triggered");
+}

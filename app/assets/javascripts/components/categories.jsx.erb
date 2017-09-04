@@ -12,19 +12,23 @@ class Categories extends React.Component {
 		}
 	}
 
+	componentDidMount() {
+		$("#searchKeyWord").keydown(function(e){
+			if(e.keyCode == 13) {
+				searchPost($("#searchKeyWord").value);
+			}
+		});
+	}
+
 	onSelectCategory() {
 		const dropDownOpened = !this.state.dropDownOpened;
 		this.setState({dropDownOpened});
 	}
 
 	render() {
-		const dropDownOpened = this.state.dropDownOpened;
-		let contentWrapperClasses = "content-wrapper";
-		contentWrapperClasses += dropDownOpened ? " opened" : "";
-
 		const categories = this.props.categories.map((categoryData) => {
 			const category = (
-				<Category data={categoryData} visible={dropDownOpened} />
+				<Category data={categoryData} />
 			);
 			return (
 				category
@@ -34,12 +38,18 @@ class Categories extends React.Component {
 		return (
 			<% environment.context_class.instance_eval { include ApplicationHelper } %>
 			<div className="categories">
-				<div className={contentWrapperClasses}>
+				<div className={this.state.dropDownOpened ? "content-wrapper opened" : "content-wrapper"}>
 					<a href="/" title="Home" className="category home" >
 						<%= svg('home_button') %>
 						<span>Home</span>
 					</a>
 					{categories}
+					<div className="search-container">
+						<div className="search-wrapper">
+							<%= svg('search') %>
+							<input id="searchKeyWord" type="text" placeholder="Search articles" />
+						</div>
+					</div>
 					<button className="category-select" onClick={() => this.onSelectCategory()}>select category...</button>
 				</div>
 			</div>
