@@ -185,18 +185,22 @@
             margin-left: 10px;
             cursor: pointer;
             @include no-focus-styling;
+          }
+          a.feed {
+            border-radius: 5px;
+            background-color: #32eab5;
+            line-height: 55px;
+            padding: 28px 30px;
+            background-image: image-url('feed.png');
+            background-size: 60px;
+            background-position: center;
+            background-repeat: no-repeat;
+            margin-left: 10px;
+            cursor: pointer;
+            @include no-focus-styling;
 
-            &.feed {
-              background-color: #32eab5;
-              line-height: 55px;
-              padding: 28px 30px;
-              background-image: image-url('feed.png');
-              background-size: 60px;
-              background-position: center;
-              background-repeat: no-repeat;
-              @media screen and (max-width: 681px) {
-                margin: 10px 10px 0px 0px;
-              }
+            @media screen and (max-width: 681px) {
+              margin: 10px 10px 0px 0px;
             }
           }
         }

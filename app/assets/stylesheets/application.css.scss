@@ -699,11 +699,13 @@ h2 {
 	flex-shrink: 0;
 
 	.social-icons {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
 		width: 100%;
-		text-align: center;
 
 		button {
-			width: 100%;
+			width: 40px;
 		}
 
 		&.hidden {
