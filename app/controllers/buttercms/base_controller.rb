@@ -36,7 +36,7 @@ class Buttercms::BaseController < ActionController::Base
 							status: "subscribed"
 						}.to_json()
 					)
-					format.json{ render json: response.to_json(), status: :ok }
+					format.json{ render json: {message: "ok"}.to_json(), status: :ok }
 				rescue RestClient::ExceptionWithResponse
 					format.json{ render json: {message: "invalid email"}.to_json(), status: :internal_server }
 				end
