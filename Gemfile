@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 
 gem 'rails', '~> 5.0.4'
-gem 'sqlite3'
 gem 'puma', '~> 3.0'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
@@ -12,8 +11,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'buttercms-rails'
 gem 'react-rails'
 gem 'underscore-rails'
-gem 'gibbon'
 gem 'rest-client'
+gem 'pg'
 
 group :development, :test do
   gem 'byebug', platform: :mri
