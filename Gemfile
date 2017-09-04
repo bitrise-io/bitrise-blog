@@ -12,7 +12,6 @@ gem 'buttercms-rails'
 gem 'react-rails'
 gem 'underscore-rails'
 gem 'rest-client'
-gem 'pg'
 
 group :development, :test do
   gem 'byebug', platform: :mri
