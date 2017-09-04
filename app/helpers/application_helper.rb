@@ -3,7 +3,6 @@ module ApplicationHelper
 		puts ">>>>>>>>>"
 		puts filename
 		puts filename + '.svg'
-		puts asset_path(filename + '.svg')
 		puts Rails.application.assets_manifest.find_sources(filename + '.svg').inspect
 		Rails.application.assets_manifest.find_sources(filename + '.svg').each do |item|
 			puts item.inspect
