@@ -46,15 +46,19 @@ class Buttercms::PostsController < Buttercms::BaseController
     page_size = post_params[:page] ? 6 : 100
 
     @posts = ButterCMS::Post.search(post_params[:query], {page: page, page_size: page_size})
+    @number_of_posts = @posts.meta.count
+    @next_page = @posts.meta.next_page
 
-    render 'search'
+    respond_to do |format|
+      format.json{ json_response({posts: @posts, total_count: @number_of_posts, next_page: @next_page}) }
+    end
 
     rescue => ex
-    if ex.class == ButterCMS::NotFound
-      json_response(ex, :not_found)
-    else
-      json_response(ex, :internal_server)
-    end
+      if ex.class == ButterCMS::NotFound
+        json_response(ex, :not_found)
+      else
+        json_response(ex, :internal_server)
+      end
   end
 
 private
