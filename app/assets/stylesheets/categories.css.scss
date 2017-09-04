@@ -37,6 +37,7 @@
 		margin: initial;
 		padding-left: $navbar-padding-x;
 		z-index: 50;
+		max-width: 100%;
 
 		@include media-below-big {
 			display: flex;
