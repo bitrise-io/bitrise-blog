@@ -12,8 +12,14 @@
     <meta property="og:description"   content="<%= content_for(:og_description) %>" />
     <meta property="og:image"         content="https://bitrise-public-content-production.s3.amazonaws.com/meta/bitrise-1200x630.png">
 
-    <link rel="alternate" type="application/atom+xml" title="My Blog - Atom" href="<%= buttercms_blog_atom_path %>">
-    <link rel="alternate" type="application/rss+xml" title="My Blog - RSS" href="<%= buttercms_blog_rss_path %>">
+    <link rel="alternate" type="application/atom+xml" title="Bitrise Blog - Atom" href="<%= buttercms_blog_atom_path %>">
+    <link rel="alternate" type="application/rss+xml" title="Bitrise Blog - RSS" href="<%= buttercms_blog_rss_path %>">
+
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" type="image/png" href="/apple-touch-icon.png">
+    <link rel="apple-touch-icon" type="image/png" href="/apple-touch-icon-76x76.png" sizes="76x76">
+    <link rel="apple-touch-icon" type="image/png" href="/apple-touch-icon-120x120.png" sizes="120x120">
+    <link rel="apple-touch-icon" type="image/png" href="/apple-touch-icon-152x152.png" sizes="152x152">
 
     <!-- See https://buttercms.com/docs/#cssstyling -->
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
