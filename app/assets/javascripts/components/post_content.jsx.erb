@@ -1,14 +1,14 @@
 class PostContent extends React.Component {
-	constructor(){
-		super();
+	constructor(props){
+		super(props);
 		this.state = {
 			sideShareVisible: false,
 			sideShareFixed: false,
 		};
-
 	}
 
 	componentDidMount() {
+		let postTitle = this.props.post_title;
 		var parentClass = this;
 		$("body").on("scroll", function(e){
 			let sideShareVisible = true;
@@ -22,6 +22,23 @@ class PostContent extends React.Component {
 			}
 			parentClass.setState({sideShareVisible});
 			parentClass.setState({sideShareFixed});
+		});
+
+		$(".facebookShareButton").click(function(e){
+			var fbpopup = window.open(`https://www.facebook.com/sharer/sharer.php?u=${window.location}`, "pop", "width=600, height=400, scrollbars=no");
+			return false;
+		});
+		$(".twitterShareButton").click(function(e){
+			var fbpopup = window.open(`https://twitter.com/share?url=${window.location}&text=${postTitle}`, "pop", "width=600, height=400, scrollbars=no");
+			return false;
+		});
+		$(".linkedInShareButton").click(function(e){
+			var fbpopup = window.open(`https://www.linkedin.com/shareArticle?mini=true&url=${window.location}&title=${postTitle}`, "pop", "width=600, height=400, scrollbars=no");
+			return false;
+		});
+		$(".yCombinatorShareButton").click(function(e){
+			var fbpopup = window.open(`https://news.ycombinator.com/submit`, "pop", "width=600, height=400, scrollbars=no");
+			return false;
 		});
 	}
 
@@ -43,10 +60,10 @@ class PostContent extends React.Component {
 					<div className="share-article-vertical">
 						<div className={socialClasses}>
 							<h3>Share</h3>
-							<div className="fb-container"><%= svg("social_icons/facebook")%></div>
-							<div className="twitter-container"><%= svg("social_icons/twitter")%></div>
-							<div className="linkedin-container"><%= svg("social_icons/linkedin")%></div>
-							<div className="yc-container"><%= svg("social_icons/ycombinator")%></div>
+							<button className="facebookShareButton"><div className="fb-container"><%= svg("social_icons/facebook")%></div></button>
+							<button className="twitterShareButton"><div className="twitter-container"><%= svg("social_icons/twitter")%></div></button>
+							<button className="linkedInShareButton"><div className="linkedin-container"><%= svg("social_icons/linkedin")%></div></button>
+							<button className="yCombinatorShareButton"><div className="yc-container"><%= svg("social_icons/ycombinator")%></div></button>
 						</div>
 					</div>
 
@@ -56,10 +73,10 @@ class PostContent extends React.Component {
 				<div className="share-article">
 					<h3>Share this article</h3>
 					<div className="social-icons">
-					<span className="fb-container"><%= svg("social_icons/facebook")%></span>
-					<span className="twitter-container"><%= svg("social_icons/twitter")%></span>
-					<span className="linkedin-container"><%= svg("social_icons/linkedin")%></span>
-					<span className="yc-container"><%= svg("social_icons/ycombinator")%></span>
+					<button className="facebookShareButton"><%= svg("social_icons/facebook")%></button>
+					<button className="twitterShareButton"><%= svg("social_icons/twitter")%></button>
+					<button className="linkedInShareButton"><%= svg("social_icons/linkedin")%></button>
+					<button className="yCombinatorShareButton"><%= svg("social_icons/ycombinator")%></button>
 					</div>
 				</div>
 			</div>

@@ -25,7 +25,7 @@
   </div>
 
   <!-- Post body -->
-  <%= react_component('PostContent', {post_body: @post.body.html_safe}) %>
+  <%= react_component('PostContent', {post_body: @post.body.html_safe, post_title: @post.title}) %>
 
   <!-- Link to Next Post -->
   <% if @next_post %>

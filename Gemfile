@@ -12,7 +12,6 @@ gem 'buttercms-rails'
 gem 'react-rails'
 gem 'underscore-rails'
 gem 'rest-client'
-gem 'pg'
 
 group :development, :test do
   gem 'byebug', platform: :mri
@@ -24,6 +23,10 @@ group :development do
   gem 'listen', '~> 3.0.5'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+end
+
+group :production do
+  gem 'pg'
 end
 
 ruby "2.2.7"

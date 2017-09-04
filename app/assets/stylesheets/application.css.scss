@@ -665,26 +665,32 @@ h2 {
 		text-transform: uppercase;
 	}
 	& div svg {
-		max-width: 30px;
+		width: 30px;
 	}
-	& .social-icons {
+	.social-icons {
 		width: 100%;
 		text-align: center;
+		button {
+			background: transparent;
+			border: none;
+			cursor: pointer;
+			@include no-focus-styling;
 
-		& span {
-			margin: 0 5px;
-		}
-		& .fb-container svg {
-			fill: #4C76BE;
-		}
-		& .twitter-container svg {
-			fill: #00C7FF;
-		}
-		& .linkedin-container svg {
-			fill: #0B86CA;
-		}
-		& .yc-container svg {
-			fill: #F17420;
+			& span {
+				margin: 0 5px;
+			}
+			.fb-container svg, &.facebookShareButton svg {
+				fill: #4C76BE;
+			}
+			.twitter-container svg, &.twitterShareButton svg {
+				fill: #00C7FF;
+			}
+			.linkedin-container svg, &.linkedInShareButton svg {
+				fill: #0B86CA;
+			}
+			.yc-container svg, &.yCombinatorShareButton svg {
+				fill: #F17420;
+			}
 		}
 	}
 }
@@ -696,9 +702,14 @@ h2 {
 		width: 100%;
 		text-align: center;
 
+		button {
+			width: 100%;
+		}
+
 		&.hidden {
 			display: none;
 		}
+
 		&.fixed {
 			position: fixed;
 			top: 103px;
