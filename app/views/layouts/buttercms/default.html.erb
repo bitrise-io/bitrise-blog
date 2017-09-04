@@ -6,9 +6,11 @@
     <meta name="description" content="<%= content_for?(:meta_description) ? content_for(:meta_description) : "My Blog" %>">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta property="og:url"           content="http://blog.bitrise.com" />
-    <meta property="og:type"          content="Bitrise" />
-    <meta property="og:title"         content="Bitrise Blog" />
-    <meta property="og:description"   content="Bitrise Blog" />
+    <meta property="og:site_name"     content="Bitrise Blog" />
+    <meta property="og:type"          content="website" />
+    <meta property="og:title"         content="<%= content_for(:og_title) %>" />
+    <meta property="og:description"   content="<%= content_for(:og_description) %>" />
+    <meta property="og:image"         content="https://bitrise-public-content-production.s3.amazonaws.com/meta/bitrise-1200x630.png">
 
     <link rel="alternate" type="application/atom+xml" title="My Blog - Atom" href="<%= buttercms_blog_atom_path %>">
     <link rel="alternate" type="application/rss+xml" title="My Blog - RSS" href="<%= buttercms_blog_rss_path %>">

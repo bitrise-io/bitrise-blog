@@ -1,5 +1,7 @@
 <%= content_for :html_title, @post.seo_title %>
 <%= content_for :meta_description, @post.meta_description %>
+<%= content_for :og_title, @post.seo_title %>
+<%= content_for :og_description, @post.meta_description %>
 
 <div class="post-content">
   <!-- Post author -->

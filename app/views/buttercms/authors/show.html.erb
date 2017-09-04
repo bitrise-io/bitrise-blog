@@ -1,5 +1,7 @@
 <%= content_for :html_title, "#{@author.first_name} #{@author.last_name}" %>
 <%= content_for :meta_description, @author.bio %>
+<%= content_for :og_title, "Bitrise Blog - All articles by #{@author.first_name} #{@author.last_name}" %>
+<%= content_for :og_description, "Bitrise Blog - Mobile Continuous Integration and Delivery for your whole team, with dozens of integrations for your favourite services." %>
 
 
 <%= render partial: 'author_header', locals: {author: @author} %>
