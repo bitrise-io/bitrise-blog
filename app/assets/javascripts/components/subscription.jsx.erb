@@ -4,6 +4,7 @@ class Subscription extends React.Component {
 		this.state = {
 			isSuccess: false,
 			isError: false,
+			successMessage: null,
 			errorMessage: null,
 		}
 	}
@@ -13,7 +14,10 @@ class Subscription extends React.Component {
 		subscribeUserToNewsletter(email).then(responsMessage => {
 			switch(responsMessage) {
 				case "ok":
-					this.setState({isSuccess: true});
+					this.setState({isSuccess: true, successMessage: "All set! Thanks for signing up!"});
+					break;
+				case "already subscribed":
+					this.setState({isSuccess: true, successMessage: "You are already subscribed!"});
 					break;
 				case "invalid email":
 					this.setState({isError: true, errorMessage: "The email address is invalid"});
@@ -21,11 +25,8 @@ class Subscription extends React.Component {
 				case "empty email":
 					this.setState({isError: true, errorMessage: "Please give your email address"});
 					break;
-				case "existing email":
-					this.setState({isError: true, errorMessage: "This email address already exists"});
-					break;
 				default:
-					this.setState({isSuccess: false, isError: false, errorMessage: null});
+					this.setState({isSuccess: false, isError: false, successMessage: null, errorMessage: null});
 			}
 		});
 	}
@@ -46,7 +47,7 @@ class Subscription extends React.Component {
 						<div className="check-wrapper">
 							<%= svg('check') %>
 						</div>
-						<p>All set! Thanks for signing up!</p>
+						<p>{this.state.successMessage}</p>
 					</div>
 				</div>
 				<button value="" className="feed"/>

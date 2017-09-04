@@ -26,7 +26,7 @@
         padding: 10px 0 80px 3px;
         .subscription {
           display: flex;
-          align-items: center;
+          align-items: start;
 
           .subscription-form {
             position: relative;
@@ -55,6 +55,8 @@
             }
             .subscription-wrapper {
               display: flex;
+              align-items: start;
+              flex-wrap: wrap;
 
               .email-container {
                 p {
@@ -89,6 +91,7 @@
                 border-radius: 5px;
                 padding-left: 100px;
                 box-sizing: border-box;
+                z-index: 40;
 
                 p {
                   margin: 0;
@@ -147,6 +150,7 @@
               font-weight: 300;
               margin-left: 10px;
               cursor: pointer;
+              @include no-focus-styling;
 
               &.feed {
                 background-color: #32eab5;
@@ -170,6 +174,7 @@
             font-weight: 300;
             margin-left: 10px;
             cursor: pointer;
+            @include no-focus-styling;
 
             &.feed {
               background-color: #32eab5;
