@@ -27,6 +27,7 @@
         .subscription {
           display: flex;
           align-items: start;
+          flex-wrap: wrap;
 
           .subscription-form {
             position: relative;
@@ -45,6 +46,9 @@
               width: 300px;
               border: solid 2px transparent;
               @include transition(color 0.2s);
+              @media screen and (max-width: 412px) {
+                width: 100%;
+              }
 
               &.error {
                 border-color: #f17420;
@@ -152,6 +156,12 @@
               cursor: pointer;
               @include no-focus-styling;
 
+              &.subscribe-button {
+                @media screen and (max-width: 611px) {
+                  margin: 10px 10px 0px 0px;
+                }
+              }
+
               &.feed {
                 background-color: #32eab5;
                 line-height: 55px;
@@ -184,6 +194,9 @@
               background-size: 60px;
               background-position: center;
               background-repeat: no-repeat;
+              @media screen and (max-width: 681px) {
+                margin: 10px 10px 0px 0px;
+              }
             }
           }
         }
