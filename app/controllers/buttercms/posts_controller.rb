@@ -36,7 +36,29 @@ class Buttercms::PostsController < Buttercms::BaseController
     end
   end
 
+  def search
+    page = params[:page] || 1
+    page_size = params[:page] ? 6 : 100
+
+    @posts = ButterCMS::Post.search(post_params[:query], {page: page, page_size: page_size})
+
+    respond_to do |format|
+      format.json{ json_response(@posts) }
+    end
+
+    rescue => ex
+    if ex.class == ButterCMS::NotFound
+      json_response(ex, :not_found)
+    else
+      json_response(ex, :internal_server)
+    end
+  end
+
 private
+  def post_params
+    params.permit(:query)
+  end
+
   def set_variables
     @categories = ButterCMS::Category.all
   end
