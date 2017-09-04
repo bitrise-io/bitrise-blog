@@ -15,7 +15,7 @@ class Categories extends React.Component {
 	componentDidMount() {
 		$("#searchKeyWord").keydown(function(e){
 			if(e.keyCode == 13) {
-				searchPost($("#searchKeyWord").value);
+				window.location = `/posts/search?query=${$("#searchKeyWord").val()}`;
 			}
 		});
 	}

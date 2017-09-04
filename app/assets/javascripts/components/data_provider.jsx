@@ -2,13 +2,17 @@ const requestHeaders = new Headers();
 requestHeaders.append("Content-Type", "application/json");
 requestHeaders.append("Accept", "application/json");
 
-var fetchArticles = (component, urlPath) => {
+var fetchArticles = (component, urlPath, queryParam=null) => {
+	let rawBody = {
+		page: component.state.nextPage,
+	};
+	if (queryParam) {
+		rawBody.query = queryParam;
+	}
 	const params = {
 		method: "POST",
 		headers: requestHeaders,
-		body: JSON.stringify({
-			page: component.state.nextPage,
-		}),
+		body: JSON.stringify(rawBody),
 	};
 	component.setState({isLoading: true}, () => {
 		fetch(urlPath, params)
@@ -63,7 +67,3 @@ var subscribeUserToNewsletter = (email) => {
 			return json.message;
 		});
 };
-
-var searchPost = (keyWord) => {
-	console.log("search triggered");
-}
