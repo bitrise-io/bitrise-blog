@@ -1,7 +1,7 @@
 .author-header-container {
     background-color: #EBEBEB;
-    display: flex;
-    align-items: center;
+    @include display-flex;
+    @include align-items(center);
     justify-content: center;
     padding: 52px 50px 45px 50px;
     margin-bottom: 60px;

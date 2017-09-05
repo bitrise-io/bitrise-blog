@@ -99,10 +99,10 @@ h2 {
 	margin-bottom: 5px;
 
 	a {
-		display: flex;
-		align-items: center;
+		@include display-flex;
+		@include align-items(center);
+		@include flex-direction(column);
 		max-width: 150px;
-		flex-direction: column;
 		@include padding-y(5px);
 
 		svg {
@@ -115,8 +115,8 @@ h2 {
 			fill: white;
 		}
 		.button-content-wrapper {
-			display: flex;
-			align-items: center;
+			@include display-flex;
+			@include align-items(center);
 		}
 	}
 }
@@ -129,6 +129,7 @@ h2 {
 .content {
 	width: 100%;
 	background-color: #ffffff;
+	padding-top: 45px;
 
 	.hero {
 		background-color: #d6fbf0;
@@ -188,9 +189,9 @@ h2 {
 	margin: 40px 0;
 
 	.article-container {
-		display: flex;
+		@include display-flex;
+		@include align-items(center);
 		flex-flow: row wrap;
-		align-items: center;
 
 		@media screen and (max-width: 780px) {
 			flex-flow: column wrap;
@@ -209,9 +210,9 @@ h2 {
 
 		@include media-below-big {
 			.image-container {
-				display: flex;
+				@include display-flex;
+				@include align-items(center);
 				max-width: 400px;
-				align-items: center;
 				padding: 0 40px 0 0;
 
 				img {
@@ -228,15 +229,15 @@ h2 {
 		}
 
 		.article {
-			flex: 1;
+			@include flex(1);
 
-			display: flex;
-			flex-direction: column;
+			@include display-flex;
+			@include flex-direction(column);
 
 			.article-categories {
-				display: flex;
-				flex-direction: row;
-				flex-wrap: wrap;
+				@include display-flex;
+				@include flex-direction(row);
+				@include flex-wrap(wrap);
 
 				p.category {
 					font-size: 14px;
@@ -253,13 +254,13 @@ h2 {
 				}
 
 				a.category {
-					display: flex;
-					align-items: center;
+					@include display-flex;
+					@include align-items(center);
 					text-transform: uppercase;
 					color: $v3_default_purple;
 					background-color: #ffffff;
 					border-radius: 5px;
-					padding: 5px 10px;
+					padding: 7px 22px;
 					font-weight: 300;
 					font-size: 14px;
 					text-decoration: none;
@@ -300,18 +301,18 @@ h2 {
 }
 
 .articles {
-	display: flex;
+	@include display-flex;
 	flex-flow: wrap;
 
 	.article-container {
-		flex-basis: 33%;
+		@include flex-basis(33%);
 		min-height: 250px;
-		box-sizing: border-box;
+		@include box-sizing(border-box);
 
 		padding: 0 20px;
 		margin: 5px 0px;
 
-		display: flex;
+		@include display-flex;
 		flex-flow: column wrap;
 
 		background-color: #ffffff;
@@ -324,12 +325,12 @@ h2 {
 		}
 
 		@include media-below-big {
-			flex-basis: 50%;
+			@include flex-basis(50%);
 			max-width: 50%;
 		}
 
 		@media screen and (max-width: 650px) {
-			flex-basis: 100%;
+			@include flex-basis(100%);
 			max-width: 100%;
 		}
 		a {
@@ -338,12 +339,12 @@ h2 {
 			text-decoration: none;
 
 			.header-container {
-				display: flex;
-				flex-direction: row;
+				@include display-flex;
+				@include flex-direction(row);
 				max-height: 37px;
 
 				.category, .date {
-					flex: 1;
+					@include flex(1);
 					text-transform: uppercase;
 					font-size: 12px;
 				}
@@ -361,10 +362,10 @@ h2 {
 			}
 			@include media-above-inclusive-big {
 				.image-container {
-					flex: 1;
+					@include flex(1);
 					overflow: hidden;
 					border-radius: 5px;
-					display: flex;
+					@include display-flex;
 					height: 220px;
 					width: 390px;
 					background-size: cover;
@@ -380,34 +381,31 @@ h2 {
 
 			@include media-below-big {
 				.image-container {
-					flex: 1;
+					@include display-flex;
+					@include align-items(center);
+					@include flex(1);
 					overflow: hidden;
 					border-radius: 5px;
-					display: flex;
-					align-items: center;
-					height: 220px;
-					width: 390px;
+					@include size(390px, 220px);
 					background-size: cover;
 					background-position: center;
 					max-width: 100%;
 
 					img {
-						width: 100%;
-						height: auto;
+						@include size(100%, auto);
 					}
 				}
 			}
 
 			@media screen and (max-width: 650px) {
 				.image-container {
-					height: 220px;
-					width: 100%;
+					@include size(100%, 220px);
 				}
 			}
 
 			.article {
 				padding-top: 10px;
-				flex: 1;
+				@include flex(1);
 
 				h2 {
 					font-size: 24px;
@@ -444,7 +442,7 @@ h2 {
 	@media screen and (max-width: 1084px) {
 		width: 100%;
 		padding: 0 20px;
-		box-sizing: border-box;
+		@include box-sizing(border-box);
 	}
 	h2 {
 		color: black;
@@ -469,52 +467,53 @@ h2 {
 		padding: 1px 5px;
 	}
 	.author-info-container {
-		display: flex;
+		@include display-flex;
 		font-family: 'Gotham HTF', sans-serif;
 		@include media-above-inclusive-big {
 			&::before {
 				content: "";
-				flex-shrink: 0;
+				@include flex-shrink(0);
 				width: $sidebar-width;
 			}
 			&::after {
 				content: "";
-				flex-shrink: 0;
+				@include flex-shrink(0);
 				width: $sidebar-width;
 			}
 		}
 	}
 	.post-title {
-		display: flex;
+		@include display-flex;
 		font-size: 40px;
 		font-family: 'Gotham HTF', sans-serif;
+		margin: 0;
 		@include media-above-inclusive-big {
 			&::before {
 				content: "";
-				flex-shrink: 0;
+				@include flex-shrink(0);
 				width: $sidebar-width;
 			}
 			&::after {
 				content: "";
-				flex-shrink: 0;
+				@include flex-shrink(0);
 				width: $sidebar-width;
 			}
 		}
 	}
 	& .publish-date-and-tags {
-		display: flex;
-		flex-wrap: wrap;
-		align-items: center;
+		@include display-flex;
+		@include align-items(center);
+		@include flex-wrap(wrap);
 		margin: 10px auto;
 		font-family: 'Gotham HTF', sans-serif;
 
 		& .publish-date {
 			color: #959595;
-			margin: 0 0 10px 0;
+			margin: 0 0 25px 0;
 		}
 		& .divider-slash {
 			color: #959595;
-			margin: 0px 5px 10px 5px;
+			margin: 0px 5px 25px 5px;
 
 		}
 		& .category-element {
@@ -522,32 +521,31 @@ h2 {
 			text-decoration: none;
 			font-weight: bold;
 			cursor: pointer;
-			margin: 0 0 10px 0;
+			margin: 0 0 25px 0;
 		}
 		@include media-above-inclusive-big {
 			&::before {
 				content: "";
-				flex-shrink: 0;
+				@include flex-shrink(0);
 				width: $sidebar-width;
 			}
 			&::after {
 				content: "";
-				flex-shrink: 0;
+				@include flex-shrink(0);
 				width: $sidebar-width;
 			}
 		}
 	}
 	& .post-featured-image {
 		text-align: center;
-		width: 100%;
-		height: auto;
+		@include size(100%, auto);
 	}
 	& .post-featured-image img {
 		width: 100%;
 		display: block;
 	}
 	& .post-body {
-		flex-grow: 1;
+		@include flex-grow(1);
 
 		img {
 			max-width: 100%;
@@ -626,8 +624,8 @@ h2 {
 }
 .try-wrapper {
 	background: -webkit-linear-gradient(#32eab5, #44bda6);
-	display: flex;
-	align-items: center;
+	@include display-flex;
+	@include align-items(center);
 	height: 240px;
 	color: white;
 	margin-top: 50px;
@@ -662,11 +660,11 @@ h2 {
 }
 
 .post-body-wrapper {
-	display: flex;
+	@include display-flex;
 
 	&::after {
 		content: "";
-		flex-shrink: 0;
+		@include flex-shrink(0);
 		@include media-above-inclusive-big {
 			width: $sidebar-width;
 		}
@@ -674,8 +672,8 @@ h2 {
 }
 
 .share-article, .share-article-vertical {
-	display: flex;
-	align-items: center;
+	@include display-flex;
+	@include align-items(center);
 	flex-flow: column;
 	padding: 20px 0;
 	font-family: 'Gotham HTF', sans-serif;
@@ -718,13 +716,13 @@ h2 {
 }
 .share-article-vertical {
 	width: $sidebar-width;
-	flex-shrink: 0;
+	@include flex-shrink(0);
 
 	.social-icons {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		width: 100%;
+		@include display-flex;
+		@include align-items(center);
+		@include flex-direction(column);
+		width: 195px;
 
 		button {
 			width: 40px;
@@ -736,7 +734,7 @@ h2 {
 
 		&.fixed {
 			position: fixed;
-			top: 103px;
+			top: 148px;
 		}
 	}
 
@@ -747,8 +745,8 @@ h2 {
 .author-info {
 	width: 100%;
 	margin: 0 auto;
-	display: flex;
-	align-items: center;
+	@include display-flex;
+	@include align-items(center);
 	padding: 62px 0px 45px 0px;
 	a {
 		text-decoration: none;

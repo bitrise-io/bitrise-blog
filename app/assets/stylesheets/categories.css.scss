@@ -19,8 +19,8 @@
 		}
 
 		&.home {
-			display: flex;
-			align-items: center;
+			@include display-flex;
+			@include align-items(center);
 			span {
 				padding-left: 10px;
 			}
@@ -34,7 +34,7 @@
 		}
 	}
 	.content-wrapper {
-		display: flex;
+		@include display-flex;
 		@include transition(top 0.3s);
 		margin: initial;
 		padding-left: $navbar-padding-x;
@@ -42,8 +42,8 @@
 		max-width: 100%;
 
 		@include media-below-big {
-			display: flex;
-			flex-direction: column;
+			@include display-flex;
+			@include flex-direction(column);
 			position: absolute;
 			top: -270px;
 			width: 100%;
@@ -55,16 +55,16 @@
 			}
 		}
 		.search-container {
-			display: flex;
-			align-items: center;
-			flex-grow: 1;
+			@include display-flex;
+			@include align-items(center);
+			@include flex-grow(1);
 			background-color: #e9d8f7;
 
 			.search-wrapper {
-				display: flex;
-				align-items: center;
+				@include display-flex;
+				@include align-items(center);
 				border-bottom: 1px solid $v3_default_purple;
-				box-sizing: border-box;
+				@include box-sizing(border-box);
 
 				@include media-above-inclusive-big {
 					margin-left: auto;
@@ -102,7 +102,7 @@
 	padding: 0 60px;
 	margin: 0 auto;
 	& .category-header, .author-header {
-		display: flex;
+		@include display-flex;
 		padding: 52px 0px 49px 0px;
 		& h2 {
 			margin: 0 auto;

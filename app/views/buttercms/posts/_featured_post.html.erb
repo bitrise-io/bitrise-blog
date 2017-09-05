@@ -1,11 +1,13 @@
 <div class="article-container">
   <div class="image-container">
-    <%= image_tag(post.featured_image) if post.featured_image %>
+    <a href="<%= buttercms_post_path(post.slug) %>">
+      <%= image_tag(post.featured_image) if post.featured_image %>
+    </a>
   </div>
 
   <div class="article">
     <div class="article-categories">
-      <p class="category featured">featured</p>
+      <a><p class="category featured">featured</p></a>
       <% post.categories.each do |category| %>
         <%= link_to category.name, buttercms_category_path(category.slug), class: "category" %>
       <% end %>

@@ -54,5 +54,5 @@ function isElementVisible(elem) {
 	var elemTop = $(elem).offset().top;
 	var elemBottom = elemTop + $(elem).height();
 
-	return ((elemBottom >= (docViewTop + 83) && elemTop < docViewBottom) || (elemBottom >= docViewBottom && elemTop < docViewBottom));
+	return ((elemBottom >= (docViewTop + 148) && elemTop < docViewBottom) || (elemBottom >= docViewBottom && elemTop < docViewBottom));
 }
