@@ -9,8 +9,6 @@ body > .footer {
 		background-color: $v3_default_verylightgrey;
 
 		.socials, .product, .company, .support {
-			@include mixin_paddingX(25px);
-
 			h4 {
 				color: $v3_default_purple;
 				font-size: 12px;
@@ -78,6 +76,14 @@ body > .footer {
 					background-position: center;
 					background-repeat: no-repeat;
 				}
+			}
+
+			@include media-above-inclusive-big {
+				@include mixin_paddingX(50px);
+			}
+
+			@include media-below-big {
+				@include mixin_paddingX(28px);
 			}
 		}
 

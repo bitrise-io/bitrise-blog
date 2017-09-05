@@ -19,7 +19,14 @@ nav {
     @include size(100%);
     @include align-items(center);
     @include box-sizing(border-box);
-    padding: $navbar-padding-y $navbar-padding-x;
+
+    @include media-above-inclusive-big {
+      padding: $navbar-padding-y $navbar-padding-x;
+    }
+
+    @include media-below-big {
+      padding: $navbar-padding-y 28px;
+    }
 
     a.logo {
       @include border-radius($v3_default_radius);
@@ -169,8 +176,6 @@ nav {
       }
       button.burger {
         @include size($navbar-height, $navbar-height);
-        //margin-top: -$navbar-padding-y;
-        margin-right: -$navbar-padding-x;
         margin-left: auto;
         border: none;
         padding: 0;
@@ -178,6 +183,16 @@ nav {
         cursor: pointer;
         @include transition(background-color $default_transitiontime_short);
         @include no-focus-styling;
+
+        @include media-above-inclusive-big {
+          margin-right: -$navbar-padding-x;
+          margin-top: -$navbar-padding-y;
+        }
+
+        @include media-below-big {
+          margin-right: -28px;
+          margin-top: 0;
+        }
 
         &:hover, &:focus, &.open {
           background-color: $v3_default_purple_tint;

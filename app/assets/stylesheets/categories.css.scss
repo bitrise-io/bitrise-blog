@@ -1,6 +1,8 @@
 .categories {
-	background-color: #e9d8f7;
+	position: absolute;
 	width: 100%;
+	background-color: #e9d8f7;
+	z-index: 60;
 
 	a {
 		background-color: #e9d8f7;
@@ -13,7 +15,7 @@
 		font-size: 12px;
 
 		@include media-below-big {
-			padding-left: 50px;
+			padding-left: 28px;
 		}
 
 		&.home {
@@ -43,13 +45,13 @@
 			display: flex;
 			flex-direction: column;
 			position: absolute;
-			top: -187px;
+			top: -270px;
 			width: 100%;
 			padding: 0;
 			height: auto;
 
 			&.opened {
-				top: 83px;
+				top: 0;
 			}
 		}
 		.search-container {
@@ -70,7 +72,7 @@
 				}
 
 				@include media-below-big {
-					margin-left: 50px;
+					margin-left: 28px;
 					height: 45px;
 				}
 
@@ -123,11 +125,15 @@
 	cursor: pointer;
 	line-height: 45px;
 	font-size: 12px;
-	padding: 0 0 0 50px;
 	@include no-focus-styling;
 	font-family: 'Gotham HTF', sans-serif;
 
 	@include media-above-inclusive-big {
 		display: none;
+		padding: 0 0 0 50px;
+	}
+
+	@include media-below-big {
+		padding: 0 0 0 28px;
 	}
 }

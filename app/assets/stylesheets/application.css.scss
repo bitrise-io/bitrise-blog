@@ -49,8 +49,15 @@ body {
 
 	.content-wrapper {
 		max-width: 1200px;
-		padding: 0 50px;
 		margin: 0 auto;
+
+		@include media-above-inclusive-big {
+			padding: 0 50px;
+		}
+
+		@include media-below-big {
+			padding: 0 28px;
+		}
 	}
 }
 

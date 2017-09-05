@@ -1,4 +1,8 @@
 .hero {
+  @include media-above-inclusive-big{
+    padding-top: 45px;
+  }
+
   .hero-inner {
     background-image: image-url('header.png');
     background-position: top right;
@@ -157,7 +161,7 @@
               @include no-focus-styling;
 
               &.subscribe-button {
-                @media screen and (max-width: 611px) {
+                @media screen and (max-width: 591px) {
                   margin: 10px 10px 0px 0px;
                 }
               }
@@ -199,7 +203,7 @@
             cursor: pointer;
             @include no-focus-styling;
 
-            @media screen and (max-width: 681px) {
+            @media screen and (max-width: 661px) {
               margin: 10px 10px 0px 0px;
             }
           }
