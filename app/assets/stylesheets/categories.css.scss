@@ -13,6 +13,17 @@
 		line-height: 45px;
 		font-weight: 300;
 		font-size: 12px;
+		@include transition(color $default_transitiontime_short, font-weight $default_transitiontime_short);
+
+		&:hover {
+			color: $v3_default_purple_tint;
+			font-weight: 500;
+
+			svg {
+				stroke: $v3_default_purple_tint;
+				stroke-width: 10px;
+			}
+		}
 
 		@include media-below-big {
 			padding-left: 28px;

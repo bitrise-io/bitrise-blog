@@ -50,6 +50,8 @@
 							width: 300px;
 							border: solid 2px transparent;
 							@include transition(color 0.2s);
+							@include no-focus-styling;
+
 							@media screen and (max-width: 412px) {
 								width: 100%;
 							}
@@ -164,15 +166,20 @@
 							margin-left: 10px;
 							cursor: pointer;
 							@include no-focus-styling;
+							@include transition(background-color $default_transitiontime_short);
 
 							&.subscribe-button {
+								&:hover {
+									background-color: $v3_default_neon_shade;
+								}
+
 								@media screen and (max-width: 547px) {
 									margin: 10px 10px 0px 0px;
 								}
 							}
 
 							&.feed {
-								background-color: #32eab5;
+								background-color: $v3_default_neon;
 								line-height: 55px;
 								padding: 28px 30px;
 								background-image: image-url('feed.png');
@@ -197,7 +204,7 @@
 					}
 					a.feed {
 						border-radius: 5px;
-						background-color: #32eab5;
+						background-color: $v3_default_neon;
 						line-height: 55px;
 						padding: 28px 30px;
 						background-image: image-url('feed.png');
@@ -207,6 +214,11 @@
 						margin-left: 10px;
 						cursor: pointer;
 						@include no-focus-styling;
+						@include transition(background-color $default_transitiontime_short);
+
+						&:hover {
+							background-color: $v3_default_neon_shade;
+						}
 
 						@media screen and (max-width: 617px) {
 							margin: 10px 10px 0px 0px;
