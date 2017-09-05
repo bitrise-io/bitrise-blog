@@ -30,7 +30,7 @@
 				padding: 10px 0 80px 3px;
 				.subscription {
 					@include display-flex;
-					@include align-items(start);
+					@include align-items(end);
 					@include flex-wrap(wrap);
 
 					.subscription-form {
@@ -65,7 +65,7 @@
 						}
 						.subscription-wrapper {
 							@include display-flex;
-							@include align-items(start);
+							@include align-items(end);
 							@include flex-wrap(wrap);
 
 							.email-container {
