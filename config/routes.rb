@@ -1,10 +1,15 @@
 Rails.application.routes.draw do
+
   scope :module => 'buttercms' do
     post '/subscribe_user' => 'base#subscribe_user'
-    post '/posts/list_by_tag' => 'posts#fetch_posts_by_tag'
+
+    post '/tags/:slug/posts' => 'tags#fetch_posts'
+    get '/tags/:slug' => 'tags#show', :as => :buttercms_tag
+
     post '/posts/list' => 'posts#fetch_posts'
     get '/posts/search' => 'posts#search_post'
     post '/posts/search' => 'posts#search'
+
     post '/categories/:slug/posts' => 'categories#fetch_posts'
     post '/authors/:slug/posts' => 'authors#fetch_posts'
     get '/categories/:slug' => 'categories#show', :as => :buttercms_category

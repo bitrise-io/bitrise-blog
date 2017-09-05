@@ -2,7 +2,7 @@ class Buttercms::AuthorsController < Buttercms::BaseController
 	before_action :set_variables
 
 	def show
-		@author = ButterCMS::Author.find(params[:slug], :include => :recent_posts)
+		@author = ButterCMS::Author.find(params[:slug])
 		puts @author.inspect
 	end
 

@@ -1,8 +1,8 @@
-class Buttercms::CategoriesController < Buttercms::BaseController
+class Buttercms::TagsController < Buttercms::BaseController
 	before_action :set_variables
 
 	def show
-		@category = ButterCMS::Category.find(params[:slug])
+		@tag = ButterCMS::Tag.find(params[:slug])
 	end
 
 	def fetch_posts
@@ -12,7 +12,7 @@ class Buttercms::CategoriesController < Buttercms::BaseController
 		@posts = ButterCMS::Post.all(
 			page: page,
 			page_size: page_size,
-			category_slug: params[:slug]
+			tag_slug: params[:slug]
 		)
 		@number_of_posts = @posts.meta.count
 		@next_page = @posts.meta.next_page
