@@ -97,14 +97,8 @@
                 color: white;
                 background-color: $v3_default_neon;
                 border-radius: 5px;
-                padding-left: 100px;
                 box-sizing: border-box;
                 z-index: 40;
-
-                p {
-                  margin: 0;
-                  margin-left: 15px;
-                }
 
                 &.hidden {
                   visibility: hidden;
@@ -123,28 +117,39 @@
                 }
               }
 
-              .check-wrapper {
-                padding: 10px;
-                fill: $v3_default_neon;
-                background-color: white;
-                border-radius: 20px;
-                @include keyframes(success-appear) {
-                    0% {
-                      @include transform(scale(0));
-                    }
-                    60% {
-                      @include transform(scale(1.4));
-                    }
-                    100% {
-                      @include transform(scale(1));
-                    }
-                }
-                @include animation(success-appear 0.5s ease-in-out 0s 1 normal forwards);
+              .success-container {
+                display: flex;
+                align-items: center;
+                margin: 0 auto;
 
-                svg {
-                  width: 15px;
-                  height: 15px;
-                  display: block;
+                p {
+                  margin: 0;
+                  margin-left: 15px;
+                }
+
+                .check-wrapper {
+                  padding: 10px;
+                  fill: $v3_default_neon;
+                  background-color: white;
+                  border-radius: 20px;
+                  @include keyframes(success-appear) {
+                      0% {
+                        @include transform(scale(0));
+                      }
+                      60% {
+                        @include transform(scale(1.4));
+                      }
+                      100% {
+                        @include transform(scale(1));
+                      }
+                  }
+                  @include animation(success-appear 0.5s ease-in-out 0s 1 normal forwards);
+
+                  svg {
+                    width: 15px;
+                    height: 15px;
+                    display: block;
+                  }
                 }
               }
             }

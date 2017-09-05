@@ -44,10 +44,12 @@ class Subscription extends React.Component {
 						<button className="subscribe-button" onClick={() => this.subscribeUser()}>Subscribe</button>
 					</div>
 					<div className={this.state.isSuccess ? "subscription-wrapper success" : "subscription-wrapper success hidden" }>
-						<div className="check-wrapper">
-							<%= svg('check') %>
+						<div className="success-container">
+							<div className="check-wrapper">
+								<%= svg('check') %>
+							</div>
+							<p>{this.state.successMessage}</p>
 						</div>
-						<p>{this.state.successMessage}</p>
 					</div>
 				</div>
 				<a href="/atom" className="feed" value=" " target="blank" />
