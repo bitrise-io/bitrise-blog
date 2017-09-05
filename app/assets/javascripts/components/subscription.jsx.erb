@@ -14,16 +14,16 @@ class Subscription extends React.Component {
 		subscribeUserToNewsletter(email).then(responsMessage => {
 			switch(responsMessage) {
 				case "ok":
-					this.setState({isSuccess: true, successMessage: "All set! Thanks for signing up!"});
+					this.setState({isSuccess: true, isError: false, successMessage: "All set! Thanks for signing up!", errorMessage: null});
 					break;
 				case "already subscribed":
-					this.setState({isSuccess: true, successMessage: "You are already subscribed!"});
+					this.setState({isSuccess: true, isError: false, successMessage: "You are already subscribed!", errorMessage: null});
 					break;
 				case "invalid email":
-					this.setState({isError: true, errorMessage: "The email address is invalid"});
+					this.setState({isSuccess: false, isError: true, successMessage: null, errorMessage: "The email address is invalid"});
 					break;
 				case "empty email":
-					this.setState({isError: true, errorMessage: "Please give your email address"});
+					this.setState({isSuccess: false, isError: true, successMessage: null, errorMessage: "Please give your email address"});
 					break;
 				default:
 					this.setState({isSuccess: false, isError: false, successMessage: null, errorMessage: null});

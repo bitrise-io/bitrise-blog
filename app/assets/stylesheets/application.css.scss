@@ -183,6 +183,7 @@ h2 {
 	.article-container {
 		display: flex;
 		flex-flow: row wrap;
+		align-items: center;
 
 		@media screen and (max-width: 780px) {
 			flex-flow: column wrap;
@@ -210,6 +211,12 @@ h2 {
 					width: 100%;
 					border-radius: 5px;
 				}
+			}
+		}
+
+		@media screen and (max-width: 780px) {
+			.image-container {
+				padding: 0;
 			}
 		}
 

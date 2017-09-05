@@ -161,7 +161,7 @@
               @include no-focus-styling;
 
               &.subscribe-button {
-                @media screen and (max-width: 591px) {
+                @media screen and (max-width: 547px) {
                   margin: 10px 10px 0px 0px;
                 }
               }
@@ -203,7 +203,7 @@
             cursor: pointer;
             @include no-focus-styling;
 
-            @media screen and (max-width: 661px) {
+            @media screen and (max-width: 617px) {
               margin: 10px 10px 0px 0px;
             }
           }
