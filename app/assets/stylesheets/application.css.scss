@@ -43,9 +43,16 @@ body {
 	background-color: #f9fbff;
 	font-family: 'Gotham HTF', sans-serif;
 	margin: 0;
-	padding: 83px 0 0 0;
 	height: 100%;
 	overflow: auto;
+
+	@include media-above-inclusive-small {
+		padding: 83px 0 0 0;
+	}
+
+	@include media-below-small {
+		padding: 63px 0 0 0;
+	}
 
 	.content-wrapper {
 		max-width: 1200px;

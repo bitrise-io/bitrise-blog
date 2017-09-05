@@ -3,9 +3,17 @@
 
 nav {
   $navbar-height: 83px;
+  $navbar-height-sm: 63px;
   @include position(fixed, 0, 0);
   z-index: 500;
-  @include size(100%, $navbar-height);
+
+  @include media-above-inclusive-small {
+    @include size(100%, $navbar-height);
+  }
+
+  @include media-below-small {
+    @include size(100%, $navbar-height-sm);
+  }
 
   &:before {
     content: "";
@@ -30,11 +38,24 @@ nav {
 
     a.logo {
       @include border-radius($v3_default_radius);
-      padding: 10px 20px;
       background-color: $v3_default_green;
 
+      @include media-above-inclusive-small {
+        padding: 10px 20px;
+      }
+
+      @include media-below-small {
+        padding: 8px 16px;
+      }
+
       svg {
-        @include size(115px, 30px);
+        @include media-above-inclusive-small {
+          @include size(115px, 30px);
+        }
+
+        @include media-below-small {
+          @include size(86px, 23px);
+        }
       }
     }
 
@@ -175,7 +196,6 @@ nav {
         }
       }
       button.burger {
-        @include size($navbar-height, $navbar-height);
         margin-left: auto;
         border: none;
         padding: 0;
@@ -194,6 +214,24 @@ nav {
           margin-top: 0;
         }
 
+        @include media-above-inclusive-small {
+          @include size($navbar-height, $navbar-height);
+
+          svg {
+            @include size(27px);
+            fill: white;
+          }
+        }
+
+        @include media-below-small {
+          @include size($navbar-height-sm, $navbar-height-sm);
+
+          svg {
+            @include size(21px);
+            fill: white;
+          }
+        }
+
         &:hover, &:focus, &.open {
           background-color: $v3_default_purple_tint;
         }
@@ -202,11 +240,6 @@ nav {
           &:hover, &:focus {
             background-color: $default_purpletint;
           }
-        }
-
-        svg {
-          @include size(27px);
-          fill: white;
         }
       }
     }
