@@ -825,6 +825,34 @@ h2 {
 	}
 }
 
+.not-found-container {
+	@include display-flex;
+	@include align-items(center);
+	@include flex-direction(column);
+
+	h1 {
+		font-weight: 300;
+		font-size: 24px;
+		color: $v3_default_purple;
+		margin-top: 36px;
+	}
+
+	h2 {
+		font-weight: 100;
+		font-size: 18px;
+		color: $v3_default_purple;
+
+		a:hover {
+			color: $v3_default_neon_shade;
+		}
+	}
+
+	svg {
+		width: 282px;
+		height: 258px;
+	}
+}
+
 .v3-button {
 	text-decoration: none;
 	padding: 10px;

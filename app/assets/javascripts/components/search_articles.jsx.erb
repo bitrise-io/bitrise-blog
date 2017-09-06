@@ -25,14 +25,29 @@ class SearchArticles extends React.Component {
 			);
 		});
 		return (
+			<% environment.context_class.instance_eval { include ApplicationHelper } %>
 			<div>
 				<div id="articles-container" className="articles">{articles}</div>
 
 				<Progress visible={this.state.isLoading} />
-
-				<div className="default-button load-more" hidden={this.state.allArticlesShown || this.state.isLoading}>
-					<a onClick={() => this.loadMorePosts()}>Load more</a>
-				</div>
+				{	this.state.articles.length > 0
+					?
+					<div className="default-button load-more" hidden={this.state.allArticlesShown || this.state.isLoading}>
+						<a onClick={() => this.loadMorePosts()}>Load more</a>
+					</div>
+					:
+					(
+						this.state.isLoading
+						?
+						null
+						:
+						<div className="not-found-container">
+							<%= svg('not_found') %>
+							<h1>We haven’t found any articles with this search phrase.</h1>
+							<h2>You can try another search or <a href="/">browsing all articles</a>.</h2>
+						</div>
+					)
+				}
 			</div>
 		);
 	}
