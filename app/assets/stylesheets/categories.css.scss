@@ -109,16 +109,49 @@
 				top: 45px;
 			}
 		}
+
+		.search-mobile {
+			@include display-flex;
+			@include align-items(center);
+			@include flex-grow(1);
+			background-color: $v3_default_purple;
+			height: 45px;
+			padding-left: 28px;
+
+			input {
+				margin-left: 10px;
+				font-size: 12px;
+				background-color: transparent;
+				border: none;
+				width: 210px;
+				@include no-focus-styling;
+				color: white;
+
+				&::placeholder {
+					color: white;
+				}
+			}
+
+			svg {
+				@include size(15px);
+				fill: white;
+			}
+		}
+
+		@include media-above-inclusive-big {
+			.search-mobile {
+				display: none;
+			}
+		}
+
 		.search-container {
 			@include display-flex;
 			@include align-items(center);
 			@include flex-grow(1);
 			background-color: #e9d8f7;
 
-			@include media-above-inclusive-big {
-				&.search-mobile {
-					display: none;
-				}
+			@include media-below-big {
+				display: none;
 			}
 
 			.search-wrapper {

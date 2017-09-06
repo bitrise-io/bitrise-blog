@@ -51,7 +51,7 @@ class Categories extends React.Component {
 					</div>
 				</div>
 				<div className={this.state.dropDownOpened ? "content-wrapper opened" : "content-wrapper"}>
-					<div className="search-container search-mobile">
+					<div className="search-mobile">
 						<div className="search-wrapper">
 							<%= svg('search') %>
 							<input id="searchKeyWordMobile" type="text" placeholder="Search articles..." />
@@ -62,7 +62,7 @@ class Categories extends React.Component {
 						<span>Home</span>
 					</a>
 					{categories}
-					<div className="search-container">
+					<div className="search-container desktop">
 						<div className="search-wrapper">
 							<%= svg('search') %>
 							<input id="searchKeyWord" type="text" placeholder="Search articles" />
