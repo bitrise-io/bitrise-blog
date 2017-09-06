@@ -1,0 +1,17 @@
+<%= content_for :html_title, "All articles" %>
+<%= content_for :og_title, "Bitrise Blog - All articles" %>
+<%= content_for :og_description, "Bitrise Blog - Mobile Continuous Integration and Delivery for your whole team, with dozens of integrations for your favourite services." %>
+<%= render :partial => 'hero' %>
+
+<div class="category-content">
+  <div class="category-header">
+    <!-- Category name -->
+    <h2>All articles</h2>
+  </div>
+
+  <!-- List of posts -->
+  <%= react_component('AllArticles') %>
+
+
+</div>
+<%= render :partial => 'buttercms/base/try_bitrise' %>

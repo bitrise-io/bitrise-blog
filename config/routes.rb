@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     get '/tags/:slug' => 'tags#show', :as => :buttercms_tag
 
     post '/posts/list' => 'posts#fetch_posts'
+    get '/posts/all' => 'posts#all_posts'
     get '/posts/search' => 'posts#search_post'
     post '/posts/search' => 'posts#search'
 

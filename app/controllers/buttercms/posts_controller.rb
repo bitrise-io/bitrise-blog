@@ -5,7 +5,7 @@ class Buttercms::PostsController < Buttercms::BaseController
 		tag = ButterCMS::Tag.find("prio", include: 'recent_posts')
 		@featured_post = tag.data.recent_posts.first unless tag.nil?
 
-		@posts = ButterCMS::Post.all(:page => params[:page], :page_size => 9)
+		@posts = ButterCMS::Post.all(:page => params[:page], :page_size => 6, include: 'recent_posts')
 
 		@next_page = @posts.meta.next_page
 		@previous_page = @posts.meta.previous_page
@@ -18,34 +18,16 @@ class Buttercms::PostsController < Buttercms::BaseController
 		@previous_post = @post.meta.previous_post
 	end
 
-	def fetch_posts
-		if post_params[:page]
-			@posts = ButterCMS::Post.all(:page => post_params[:page], :page_size => 6)
-		else
-			@posts = ButterCMS::Post.all
-		end
-
-		respond_to do |format|
-			format.json{ json_response(@posts) }
-		end
-	rescue => ex
-		if ex.class == ButterCMS::NotFound
-			json_response(ex, :not_found)
-		else
-			json_response(ex, :internal_server)
-		end
+	def all_posts
 	end
 
-	def fetch_posts_by_tag
-		tag = ButterCMS::Tag.find("prio", include: 'recent_posts')
-
+	def fetch_posts
 		page = params[:page] || 1
 		page_size = params[:page] ? 6 : 100
 
 		@posts = ButterCMS::Post.all(
 			page: page,
-			page_size: page_size,
-			tag_slug: tag.slug
+			page_size: page_size
 		)
 		@number_of_posts = @posts.meta.count
 		@next_page = @posts.meta.next_page

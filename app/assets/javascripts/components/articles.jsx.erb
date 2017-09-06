@@ -61,7 +61,17 @@ class Articles extends React.Component {
 		});
 	}
 	render() {
-		const articles = this.state.articles.map((articleData) => {
+		const articles = this.props.articles.map((anArticleData) => {
+			const articleCategory = anArticleData.categories.length > 0 ? anArticleData.categories[0].table.name : "";
+			articleData = {
+				category: articleCategory,
+				featuredImage: anArticleData.featured_image,
+				link: `/${anArticleData.slug}`,
+				publishDate: formatDate(anArticleData.published),
+				slug: anArticleData.slug,
+				summary: anArticleData.summary,
+				title: anArticleData.title,
+			};
 			const article = (
 				<Article data={articleData} defaultImagePath={"<%= image_path('post_default_img') %>"} />
 			);
@@ -76,7 +86,7 @@ class Articles extends React.Component {
 				<Progress visible={this.state.isLoading} />
 
 				<div className="default-button load-more" hidden={this.state.allArticlesShown}>
-					<a onClick={() => this.loadAllPosts()}>View all articles</a>
+					<a href="/posts/all">View all articles</a>
 				</div>
 			</div>
 		);

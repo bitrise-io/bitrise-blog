@@ -26,8 +26,9 @@ var fetchArticles = (component, urlPath, queryParam=null) => {
 			.then(response => {
 				let articles = component.state.articles.slice();
 				response.posts.forEach((anArticleData) => {
+					const articleCategory = anArticleData.categories.length > 0 ? anArticleData.categories[0].table.name : "";
 					article = {
-						category: anArticleData.categories[0].table.name,
+						category: articleCategory,
 						featuredImage: anArticleData.featured_image,
 						link: `/${anArticleData.slug}`,
 						publishDate: formatDate(anArticleData.published),
