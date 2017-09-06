@@ -7,7 +7,7 @@ const Article = (props) => {
 					<p className="date">{props.data.publishDate}</p>
 				</div>
 
-				<div className="image-container" style={{backgroundImage: "url(" + props.data.featuredImage + ")"}}></div>
+				<div className="image-container" style={{backgroundImage: "url(" + (props.data.featuredImage == null ? props.defaultImagePath : props.data.featuredImage) + ")"}}></div>
 
 				<div className="article">
 					<h2>

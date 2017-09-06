@@ -3,9 +3,9 @@
     <p class="category"><%= post.categories.first.name %></p>
     <p class="date"><%= post.published.to_time.strftime('%B %e, %Y') %></p>
   </div>
-
+valami
   <div class="image-container">
-    <%= image_tag(post.featured_image) if post.featured_image %>
+    <%= image_tag(post.featured_image.eql?("") ? "post_default_img" : post.featured_image) %>
   </div>
 
   <div class="article">
