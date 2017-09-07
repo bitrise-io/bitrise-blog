@@ -4,8 +4,8 @@
 <%= content_for :og_description, @post.summary %>
 <%= content_for :og_image, @post.featured_image ? @post.featured_image : image_path("post_default_image") %>
 <% @image_size = FastImage.size(@post.featured_image) %>
-<%= content_for :og_image_width, @post.featured_image ? FastImage.size(@post.featured_image)[0] : 1200 %>
-<%= content_for :og_image_height, @post.featured_image ? FastImage.size(@post.featured_image)[1] : 628 %>
+<%= content_for :og_image_width, @post.featured_image ? FastImage.size(@post.featured_image)[0].to_s : 1200.to_s %>
+<%= content_for :og_image_height, @post.featured_image ? FastImage.size(@post.featured_image)[1].to_s : 628.to_s %>
 
 <div class="post-content">
   <!-- Post author -->
