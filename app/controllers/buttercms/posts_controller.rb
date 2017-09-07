@@ -2,7 +2,7 @@ class Buttercms::PostsController < Buttercms::BaseController
 	before_action :set_variables
 
 	def index
-		tag = ButterCMS::Tag.find("prio", include: 'recent_posts')
+		tag = ButterCMS::Tag.find("featured", include: 'recent_posts')
 		@featured_post = tag.data.recent_posts.first unless tag.nil?
 
 		@posts = ButterCMS::Post.all(:page => params[:page], :page_size => 6, include: 'recent_posts')
