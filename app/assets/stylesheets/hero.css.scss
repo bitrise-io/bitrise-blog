@@ -1,7 +1,4 @@
 .hero {
-	@include media-above-inclusive-big{
-		padding-top: 45px;
-	}
 
 	.hero-inner {
 		background-image: image-url('header.png');
@@ -39,6 +36,7 @@
 						input, button {
 							border-radius: 5px;
 							border: none;
+							font-family: 'Gotham HTF', sans-serif;
 						}
 
 						input[type="text"] {
@@ -51,6 +49,7 @@
 							border: solid 2px transparent;
 							@include transition(color 0.2s);
 							@include no-focus-styling;
+							font-family: 'Gotham HTF', sans-serif;
 
 							@media screen and (max-width: 412px) {
 								width: 100%;
