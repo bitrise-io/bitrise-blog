@@ -528,6 +528,7 @@ h2 {
 		@include flex-wrap(wrap);
 		margin: 10px auto;
 		font-family: 'Gotham HTF', sans-serif;
+		font-size: 14px;
 
 		.publish-date {
 			color: #959595;
@@ -814,6 +815,7 @@ h2 {
 	.name-and-title p {
 		margin: 0;
 		color: #959595;
+		font-size: 14px;
 	}
 }
 .progress-container {
