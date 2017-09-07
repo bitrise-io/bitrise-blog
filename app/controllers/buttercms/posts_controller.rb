@@ -75,5 +75,6 @@ private
 
 	def set_variables
 		@categories = ButterCMS::Category.all
+		@tags = ButterCMS::Tag.all
 	end
 end

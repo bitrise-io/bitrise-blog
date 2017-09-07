@@ -242,15 +242,16 @@ h2 {
 				a {
 					@include display-flex;
 					text-decoration: none;
+					margin-right: 15px;
 
 					p.category {
 						font-size: 14px;
 						font-weight: 300;
 						color: $v3_default_purple;
 						text-transform: uppercase;
-						padding: 7px 10px;
+						padding: 7px 0px;
 
-						&.featured {
+						&.tag {
 							color: #ffffff;
 							background-color: $v3_default_neon;
 							padding: 7px 22px;
@@ -270,7 +271,7 @@ h2 {
 					color: $v3_default_purple;
 					background-color: #ffffff;
 					border-radius: 5px;
-					padding: 7px 22px;
+					padding: 7px 10px;
 					font-weight: 300;
 					font-size: 14px;
 					text-decoration: none;
@@ -518,29 +519,37 @@ h2 {
 			}
 		}
 	}
-	& .publish-date-and-tags {
+	.publish-date-and-tags {
 		@include display-flex;
 		@include align-items(center);
 		@include flex-wrap(wrap);
 		margin: 10px auto;
 		font-family: 'Gotham HTF', sans-serif;
 
-		& .publish-date {
+		.publish-date {
 			color: #959595;
 			margin: 0 0 25px 0;
 		}
-		& .divider-slash {
+		.divider-slash {
 			color: #959595;
 			margin: 0px 5px 25px 5px;
 
 		}
-		& .category-element {
+		.category-element {
 			color: $v3_default_purple;
 			text-decoration: none;
 			font-weight: bold;
 			cursor: pointer;
 			margin: 0 0 25px 0;
 			@include transition(color $default_transitiontime_short);
+
+			&.tag-element {
+				color: $v3_default_neon_shade;
+
+				&:hover {
+					color: $v3_default_purple;
+				}
+			}
 
 			&:hover {
 				color: $v3_default_neon_shade;
@@ -562,6 +571,7 @@ h2 {
 	& .post-featured-image {
 		text-align: center;
 		@include size(100%, auto);
+		padding-bottom: 40px;
 	}
 	& .post-featured-image img {
 		width: 100%;
@@ -745,6 +755,7 @@ h2 {
 .share-article-vertical {
 	width: $sidebar-width;
 	@include flex-shrink(0);
+	padding-top: 10px;
 
 	.social-icons {
 		@include display-flex;

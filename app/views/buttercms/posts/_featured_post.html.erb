@@ -7,7 +7,9 @@
 
   <div class="article">
     <div class="article-categories">
-      <a href="<%= buttercms_tag_path("featured") %>" ><p class="category featured">featured</p></a>
+      <% post.tags.each do |tag| %>
+        <a href="<%= buttercms_tag_path(tag.slug) %>" ><p class="category tag"><%= tag.name %></p></a>
+      <% end %>
       <% post.categories.each do |category| %>
         <%= link_to category.name, buttercms_category_path(category.slug), class: "category" %>
       <% end %>

@@ -12,7 +12,7 @@
 		z-index: 70;
 		width: 100%;
 		padding-left: 28px;
-		box-sizing: border-box;
+		@include box-sizing(border-box);
 		cursor: pointer;
 		@include no-focus-styling;
 
@@ -58,6 +58,8 @@
 		line-height: 45px;
 		font-weight: 300;
 		font-size: 12px;
+		white-space: nowrap;
+		@include no-focus-styling;
 		@include transition(color $default_transitiontime_short, font-weight $default_transitiontime_short);
 
 		&:hover {
@@ -72,6 +74,14 @@
 
 		@include media-below-big {
 			padding-left: 28px;
+		}
+
+		@media screen and (max-width: 1109px) and (min-width: 1045px) {
+			padding-right: 35px;
+		}
+
+		@media screen and (max-width: 1044px) and (min-width: 992px) {
+			padding-right: 30px;
 		}
 
 		&.home {
@@ -196,10 +206,10 @@
 	max-width: 1200px;
 	padding: 0 60px;
 	margin: 0 auto;
-	& .category-header, .author-header {
+	.category-header, .author-header {
 		@include display-flex;
 		padding: 52px 0px 49px 0px;
-		& h2 {
+		h2 {
 			margin: 0 auto;
 			font-weight: 300;
 			& .category-name, .author-name {

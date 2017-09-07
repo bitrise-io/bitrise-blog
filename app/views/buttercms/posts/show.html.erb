@@ -19,6 +19,9 @@
     <% @post.categories.each do |category| %>
       <p class="divider-slash">/</p><%= link_to category.name.capitalize, buttercms_category_path(category.slug), :title => category.name, class: "category-element" %>
     <% end %>
+    <% @post.tags.each do |tag| %>
+      <p class="divider-slash">/</p><%= link_to tag.name.capitalize, buttercms_tag_path(tag.slug), :title => tag.name, class: "category-element tag-element" %>
+    <% end %>
   </div>
 
   <!-- Post featured image -->
@@ -45,12 +48,12 @@
 </div>
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
-    var disqus_shortname = 'XXXXXXXX';
+    var disqus_shortname = 'concretebuilder';
 
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        dsq.src = `//${disqus_shortname}.disqus.com/embed.js`;
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
 </script>
