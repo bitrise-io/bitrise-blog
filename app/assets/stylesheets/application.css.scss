@@ -200,6 +200,16 @@ h2 {
 		@include media-above-inclusive-big {
 			.image-container {
 				padding: 0 40px 0 0;
+				@include flex(1);
+				overflow: hidden;
+				border-radius: 5px;
+				@include display-flex;
+				height: 330px;
+				width: 545px;
+				background-size: cover;
+				background-position: center;
+				max-width: 100%;
+				margin-right: 35px;
 
 				img {
 					max-width: 500px;
@@ -214,6 +224,16 @@ h2 {
 				@include align-items(center);
 				max-width: 400px;
 				padding: 0 40px 0 0;
+				@include flex(1);
+				overflow: hidden;
+				border-radius: 5px;
+				@include display-flex;
+				height: 330px;
+				width: 390px;
+				background-size: cover;
+				background-position: center;
+				max-width: 100%;
+				margin-right: 35px;
 
 				img {
 					width: 100%;
@@ -224,7 +244,9 @@ h2 {
 
 		@media screen and (max-width: 780px) {
 			.image-container {
+				height: 220px;
 				padding: 0;
+				margin-right: 0px;
 			}
 		}
 
@@ -350,6 +372,9 @@ h2 {
 		@media screen and (max-width: 650px) {
 			@include flex-basis(100%);
 			max-width: 100%;
+			box-sizing: initial;
+			margin-right: -20px;
+			margin-left: -20px;
 		}
 		a {
 			width: 100%;
@@ -483,12 +508,19 @@ h2 {
 		font-size: 16px;
 		padding: 15px;
 		line-height: 120%;
-		display: block;
 		white-space: pre-wrap;
+		word-wrap: break-word;
+
+		code {
+			font-family: 'Source Code Pro';
+		}
 	}
+
 	p code {
 		background-color: #EBEBEB;
 		padding: 1px 5px;
+		font-size: 16px;
+		font-family: 'Source Code Pro';
 	}
 	.author-info-container {
 		@include display-flex;
@@ -578,6 +610,11 @@ h2 {
 		text-align: center;
 		@include size(100%, auto);
 		padding-bottom: 40px;
+
+		@media screen and (max-width: 1084px) {
+			width: initial;
+			@include margin-x(-20px);
+		}
 	}
 	& .post-featured-image img {
 		width: 100%;
@@ -601,7 +638,7 @@ h2 {
 			font-style: italic;
 			@include media-above-inclusive-big {
 				$border-width: 5px;
-				$padding-left: 10px;
+				$padding-left: 15px;
 
 				margin-left: -$border-width - $padding-left;
 				border-left: solid $v3_default_neon $border-width;
@@ -673,24 +710,24 @@ h2 {
 	height: 240px;
 	color: white;
 	margin-top: 50px;
-	& .container {
+	.container {
 		flex-flow: column;
 		text-align: center;
 		margin: 0 auto;
 	}
-	& h2 {
+	h2 {
 		margin: 0;
 		color: white;
 		font-weight: 100;
 		font-size: 18px;
 		text-transform: uppercase;
 	}
-	& h1 {
+	h1 {
 		font-size: 24px;
 		font-weight: 500;
 		padding-bottom: 10px;
 	}
-	& a {
+	a {
 		background: $v3_default_purple;
 		padding: 15px 20px;
 		border: 1px solid $v3_default_purple;
@@ -700,6 +737,10 @@ h2 {
 		line-height: 46px;
 		font-size: 14px;
 		text-transform: uppercase;
+
+		&:hover {
+			background-color: $v3_default_purple_tint;
+		}
 	}
 }
 

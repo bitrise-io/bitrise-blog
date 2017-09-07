@@ -85,15 +85,27 @@
 
 		@include media-below-big {
 			@include padding-x(14px);
+
+			&.home {
+				@include padding-x(14px);
+			}
 		}
 
 		@media screen and (max-width: 1109px) and (min-width: 1045px) {
 			@include padding-x(17px);
+
+			&.home {
+				@include padding-x(17px);
+			}
 		}
 
 		@media screen and (max-width: 1044px) and (min-width: 992px) {
 			padding-right: 30px;
 			@include padding-x(15px);
+
+			&.home {
+				@include padding-x(15px);
+			}
 		}
 
 		&.home {
@@ -202,6 +214,7 @@
 					width: 210px;
 					@include no-focus-styling;
 					color: $v3_default_purple;
+					font-family: 'Gotham HTF', sans-serif;
 
 					&::placeholder {
 						color: #b99dd2;

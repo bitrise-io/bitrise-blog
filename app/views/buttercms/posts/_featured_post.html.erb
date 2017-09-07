@@ -1,9 +1,8 @@
 <div class="article-container">
-  <div class="image-container">
-    <a href="<%= buttercms_post_path(post.slug) %>">
-      <%= image_tag(post.featured_image) if post.featured_image %>
-    </a>
-  </div>
+  <a href="<%= buttercms_post_path(post.slug) %>">
+    <div class="image-container" style="background-image: url('<%= post.featured_image %>')">
+    </div>
+  </a>
 
   <div class="article">
     <div class="article-categories">
