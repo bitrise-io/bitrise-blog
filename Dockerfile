@@ -2,6 +2,7 @@ FROM ruby:2.2
 
 RUN apt-get update -qq && apt-get install
 RUN apt-get install -y nodejs npm
+RUN apt-get install -y nodejs-legacy
 
 # Configure the main working directory. This is the base
 # directory used in any further RUN, COPY, and ENTRYPOINT
