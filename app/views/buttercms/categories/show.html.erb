@@ -1,6 +1,7 @@
 <%= content_for :html_title, @category.name.capitalize %>
 <%= content_for :og_title, "Bitrise Blog - Posts in #{@category.name.capitalize}" %>
 <%= content_for :og_description, "Bitrise Blog - Mobile Continuous Integration and Delivery for your whole team, with dozens of integrations for your favourite services." %>
+<%= content_for :og_image, "https://bitrise-public-content-production.s3.amazonaws.com/meta/bitrise-1200x630.png" %>
 <%= render :partial => 'hero' %>
 
 <div class="category-content">
