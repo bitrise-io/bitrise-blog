@@ -12,6 +12,7 @@ gem 'buttercms-rails'
 gem 'react-rails'
 gem 'underscore-rails'
 gem 'rest-client'
+gem 'fastimage'
 
 group :development, :test do
   gem 'byebug', platform: :mri
