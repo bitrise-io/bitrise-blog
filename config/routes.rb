@@ -36,7 +36,7 @@ Rails.application.routes.draw do
     get '/2017/08/07/droids-on-roids-how-to-connect-physical-devices-to-bitrise-io.html', to: redirect('/droids-on-roids-how-to-connect-physical-devices-to-bitriseio')
     get '/2017/08/04/4-things-to-remember-when-upgrading-a-production-virtual-machine.html', to: redirect('/4-things-to-remember-when-upgrading-a-production-virtual-machine')
     get '/2017/08/02/july-highlights.html', to: redirect('/july-highlights')
-    get '/2017/08/01/bitrise-raises-3-2-million-in-series-a-funding.html', to: redirect('/bitrise-raises-32-million-in-series-a-funding')
+    get '/2017/08/01/bitrise-raises-3-2-million-in-series-a-funding.html', to: redirect('/bitrise-raises-3-2-million-in-series-a-funding')
     get '/2017/07/28/danger-danger-uh-that-is-using-danger-with-bitrise.html', to: redirect('/danger-danger-uh-that-is-using-danger-with-bitrise')
     get '/2017/07/27/introducing-full-cross-platform-support.html', to: redirect('/introducing-full-cross-platform-support')
     get '/2017/07/25/how-to-set-up-a-react-native-app-on-bitrise.html', to: redirect('/how-to-set-up-a-react-native-app-on-bitrise')
