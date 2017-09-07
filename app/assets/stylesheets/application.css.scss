@@ -473,6 +473,9 @@ h2 {
 		font-size: 21px;
 		font-weight: bold;
 	}
+	p, ol {
+		font-size: 21px;
+	}
 	pre {
 		background-color: #EBEBEB;
 		font-size: 14px;
@@ -773,7 +776,8 @@ h2 {
 
 		&.fixed {
 			position: fixed;
-			top: 148px;
+			top: 168px;
+			padding-top: 10px;
 		}
 	}
 

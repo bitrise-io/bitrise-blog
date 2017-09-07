@@ -54,7 +54,7 @@
 		text-transform: uppercase;
 		color: $v3_default_purple;
 		text-decoration: none;
-		padding: 0 50px 0 0;
+		padding: 0 25px 0 25px;
 		line-height: 45px;
 		font-weight: 300;
 		font-size: 12px;
@@ -62,9 +62,20 @@
 		@include no-focus-styling;
 		@include transition(color $default_transitiontime_short, font-weight $default_transitiontime_short);
 
+		&.home {
+			padding-left: 0;
+		}
+
 		&:hover {
 			color: $v3_default_purple_tint;
 			font-weight: 500;
+
+			&.home {
+				span {
+					color: $v3_default_purple_tint;
+					font-weight: 500;
+				}
+			}
 
 			svg {
 				stroke: $v3_default_purple_tint;
@@ -73,15 +84,16 @@
 		}
 
 		@include media-below-big {
-			padding-left: 28px;
+			@include padding-x(14px);
 		}
 
 		@media screen and (max-width: 1109px) and (min-width: 1045px) {
-			padding-right: 35px;
+			@include padding-x(17px);
 		}
 
 		@media screen and (max-width: 1044px) and (min-width: 992px) {
 			padding-right: 30px;
+			@include padding-x(15px);
 		}
 
 		&.home {
@@ -89,6 +101,7 @@
 			@include align-items(center);
 			span {
 				padding-left: 10px;
+				cursor: pointer;
 			}
 		}
 
