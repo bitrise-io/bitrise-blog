@@ -12,7 +12,7 @@ class TagArticles extends React.Component {
 		this.loadMorePosts();
 	}
 	loadMorePosts() {
-		const urlPath = `/tags/${this.props.tag.name}/posts`;
+		const urlPath = `/tags/${this.props.tag.slug}/posts`;
 		fetchArticles(this, urlPath);
 	}
 	render() {
