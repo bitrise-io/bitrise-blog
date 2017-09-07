@@ -1,4 +1,4 @@
-class TagArticles extends React.Component {
+class CategoryArticles extends React.Component {
 	constructor() {
 		super();
 		this.state = {
@@ -12,13 +12,13 @@ class TagArticles extends React.Component {
 		this.loadMorePosts();
 	}
 	loadMorePosts() {
-		const urlPath = `/tags/${this.props.tag.name}/posts`;
+		const urlPath = `/categories/${this.props.category.name}/posts`;
 		fetchArticles(this, urlPath);
 	}
 	render() {
 		const articles = this.state.articles.map((articleData) => {
 			const article = (
-				<Article data={articleData} />
+				<Article data={articleData} defaultImagePath={"<%= image_path('post_default_img') %>"} />
 			);
 			return (
 				article

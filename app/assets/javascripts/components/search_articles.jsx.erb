@@ -18,7 +18,7 @@ class SearchArticles extends React.Component {
 	render() {
 		const articles = this.state.articles.map((articleData) => {
 			const article = (
-				<Article data={articleData} />
+				<Article data={articleData}  defaultImagePath={"<%= image_path('post_default_img') %>"} />
 			);
 			return (
 				article
