@@ -1,0 +1,27 @@
+{
+  "name": "bitrise-blog",
+  "version": "1.0.0",
+  "description": "This README would normally document whatever steps are necessary to get the application up and running.",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "whatwg-fetch": "^2.0.3",
+    "browserify": "^14.4.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bitrise-io/bitrise-blog.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bitrise-io/bitrise-blog/issues"
+  },
+  "homepage": "https://github.com/bitrise-io/bitrise-blog#readme"
+}
