@@ -230,8 +230,16 @@
 }
 .category-content, .author-content {
 	max-width: 1200px;
-	padding: 0 60px;
 	margin: 0 auto;
+
+	@include media-above-inclusive-big {
+		padding: 0 50px;
+	}
+
+	@include media-below-big {
+		padding: 0 28px;
+	}
+
 	.category-header, .author-header {
 		@include display-flex;
 		padding: 52px 0px 49px 0px;
