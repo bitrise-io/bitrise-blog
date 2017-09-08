@@ -13,6 +13,7 @@ gem 'react-rails'
 gem 'underscore-rails'
 gem 'rest-client'
 gem 'fastimage'
+gem 'npm-rails'
 
 group :development, :test do
   gem 'byebug', platform: :mri

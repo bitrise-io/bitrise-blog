@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require npm-dependencies
 //= require react
 //= require react_ujs
 //= require_tree ./elements
