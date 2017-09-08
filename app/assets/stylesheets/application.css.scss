@@ -242,6 +242,18 @@ h2 {
 			}
 		}
 
+		@media screen and (max-width: 390px) {
+			.image-container {
+				width: 360px;
+			}
+		}
+
+		@media screen and (max-width: 359px) {
+			.image-container {
+				width: 320px;
+			}
+		}
+
 		@media screen and (max-width: 780px) {
 			.image-container {
 				height: 220px;
