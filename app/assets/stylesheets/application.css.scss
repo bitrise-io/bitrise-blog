@@ -528,12 +528,18 @@ h2 {
 		}
 	}
 
-	p code {
+	p code, li code {
 		background-color: #EBEBEB;
 		padding: 1px 5px;
 		font-size: 16px;
 		font-family: 'Source Code Pro';
+		word-wrap: break-word;
 	}
+
+	p iframe {
+		max-width: 100%;
+	}
+
 	.author-info-container {
 		@include display-flex;
 		font-family: 'Gotham HTF', sans-serif;
