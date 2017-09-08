@@ -1,13 +1,14 @@
 <div class="article-container">
-  <div class="image-container">
-    <%= image_tag(post.featured_image) if post.featured_image %>
-  </div>
+  <a href="<%= buttercms_post_path(post.slug) %>">
+    <div class="image-container" style="background-image: url('<%= post.featured_image %>')">
+    </div>
+  </a>
 
   <div class="article">
     <div class="article-categories">
-      <p class="category featured">featured</p>
+      <a href="<%= buttercms_tag_path('featured') %>" ><p class="category tag">featured</p></a>
       <% post.categories.each do |category| %>
-        <p class="category"><%= category.name %></p>
+        <%= link_to category.name, buttercms_category_path(category.slug), class: "category" %>
       <% end %>
     </div>
 
@@ -15,8 +16,10 @@
     <h3>Published on <%= post.published.to_time.strftime('%B %e, %Y') %></h3>
     <p><%= post.summary %></p>
 
-    <div class="more">
-      <%= link_to 'Read more', buttercms_post_path(post.slug), :title => 'read more...' %>
+    <div class="default-button more">
+      <a class="read-more" title="read more..." href="<%= buttercms_post_path(post.slug) %>">
+        <div class="button-content-wrapper"><span>Read more</span><%= svg('right_arrow') %></div>
+      </a>
     </div>
   </div>
 </div>

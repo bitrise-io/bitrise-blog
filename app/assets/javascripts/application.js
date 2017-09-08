@@ -13,4 +13,47 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require npm-dependencies
+//= require react
+//= require react_ujs
+//= require_tree ./elements
+//= require components
+//= require underscore
 //= require_tree .
+
+
+function formatDate(dateString) {
+	var date = new Date(Date.parse(dateString));
+	var monthNames = [
+		"January", "February", "March",
+		"April", "May", "June", "July",
+		"August", "September", "October",
+		"November", "December"
+	];
+
+	var day = date.getDate();
+	var monthIndex = date.getMonth();
+	var year = date.getFullYear();
+
+	return monthNames[monthIndex] + ' ' + day + ', ' + year;
+}
+
+function isScrolledIntoView(elem) {
+	var docViewTop = $(window).scrollTop();
+	var docViewBottom = docViewTop + $(window).height();
+
+	var elemTop = $(elem).offset().top;
+	var elemBottom = elemTop + $(elem).height();
+
+	return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
+}
+
+function isElementVisible(elem) {
+	var docViewTop = $(window).scrollTop();
+	var docViewBottom = docViewTop + $(window).height();
+
+	var elemTop = $(elem).offset().top;
+	var elemBottom = elemTop + $(elem).height();
+
+	return ((elemBottom >= (docViewTop + 128) && elemTop < docViewBottom) || (elemBottom >= docViewBottom && elemTop < docViewBottom));
+}

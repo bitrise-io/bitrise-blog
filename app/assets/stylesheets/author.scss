@@ -1,0 +1,36 @@
+.author-header-container {
+    background-color: #EBEBEB;
+    @include display-flex;
+    @include align-items(center);
+    justify-content: center;
+    padding: 52px 50px 45px 50px;
+    margin-bottom: 60px;
+
+    .all-articles {
+        color: #959595;
+        font-size: 14px;
+        text-transform: uppercase;
+        margin: 10px;
+        text-align: center;
+    }
+
+    img {
+        max-width: 65px;
+    }
+
+    .author-info {
+        width: initial;
+        margin: 10px;
+        padding: initial;
+
+        .name-and-title {
+            a {
+                font-size: 24px;
+                font-weight: bold;
+            }
+            p {
+                padding-top: 10px;
+            }
+        }
+    }
+}

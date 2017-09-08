@@ -1,0 +1,14 @@
+version: '3'
+services:
+  web:
+    build: .
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    volumes:
+      - .:/app
+    ports:
+      - "3000:3000"
+    environment:
+      BUTTER_TOKEN: "3456909bd267a2d5404d593fb4dbe705d29c1c69"
+      MAILCHIMP_API_TOKEN: cf611633665c93ab78e0f2bb9f307999-us1
+      MAILCHIMP_API_SERVER: "https://us1.api.mailchimp.com/3.0"
+      MAILCHIMP_LIST_ID: "dc071eba1c"

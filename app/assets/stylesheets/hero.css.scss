@@ -1,83 +1,247 @@
 .hero {
-  .hero-inner {
-    background-image: image-url('header.png');
-    background-position: top right;
-    background-size: 700px;
-    background-repeat: no-repeat;
-    width: 100%;
 
-    .newsletter {
-      padding: 80px 0 0 50px;
-      max-width: 600px;
+	.hero-inner {
+		background-image: image-url('header.png');
+		background-position: top right;
+		background-size: 700px;
+		background-repeat: no-repeat;
+		width: 100%;
 
-      h1 {
-        padding: 0;
-        margin: 0;
-        font-size: 50px;
-      }
+		.newsletter {
+			padding: 80px 0 0 0px;
+			max-width: 600px;
 
-      p {
-        font-size: 16px;
-        font-weight: 300;
-        margin: 0 0 16px 0;
-      }
+			h1 {
+				padding: 0;
+				margin: 0;
+				font-size: 50px;
+			}
 
-      .text {
-        padding: 10px 0 80px 20px;
+			p {
+				font-size: 16px;
+				font-weight: 300;
+				margin: 0 0 36px 0;
+			}
 
-        input {
-          border-radius: 5px;
-          border: none;
-        }
+			.text {
+				padding: 10px 0 80px 3px;
+				.subscription {
+					@include display-flex;
+					@include align-items(end);
+					@include flex-wrap(wrap);
 
-        input[type="text"] {
-          font-size: 16px;
-          color: #959595;
-          padding: 0 16px;
-          line-height: 55px;
-          font-weight: 300;
-          width: 300px;
-        }
+					.subscription-form {
+						position: relative;
 
-        input[type="button"] {
-          font-size: 16px;
-          color: #ffffff;
-          background-color: #000000;
-          padding: 0 35px;
-          line-height: 55px;
-          font-weight: 300;
+						input, button {
+							border-radius: 5px;
+							border: none;
+							font-family: 'Gotham HTF', sans-serif;
+						}
 
-          &.feed {
-            background-color: #32eab5;
-            line-height: 55px;
-            padding: 0 30px;
-            background-image: image-url('feed.png');
-            background-size: 60px;
-            background-position: center;
-            background-repeat: no-repeat;
-          }
-        }
-      }
-    }
+						input[type="text"] {
+							font-size: 16px;
+							color: #959595;
+							padding: 0 16px;
+							line-height: 55px;
+							font-weight: 300;
+							width: 300px;
+							border: solid 2px transparent;
+							@include transition(color 0.2s);
+							@include no-focus-styling;
+							font-family: 'Gotham HTF', sans-serif;
 
-    @media screen and (max-width: 1200px) {
-      background-image: none;
+							@media screen and (max-width: 412px) {
+								width: 100%;
+							}
 
-      .newsletter {
-        padding: 60px 0 0 0;
+							&.error {
+								border-color: #f17420;
+								color: #f17420;
+								font-size: 16px;
+								font-weight: 500;
+							}
+						}
+						.subscription-wrapper {
+							@include display-flex;
+							@include align-items(end);
+							@include flex-wrap(wrap);
 
-        h1 {
-          font-size: 40px;
-        }
+							.email-container {
+								p {
+									background-color: #ffdec7;
+									color: #f17420;
+									font-weight: 500;
+									padding: 12px 23px;
+									border-radius: 5px;
+									margin-top: 10px;
+									margin-bottom: 0px;
+									font-size: 14px;
+									@include animation(error-appear 0.2s linear 0s 1 normal forwards);
 
-        .text {
-          padding: 10px 0 50px 0px;
+									@include keyframes(error-appear) {
+											0% {
+													opacity: 0;
+											}
+											100% {
+													opacity: 1;
+											}
+									}
+								}
+							}
 
-          input[type="text"] {
-            margin-bottom: 10px;
-          }
-        }
-      }
-    }
-  }
+							&.success {
+								@include position(absolute, 0, 0);
+								@include size(100%);
+								@include display-flex;
+								@include align-items(center);
+								color: white;
+								background-color: $v3_default_neon;
+								border-radius: 5px;
+								@include box-sizing(border-box);
+								z-index: 40;
+
+								&.hidden {
+									visibility: hidden;
+								}
+								&:not(.hidden) {
+									@include animation(success-fade-in 0.2s linear 0s 1 normal forwards);
+
+									@include keyframes(success-fade-in) {
+											0% {
+													opacity: 0;
+											}
+											100% {
+													opacity: 1;
+											}
+									}
+								}
+							}
+
+							.success-container {
+								@include display-flex;
+								@include align-items(center);
+								margin: 0 auto;
+
+								p {
+									margin: 0;
+									margin-left: 15px;
+								}
+
+								.check-wrapper {
+									padding: 10px;
+									fill: $v3_default_neon;
+									background-color: white;
+									border-radius: 20px;
+									@include keyframes(success-appear) {
+											0% {
+												@include transform(scale(0));
+											}
+											60% {
+												@include transform(scale(1.4));
+											}
+											100% {
+												@include transform(scale(1));
+											}
+									}
+									@include animation(success-appear 0.5s ease-in-out 0s 1 normal forwards);
+
+									svg {
+										width: 15px;
+										height: 15px;
+										display: block;
+									}
+								}
+							}
+						}
+
+						button {
+							font-size: 16px;
+							color: #ffffff;
+							background-color: #000000;
+							padding: 0 35px;
+							line-height: 55px;
+							font-weight: 300;
+							margin-left: 10px;
+							cursor: pointer;
+							@include no-focus-styling;
+							@include transition(background-color $default_transitiontime_short);
+
+							&.subscribe-button {
+								&:hover {
+									background-color: $v3_default_neon;
+								}
+
+								@media screen and (max-width: 547px) {
+									margin: 10px 10px 0px 0px;
+								}
+							}
+
+							&.feed {
+								background-color: $v3_default_neon;
+								line-height: 55px;
+								padding: 28px 30px;
+								background-image: image-url('feed.png');
+								background-size: cover;
+								background-position: center;
+								background-repeat: no-repeat;
+							}
+						}
+					}
+					button {
+						border-radius: 5px;
+						border: none;
+						font-size: 16px;
+						color: #ffffff;
+						background-color: #000000;
+						padding: 0 35px;
+						line-height: 55px;
+						font-weight: 300;
+						margin-left: 10px;
+						cursor: pointer;
+						@include no-focus-styling;
+					}
+					a.feed {
+						border-radius: 5px;
+						background-color: $v3_default_neon;
+						line-height: 55px;
+						padding: 28px 30px;
+						background-image: image-url('feed.png');
+						background-size: 60px;
+						background-position: center;
+						background-repeat: no-repeat;
+						margin-left: 10px;
+						cursor: pointer;
+						@include no-focus-styling;
+						@include transition(background-color $default_transitiontime_short);
+
+						&:hover {
+							background-color: $v3_default_neon_shade;
+						}
+
+						@media screen and (max-width: 617px) {
+							margin: 10px 10px 0px 0px;
+						}
+					}
+				}
+			}
+		}
+
+		@media screen and (max-width: 1200px) {
+			background-image: none;
+
+			.newsletter {
+				padding: 60px 0 0 0;
+
+				h1 {
+					font-size: 40px;
+				}
+
+				.text {
+					padding: 10px 0 50px 0px;
+
+				}
+			}
+		}
+	}
 }

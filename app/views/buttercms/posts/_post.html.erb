@@ -5,7 +5,7 @@
   </div>
 
   <div class="image-container">
-    <%= image_tag(post.featured_image) if post.featured_image %>
+    <%= image_tag(post.featured_image.eql?("") ? "post_default_img" : post.featured_image) %>
   </div>
 
   <div class="article">

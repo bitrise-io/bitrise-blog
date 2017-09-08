@@ -1,0 +1,16 @@
+<%= content_for :html_title, "Results for '#{@search_query}'" %>
+<%= content_for :og_title, "Results for '#{@search_query}'" %>
+<%= content_for :og_description, "Bitrise Blog - Mobile Continuous Integration and Delivery for your whole team, with dozens of integrations for your favourite services." %>
+<%= render :partial => 'hero' %>
+<div class="category-content">
+  <div class="category-header">
+    <!-- Category name -->
+    <h2>Articles for <span class="category-name">'<%= @search_query %>'</span></h2>
+  </div>
+
+  <!-- List of posts -->
+  <%= react_component('SearchArticles', {searchQuery: @search_query}) %>
+
+
+</div>
+<%= render :partial => 'buttercms/base/try_bitrise' %>

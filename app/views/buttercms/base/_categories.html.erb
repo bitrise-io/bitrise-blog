@@ -1,8 +1,1 @@
-<div class="categories">
-  <div class="content-wrapper">
-    <% @categories.each do |category| %>
-      <a class="category screen" href="#"><%= category.name %></a>
-    <% end %>
-    <a class="category tablet" href="#">select category</a>
-  </div>
-</div>
+<%= react_component('Categories', { categories: @categories.map{|c| {path: buttercms_category_path(c.slug), name: c.name.capitalize}} }) %>

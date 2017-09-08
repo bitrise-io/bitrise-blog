@@ -1,22 +1,12 @@
 <%= content_for :html_title, "#{@author.first_name} #{@author.last_name}" %>
 <%= content_for :meta_description, @author.bio %>
+<%= content_for :og_title, "Bitrise Blog - All articles by #{@author.first_name} #{@author.last_name}" %>
+<%= content_for :og_description, "Bitrise Blog - Mobile Continuous Integration and Delivery for your whole team, with dozens of integrations for your favourite services." %>
+<%= content_for :og_image, "https://bitrise-public-content-production.s3.amazonaws.com/meta/bitrise-1200x630.png" %>
 
-<!-- Author name -->
-<h2><%= @author.first_name %> <%= @author.last_name %></h2>
-
-<!-- Author profile -->
-<% if @author.profile_image %>
-  <img src="<%= @author.profile_image %>" />
-<% end %>
-
-<p>Title: <%= @author.title %></p>
-<p>Bio: <%= @author.bio %></p>
-
-<!-- Recent posts -->
-<h4>Recent posts</h4>
-
-<ul>
-  <% @author.recent_posts.each do |post| %>
-    <li><%= render :partial => 'buttercms/posts/post', :locals => {:post => post} %></li>
-  <% end %>
-</ul>
+<%= render partial: 'author_header', locals: {author: @author} %>
+<div class="author-content">
+  <!-- List of posts -->
+  <%= react_component('AuthorArticles', {author: @author}) %>
+</div>
+<%= render :partial => 'buttercms/base/try_bitrise' %>

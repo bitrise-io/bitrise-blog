@@ -1,13 +1,18 @@
-<%= content_for :html_title, @category.name %>
+<%= content_for :html_title, @category.name.capitalize %>
+<%= content_for :og_title, "Bitrise Blog - Posts in #{@category.name.capitalize}" %>
+<%= content_for :og_description, "Bitrise Blog - Mobile Continuous Integration and Delivery for your whole team, with dozens of integrations for your favourite services." %>
+<%= content_for :og_image, "https://bitrise-public-content-production.s3.amazonaws.com/meta/bitrise-1200x630.png" %>
+<%= render :partial => 'hero' %>
 
-<!-- Category name -->
-<h2><%= @category.name %></h2>
+<div class="category-content">
+  <div class="category-header">
+    <!-- Category name -->
+    <h2>Articles for <span class="category-name"><%= @category.name %></span></h2>
+  </div>
 
-<!-- Recent posts -->
-<h4>Recent posts</h4>
+  <!-- List of posts -->
+  <%= react_component('CategoryArticles', {category: @category}) %>
 
-<ul>
-  <% @category.recent_posts.each do |post| %>
-    <li><%= render :partial => 'buttercms/posts/post', :locals => {:post => post} %></li>
-  <% end %>
-</ul>
+
+</div>
+<%= render :partial => 'buttercms/base/try_bitrise' %>

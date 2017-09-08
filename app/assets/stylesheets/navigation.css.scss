@@ -1,88 +1,247 @@
-.navigation {
-  position: fixed;
-  background-color: #8151a8;
-  width: 100%;
-  top: 0;
-  left: 0;
+@import "default";
+@import "constants";
 
- .navigation-bar {
-   display: flex;
-   flex-direction: row;
-   justify-content: space-between;
-   letter-spacing: 0.5px;
-   z-index: 100;
-   width: 100%;
-   height: 83px;
-   align-items: center;
+nav {
+  $navbar-height: 83px;
+  $navbar-height-sm: 63px;
+  @include position(fixed, 0, 0);
+  z-index: 500;
 
-   .burger {
-     width: 83px;
-     height: 83px;
-     outline: none;
-     background-image: image-url('burger.svg');
-     background-size: 27px auto;
-     background-position: center;
-     background-color: transparent;
-     background-repeat: no-repeat;
-     cursor: pointer;
-   }
+  @include media-above-inclusive-small {
+    @include size(100%, $navbar-height);
+  }
 
-    .logo {
-      background-image: asset-url("logo.svg");
-      background-size: 116px auto;
-      background-color: #3bc3a3;
-      background-position: center;
-      width: 160px;
-      height: 45px;
-      border-radius: 3px;
-      background-repeat: no-repeat;
-      display: block;
-      padding: 0;
+  @include media-below-small {
+    @include size(100%, $navbar-height-sm);
+  }
+
+  &:before {
+    content: "";
+    @include position(absolute, 0, 0);
+    @include size(100%);
+    background-color: $v3_default_purple;
+  }
+  .menu-content {
+    @include position(absolute, 0, 0);
+    @include display-flex;
+    @include size(100%);
+    @include align-items(center);
+    @include box-sizing(border-box);
+
+    @include media-above-inclusive-big {
+      padding: $navbar-padding-y $navbar-padding-x;
     }
 
-    a {
-      padding: 16px 10px;
-      margin-left: 4px;
-      margin-right: 4px;
-      padding: 16px 10px;
-      font-size: 14px;
-      font-weight: 300;
-      color: white;
-      text-decoration: none;
-      transition: color 0.2s;
+    @include media-below-big {
+      padding: $navbar-padding-y 28px;
+    }
 
-      &:hover {
-        color: black;
+    a.logo {
+      @include border-radius($v3_default_radius);
+      background-color: $v3_default_green;
+
+      @include media-above-inclusive-small {
+        padding: 10px 20px;
       }
 
-      &.login {
-        border: 1px solid white;
-        padding: 10px;
-        font-weight: 500;
-        border-radius: 3px;
+      @include media-below-small {
+        padding: 8px 16px;
+      }
 
-        &:hover {
-          background-color: white;
-          color: #8151a8;
+      svg {
+        @include media-above-inclusive-small {
+          @include size(115px, 30px);
         }
-      }
 
-      &.signup {
-        margin-right: 20px;
-        padding: 11px 35px;
-        background-color: #3bc3a3;
-        border-radius: 3px;
-        font-weight: 500;
-
-        &:hover {
-          background-color: #3aa792;
-          color: #fff;
+        @include media-below-small {
+          @include size(86px, 23px);
         }
       }
     }
 
-    .spacer {
-      flex-grow: 1;
+    @include media-above-inclusive-big {
+      ul.menu-options {
+        @include flex-grow(1);
+        @include display-flex;
+        @include align-items(stretch);
+        @include align-self(stretch);
+        @include margin-y(0);
+        padding-left: 0;
+        list-style: none;
+
+        li.menu-option {
+          @include display-flex;
+          @include align-items(stretch);
+
+          &:hover a {
+            color: black;
+          }
+
+          a {
+            @include padding-x(20px);
+            text-decoration: none;
+            @include display-flex;
+            @include align-items(center);
+            color: white;
+            @include transition(color $default_transitiontime_short);
+          }
+        }
+
+        li.side-menu-options {
+          @include display-flex;
+          @include align-items(center);
+          margin-left: auto;
+
+          ul {
+            @include display-flex;
+            @include margin-y(0);
+            padding-left: 0;
+            list-style: none;
+
+            li {
+              margin-left: 10px;
+              white-space: nowrap;
+              @include transition(border-color $default_transitiontime_short, color $default_transitiontime_short, background-color $default_transitiontime_short);
+
+              a {
+                display: block;
+                @include padding-y(10px);
+              }
+
+              &.login {
+                @include border-radius($v3_default_radius);
+                border: 1px solid white;
+
+                &:hover, &:focus {
+                  background-color: white;
+                  a {
+                    color: $v3_default_purple;
+                  }
+                }
+              }
+
+              &.login a {
+                @include padding-x(15px);
+                color: white;
+                text-decoration: none;
+                font-weight: 300;
+              }
+
+              &.signup {
+                @include border-radius($v3_default_radius);
+                background-color: $v3_default_green;
+                border: 1px solid $v3_default_green;
+
+                &:hover, &:focus {
+                  background-color: $v3_default_green_tint;
+                  border-color: $v3_default_green_tint;
+                }
+              }
+
+              &.signup a {
+                @include padding-x(35px);
+                color: white;
+                text-decoration: none;
+                font-weight: 300;
+              }
+            }
+          }
+        }
+      }
+      button.burger {
+        display: none;
+      }
+    }
+    @include media-below-big {
+      ul.menu-options {
+        @include position(absolute, null, 0, 0);
+        z-index: -1;
+        width: 100%;
+        @include margin-y(0);
+        padding-left: 0;
+        list-style: none;
+        background-color: $v3_default_purple_tint;
+        color: white;
+        @include transition(transform 0.3s);
+
+        &.opened {
+          @include transform(translateY(100%));
+        }
+
+        .side-menu-options ul {
+          @include margin-y(0);
+          padding-left: 0;
+          list-style: none;
+        }
+        li.menu-option, li.side-menu-option {
+          border-bottom: 1px solid $v3_default_purple;
+
+          a {
+            display: block;
+            padding: 16px $navbar-padding-x;
+            font-size: 14px;
+            font-weight: 300;
+            color: white;
+            text-decoration: none;
+            @include transition(background-color $default_transitiontime_short);
+
+            &:hover, &:focus {
+              background-color: $default_purpletint;
+            }
+          }
+        }
+
+        li.side-menu-option.signup a {
+          font-weight: 500;
+        }
+      }
+      button.burger {
+        margin-left: auto;
+        border: none;
+        padding: 0;
+        background-color: transparent;
+        cursor: pointer;
+        @include transition(background-color $default_transitiontime_short);
+        @include no-focus-styling;
+
+        @include media-above-inclusive-big {
+          margin-right: -$navbar-padding-x;
+          margin-top: -$navbar-padding-y;
+        }
+
+        @include media-below-big {
+          margin-right: -28px;
+          margin-top: 0;
+        }
+
+        @include media-above-inclusive-small {
+          @include size($navbar-height, $navbar-height);
+
+          svg {
+            @include size(27px);
+            fill: white;
+          }
+        }
+
+        @include media-below-small {
+          @include size($navbar-height-sm, $navbar-height-sm);
+
+          svg {
+            @include size(21px);
+            fill: white;
+          }
+        }
+
+        &:hover, &:focus, &.open {
+          background-color: $v3_default_purple_tint;
+        }
+
+        &.open {
+          &:hover, &:focus {
+            background-color: $default_purpletint;
+          }
+        }
+      }
     }
   }
 }

@@ -1,36 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 18.1.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 25 19" width="25" height="19" enable-background="new 0 0 25 19" xml:space="preserve">
-<g id="Layer_2">
-	<g>
-		<defs>
-			<rect id="SVGID_1_" x="97.6" y="371" width="1599.4" height="1202"/>
-		</defs>
-		<clipPath id="SVGID_2_">
-			<use xlink:href="#SVGID_1_"  overflow="visible"/>
-		</clipPath>
-		<g clip-path="url(#SVGID_2_)">
-			<g>
-				
-					<ellipse transform="matrix(0.7071 0.7071 -0.7071 0.7071 1081.6704 -431.5464)" fill="none" stroke="#34A38E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="1061.8" cy="1089.9" rx="1529.9" ry="689.5"/>
-				
-					<ellipse transform="matrix(0.7071 0.7071 -0.7071 0.7071 975.4141 -285.0209)" fill="none" stroke="#34A38E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="831.8" cy="1034.9" rx="1529.9" ry="689.5"/>
-			</g>
-		</g>
-	</g>
-</g>
-<g id="Layer_1">
-	<g>
-		<g>
-			<rect fill="#FFFFFF" width="25" height="3"/>
-		</g>
-		<g>
-			<rect y="8" fill="#FFFFFF" width="25" height="3"/>
-		</g>
-		<g>
-			<rect y="16" fill="#FFFFFF" width="25" height="3"/>
-		</g>
-	</g>
-</g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 526.3 400">
+  <rect width="526.3" height="63.2"/>
+  <rect y="168.4" width="526.3" height="63.2"/>
+  <rect y="336.8" width="526.3" height="63.2"/>
 </svg>

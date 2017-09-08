@@ -1,0 +1,18 @@
+<%= content_for :html_title, @tag.name.capitalize %>
+<%= content_for :og_title, "Bitrise Blog - Posts for #{@tag.name.capitalize}" %>
+<%= content_for :og_description, "Bitrise Blog - Mobile Continuous Integration and Delivery for your whole team, with dozens of integrations for your favourite services." %>
+<%= content_for :og_image, "https://bitrise-public-content-production.s3.amazonaws.com/meta/bitrise-1200x630.png" %>
+<%= render :partial => 'hero' %>
+
+<div class="category-content">
+  <div class="category-header">
+    <!-- Category name -->
+    <h2>Articles for <span class="category-name"><%= @tag.name %></span></h2>
+  </div>
+
+  <!-- List of posts -->
+  <%= react_component('TagArticles', {tag: @tag}) %>
+
+
+</div>
+<%= render :partial => 'buttercms/base/try_bitrise' %>

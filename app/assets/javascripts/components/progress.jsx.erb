@@ -1,0 +1,18 @@
+class Progress extends React.Component {
+	constructor(){
+		super();
+	}
+
+
+	render() {
+		let progressClasses = "progress-container";
+		progressClasses += this.props.visible ? "" : " hidden";
+
+		return (
+			<% environment.context_class.instance_eval { include ApplicationHelper } %>
+			<div className={progressClasses}>
+				<%= svg('status_icon') %>
+			</div>
+		)
+	}
+}
