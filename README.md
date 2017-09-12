@@ -1,24 +1,5 @@
-# README
+# Bitrise - Blog
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Local develop environment setup
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+The first step to specify the API tokens in an environment file named `.env`. The two required keys are `BUTTER_TOKEN` and `MAILCHIMP_API_TOKEN`, which have to be declared such as `KEY=VALUE`. When it's done you just have to run `docker-compose up` and the site starts in local on the port 3000.

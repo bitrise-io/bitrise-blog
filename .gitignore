@@ -21,3 +21,7 @@
 .byebug_history
 # Added by npm-rails
 /node_modules
+
+
+# Ignore docker-compose file
+.env
