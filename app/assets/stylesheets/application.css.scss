@@ -41,7 +41,7 @@ body {
 	margin: 0;
 	-webkit-font-smoothing: subpixel-antialiased;
 	background-color: #f9fbff;
-	font-family: 'Gotham HTF', sans-serif;
+	font-family: "Gotham SSm A", "Gotham SSm B", sans-serif;
 	margin: 0;
 	height: 100%;
 	overflow: auto;
@@ -319,10 +319,11 @@ h2 {
 
 			h2 {
 				font-size: 28px;
-				font-weight: 300;
+				font-weight: 500;
 				margin: 0;
 				padding: 0;
-				line-height: 50px;
+				line-height: 34px;
+				padding-bottom: 15px;
 
 				a {
 					color: #000000;
@@ -504,13 +505,13 @@ h2 {
 		color: black;
 		font-size: 26px;
 		font-weight: bold;
-		font-family: 'Gotham HTF', sans-serif;
+		font-family: "Gotham SSm A", "Gotham SSm B", sans-serif;
 	}
 	h3 {
 		color: black;
 		font-size: 21px;
 		font-weight: bold;
-		font-family: 'Gotham HTF', sans-serif;
+		font-family: "Gotham SSm A", "Gotham SSm B", sans-serif;
 	}
 	p, ol, ul {
 		font-size: 21px;
@@ -542,7 +543,7 @@ h2 {
 
 	.author-info-container {
 		@include display-flex;
-		font-family: 'Gotham HTF', sans-serif;
+		font-family: "Gotham SSm A", "Gotham SSm B", sans-serif;
 		@include media-above-inclusive-big {
 			&::before {
 				content: "";
@@ -559,7 +560,7 @@ h2 {
 	.post-title {
 		@include display-flex;
 		font-size: 40px;
-		font-family: 'Gotham HTF', sans-serif;
+		font-family: "Gotham SSm A", "Gotham SSm B", sans-serif;
 		margin: 0;
 		@include media-above-inclusive-big {
 			&::before {
@@ -579,7 +580,7 @@ h2 {
 		@include align-items(center);
 		@include flex-wrap(wrap);
 		margin: 10px auto;
-		font-family: 'Gotham HTF', sans-serif;
+		font-family: "Gotham SSm A", "Gotham SSm B", sans-serif;
 
 		.publish-date {
 			color: #959595;
@@ -779,7 +780,7 @@ h2 {
 	@include align-items(center);
 	flex-flow: column;
 	padding: 20px 0;
-	font-family: 'Gotham HTF', sans-serif;
+	font-family: "Gotham SSm A", "Gotham SSm B", sans-serif;
 
 	& h3 {
 		color: #959595;
