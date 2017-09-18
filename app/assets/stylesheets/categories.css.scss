@@ -214,7 +214,7 @@
 					width: 210px;
 					@include no-focus-styling;
 					color: $v3_default_purple;
-					font-family: 'Gotham HTF', sans-serif;
+					font-family: "Gotham SSm A", "Gotham SSm B", sans-serif;
 
 					&::placeholder {
 						color: #b99dd2;
@@ -266,7 +266,7 @@
 	line-height: 45px;
 	font-size: 12px;
 	@include no-focus-styling;
-	font-family: 'Gotham HTF', sans-serif;
+	font-family: "Gotham SSm A", "Gotham SSm B", sans-serif;
 	opacity: 100;
 
 	@include media-above-inclusive-big {
