@@ -673,6 +673,29 @@ h2 {
 				padding-left: $padding-left;
 			}
 		}
+		table {
+			border: 1px solid #EBEBEB;
+			border-radius: 10px;
+			border-spacing: 0;
+
+			tr:first-child {
+				background-color: #f4f4f4;
+
+				td:first-child {
+					border-top-left-radius: 10px;
+				}
+				td:last-child {
+					border-top-right-radius: 10px;
+				}
+			}
+
+			td {
+				border: none;
+				border: 1px solid #EBEBEB;
+				padding: 10px;
+				font-family: "Gotham SSm A", "Gotham SSm B", sans-serif;
+			}
+		}
 	}
 	& .next-post {
 		width: $row-width;
