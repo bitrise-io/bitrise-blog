@@ -1,5 +1,5 @@
 <%= content_for :html_title, @post.seo_title %>
-<%= content_for :meta_description, @post.meta_description %>
+<%= content_for :meta_description, @meta_description %>
 <%= content_for :og_title, @post.title %>
 <%= content_for :og_description, @post.summary %>
 <%= content_for :og_image, @post.featured_image ? @post.featured_image : image_path("post_default_image") %>
@@ -10,7 +10,7 @@
 <div class="post-content">
   <!-- Post author -->
   <div class="author-info-container">
-    <%= render partial: "author", locals: {author: @post.author} %>
+    <%= render partial: "author", locals: {author: @post.author, co_authors: @co_authors} %>
   </div>
 
   <!-- Post title -->

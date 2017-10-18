@@ -3,7 +3,6 @@ class Buttercms::AuthorsController < Buttercms::BaseController
 
 	def show
 		@author = ButterCMS::Author.find(params[:slug])
-		puts @author.inspect
 	end
 
 	def fetch_posts
