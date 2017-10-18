@@ -926,31 +926,42 @@ h2 {
 	margin: 0 auto;
 	@include display-flex;
 	@include align-items(center);
-	padding: 62px 0px 45px 0px;
-	a {
-		text-decoration: none;
-		color: #252525;
-		@include transition(color $default_transitiontime_short);
+	@include flex-wrap(wrap);
+	padding: 62px 0px 20px 0px;
 
-		&:hover {
+	.author-container {
+		@include display-flex;
+		@include align-items(center);
+		@include flex-grow(1);
+		padding-right: 10px;
+		padding-bottom: 25px;
+		width: 100%;
+
+		a {
+			text-decoration: none;
+			color: #252525;
+			@include transition(color $default_transitiontime_short);
+
+			&:hover {
+				color: #959595;
+			}
+
+			@include media-above-inclusive-small {
+				white-space: nowrap;
+			}
+		}
+		img {
+			max-width: 60px;
+			border-radius: 50px;
+		}
+		.name-and-title {
+			margin-left: 17px;
+		}
+		.name-and-title p {
+			margin: 0;
 			color: #959595;
+			font-size: 14px;
 		}
-
-		@include media-above-inclusive-small {
-			white-space: nowrap;
-		}
-	}
-	img {
-		max-width: 60px;
-		border-radius: 50px;
-	}
-	.name-and-title {
-		margin-left: 17px;
-	}
-	.name-and-title p {
-		margin: 0;
-		color: #959595;
-		font-size: 14px;
 	}
 }
 .progress-container {

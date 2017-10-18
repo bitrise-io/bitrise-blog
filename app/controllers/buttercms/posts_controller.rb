@@ -14,6 +14,9 @@ class Buttercms::PostsController < Buttercms::BaseController
 	def show
 		@post = ButterCMS::Post.find(params[:slug])
 
+		meta_description_elements = parse_meta_description(@post.meta_description)
+		@meta_description = meta_description_elements[:meta_description].strip!
+		@authors = get_authors([@post.author.slug] + meta_description_elements[:authors])
 		@next_post = @post.meta.next_post
 		@previous_post = @post.meta.previous_post
 	end
@@ -76,5 +79,27 @@ private
 	def set_variables
 		@categories = ButterCMS::Category.all
 		@tags = ButterCMS::Tag.all
+	end
+
+	def parse_meta_description(description)
+		elements = description.split("*")
+		meta_description = elements.first
+		authors = elements[1..elements.length]
+		return {
+			meta_description: meta_description,
+			authors: authors
+		}
+	end
+
+	def get_authors(author_slugs)
+		authors = []
+		author_slugs.each do |author_slug|
+			begin
+				authors << ButterCMS::Author.find(author_slug)
+			rescue => ex
+				puts "[!] Exception: Author not found by slug (#{author_slug})! Exception: #{ex}, #{ex.inspect}"
+			end
+		end
+		return authors
 	end
 end
