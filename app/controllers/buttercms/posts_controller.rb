@@ -16,14 +16,8 @@ class Buttercms::PostsController < Buttercms::BaseController
 
 		meta_description_elements = parse_meta_description(@post.meta_description)
 		@meta_description = meta_description_elements[:meta_description].strip!
-		@co_authors = []
-		meta_description_elements[:authors].each do |author|
-			begin
-				@co_authors << ButterCMS::Author.find(author)
-			rescue => ex
-				puts "Author not found by slug (#{author})! Exception: #{ex}, #{ex.inspect}"
-			end
-		end
+		@authors = get_authors([@post.author.slug] + meta_description_elements[:authors])
+		puts @authors.inspect
 		@next_post = @post.meta.next_post
 		@previous_post = @post.meta.previous_post
 	end
@@ -96,5 +90,17 @@ private
 			meta_description: meta_description,
 			authors: authors
 		}
+	end
+
+	def get_authors(author_slugs)
+		authors = []
+		author_slugs.each do |author_slug|
+			begin
+				authors << ButterCMS::Author.find(author_slug)
+			rescue => ex
+				puts "Author not found by slug (#{author_slug})! Exception: #{ex}, #{ex.inspect}"
+			end
+		end
+		return authors
 	end
 end
