@@ -518,7 +518,7 @@ h2 {
 		font-size: 21px;
 	}
 	pre {
-		background-color: #EBEBEB;
+		// background-color: #EBEBEB;
 		font-size: 16px;
 		padding: 15px;
 		line-height: 120%;
@@ -642,6 +642,7 @@ h2 {
 	}
 	& .post-body {
 		@include flex-grow(1);
+		min-width: 0;
 
 		img {
 			max-width: 100%;
