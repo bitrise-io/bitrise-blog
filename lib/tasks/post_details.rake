@@ -1,6 +1,6 @@
 desc "Prints the details of the posts to the standard output"
 task :post_details, [:page_size, :page_index] => :environment do |t, args|
-	page_size = args.page_size ? args.page_size : 10000
+	page_size = args.page_size ? args.page_size : 100
 	page_index = args.page_index ? args.page_index : 1
 	posts = ButterCMS::Post.all(page_size: page_size, page: page_index)
 
