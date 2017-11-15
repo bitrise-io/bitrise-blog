@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html prefix="og: http://ogp.me/ns#">
 <head>
-    <title><%= content_for?(:html_title) ? "#{content_for(:html_title)} | Bitrise Blog" : "Bitrise Blog" %></title>
+    <title><%= content_for?(:html_title) ? "#{html_escape_characters(content_for(:html_title))} | Bitrise Blog" : "Bitrise Blog" %></title>
 
     <meta name="description" content="<%= content_for?(:meta_description) ? content_for(:meta_description) : "Articles about Continuous Integration & Delivery, automation, iOS code signing, DevOps, and awesome tech" %>">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
