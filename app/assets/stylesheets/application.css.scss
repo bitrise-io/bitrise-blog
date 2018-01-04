@@ -24,6 +24,10 @@
 
 $sidebar-width: 195px;
 
+* {
+	-webkit-overflow-scrolling: touch;
+}
+
 html {
 	@include display-flex;
 	@include flex-direction(column);
