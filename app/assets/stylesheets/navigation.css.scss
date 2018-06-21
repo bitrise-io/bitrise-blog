@@ -37,9 +37,6 @@ nav {
     }
 
     a.logo {
-      @include border-radius($v3_default_radius);
-      background-color: $v3_default_green;
-
       @include media-above-inclusive-small {
         padding: 10px 20px;
       }
