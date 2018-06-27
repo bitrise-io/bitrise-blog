@@ -1,4 +1,4 @@
-FROM ruby:2.2
+FROM ruby:2.2.9
 
 RUN apt-get update -qq && apt-get install
 RUN apt-get install -y nodejs npm
