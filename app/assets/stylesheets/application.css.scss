@@ -646,6 +646,9 @@ h2 {
 	& .post-body {
 		@include flex-grow(1);
 		min-width: 0;
+		strong {
+			word-break: break-all;
+		}
 
 		img {
 			max-width: 100%;

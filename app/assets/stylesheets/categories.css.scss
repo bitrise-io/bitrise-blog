@@ -1,15 +1,18 @@
+@import "default";
+@import "constants";
+
 .categories {
 	position: absolute;
 	width: 100%;
 	background-color: #e9d8f7;
-	z-index: 60;
+	z-index: $zindex-categories-menu;
 
 	.category-select-wrapper {
 		@include display-flex;
 		@include align-items(center);
 		background-color: #e9d8f7;
-		position: absolute;
-		z-index: 70;
+		position: fixed;
+		z-index: $zindex-categories-menu-list;
 		width: 100%;
 		padding-left: 28px;
 		@include box-sizing(border-box);
@@ -129,20 +132,24 @@
 		@include transition(top 0.3s);
 		margin: initial;
 		padding-left: $navbar-padding-x;
-		z-index: 50;
+		z-index: $zindex-categories-menu-background;
 		max-width: 100%;
+
+
 
 		@include media-below-big {
 			@include display-flex;
 			@include flex-direction(column);
-			position: absolute;
+			position: fixed;
 			top: -270px;
 			width: 100%;
 			padding: 0;
 			height: auto;
+			overflow: scroll;
+			max-height: calc(100% - 112px);
 
 			&.opened {
-				top: 45px;
+				top: 112px;
 			}
 		}
 

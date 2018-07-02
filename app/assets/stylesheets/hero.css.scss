@@ -1,3 +1,6 @@
+@import "default";
+@import "constants";
+
 .hero {
 
 	.hero-inner {
@@ -99,7 +102,7 @@
 								background-color: $v3_default_neon;
 								border-radius: 5px;
 								@include box-sizing(border-box);
-								z-index: 40;
+								z-index: $zindex-subscription_wrapper;
 
 								&.hidden {
 									visibility: hidden;
