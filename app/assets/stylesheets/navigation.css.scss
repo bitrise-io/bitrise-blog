@@ -5,7 +5,7 @@ nav {
   $navbar-height: 83px;
   $navbar-height-sm: 63px;
   @include position(fixed, 0, 0);
-  z-index: 500;
+  z-index: $zindex-top_navigation;
 
   @include media-above-inclusive-small {
     @include size(100%, $navbar-height);
@@ -152,7 +152,7 @@ nav {
     @include media-below-big {
       ul.menu-options {
         @include position(absolute, null, 0, 0);
-        z-index: -1;
+        z-index: $zindex-hidden_header;
         width: 100%;
         @include margin-y(0);
         padding-left: 0;
