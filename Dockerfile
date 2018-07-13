@@ -1,8 +1,9 @@
-FROM ruby:2.2.9
+FROM ruby:2.5.1
 
 RUN apt-get update -qq && apt-get install
+RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
 RUN apt-get install -y nodejs npm
-RUN apt-get install -y nodejs-legacy
+# RUN apt-get install -y nodejs-legacy
 
 # Configure the main working directory. This is the base
 # directory used in any further RUN, COPY, and ENTRYPOINT
