@@ -1,13 +1,15 @@
 <!DOCTYPE html>
-<html prefix="og: http://ogp.me/ns#">
+<html prefix="og: http://ogp.me/ns#" lang="en">
 <head>
     <title><%= (content_for?(:html_title) ? "#{content_for(:html_title)} | Bitrise Blog" : "Bitrise Blog").html_safe %></title>
 
     <meta name="description" content="<%= content_for?(:meta_description) ? content_for(:meta_description) : "Articles about Continuous Integration & Delivery, automation, iOS code signing, DevOps, and awesome tech" %>">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta property="og:url"           content="http://blog.bitrise.io" />
+    <meta name="viewport" content="viewport-fit=cover,width=device-width,minimum-scale=1,initial-scale=1">
+    <link rel="canonical" href="https://blog.bitrise.io/<%= content_for(:canonical_url) %>" />
+    <meta property="fb:app_id"        content="649161285439710" />
+    <meta property="og:url"           content="https://blog.bitrise.io/<%= content_for(:canonical_url) %>" />
     <meta property="og:site_name"     content="Bitrise Blog" />
-    <meta property="og:type"          content="website" />
+    <meta property="og:type"          content="article" />
     <meta property="og:title"         content="<%= content_for(:og_title) %>" />
     <meta property="og:description"   content="<%= content_for(:og_description) %>" />
     <meta property="og:image"         content="<%= content_for(:og_image) %>">
@@ -30,10 +32,12 @@
     <%= stylesheet_link_tag '//cloud.typography.com/7981312/721124/css/fonts.css' %>
     <link rel="stylesheet" media="screen" href="https://cloud.typography.com/7981312/721124/css/fonts.css">
     <link rel="stylesheet" media="screen" href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,300,200,500,600,700,900">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/themes/prism-okaidia.min.css">
     <script src="https://unpkg.com/react@15/dist/react.min.js"></script>
     <script src="https://unpkg.com/react-dom@15/dist/react-dom.min.js"></script>
     <script src="https://use.typekit.net/etp1mcx.js"></script>
     <script>try{Typekit.load({ async: true });}catch(e){}</script>
+
 </head>
 <body>
 
@@ -53,7 +57,19 @@
     ga('create', '<%= ENV['GA_TOKEN'] %>', 'auto');
     ga('send', 'pageview');
   </script>
-  <script src="prism.js"></script>
+
   <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/components/prism-core.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/components/prism-yaml.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/components/prism-json.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/components/prism-bash.min.js"></script>
+  <script>
+  (function() {
+    setTimeout( () => {
+      Prism.highlightAll();
+    }, 0)
+  })(Prism);
+  </script>
 </body>
 </html>

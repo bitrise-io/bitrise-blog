@@ -3,6 +3,7 @@
 <%= content_for :og_title, @post.title %>
 <%= content_for :og_description, @post.summary %>
 <%= content_for :og_image, @post.featured_image ? @post.featured_image : image_path("post_default_image") %>
+<%= content_for :canonical_url, @post.slug %>
 <% @image_size = FastImage.size(@post.featured_image) %>
 <%= content_for :og_image_width, @post.featured_image ? FastImage.size(@post.featured_image)[0].to_s : 1200.to_s %>
 <%= content_for :og_image_height, @post.featured_image ? FastImage.size(@post.featured_image)[1].to_s : 628.to_s %>
@@ -30,7 +31,7 @@
 
   <!-- Post featured image -->
   <div class="post-featured-image">
-    <img src="<%= @post.featured_image %>">
+    <img src="<%= @post.featured_image %>" alt="<%= @post.title %>">
   </div>
 
   <!-- Post body -->

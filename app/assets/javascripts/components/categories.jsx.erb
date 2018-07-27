@@ -54,7 +54,8 @@ class Categories extends React.Component {
 					<div className="search-mobile">
 						<div className="search-wrapper">
 							<%= svg('search') %>
-							<input id="searchKeyWordMobile" type="text" placeholder="Search articles..." />
+							<input id="searchKeyWordMobile" name="searchKeyWordMobile" type="text" placeholder="Search articles..." />
+
 						</div>
 					</div>
 					<a href="/" title="Home" className="category home" >
@@ -65,7 +66,7 @@ class Categories extends React.Component {
 					<div className="search-container desktop">
 						<div className="search-wrapper">
 							<%= svg('search') %>
-							<input id="searchKeyWord" type="text" placeholder="Search articles" />
+							<input id="searchKeyWord" name="searchKeyWord" type="text" placeholder="Search articles" />
 						</div>
 					</div>
 				</div>
