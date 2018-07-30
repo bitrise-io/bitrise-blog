@@ -1,6 +1,6 @@
 <div class="author-info">
     <div class="author-container">
-        <img src="<%= author.profile_image.eql?("") ? image_path('blog_default_avatar') : author.profile_image %>">
+        <img alt="<%= author.first_name %> <%= author.last_name %> avatar" src="<%= author.profile_image.eql?("") ? image_path('blog_default_avatar') : author.profile_image %>">
         <div class="name-and-title">
             <%= link_to "#{author.first_name} #{author.last_name}", buttercms_author_path(author.slug) %>
             <% if !author.title.eql? "" %>
