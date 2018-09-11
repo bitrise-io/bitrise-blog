@@ -32,29 +32,49 @@ SitemapGenerator::Sitemap.create do
   #   end
 
   add '/'
-  add '/rss'
-  add '/atom'
 
   @tags = ButterCMS::Tag.all()
   @categories = ButterCMS::Category.all()
   @authors = ButterCMS::Author.all()
-  @posts = ButterCMS::Post.all(
-    page: 1,
-    page_size: 100000
-  )
 
-  @tags.find_each do |a_tag|
-    add buttercms_tag_path(a_tag)
+  page = 1
+  loop do
+    posts = ButterCMS::Post.all(
+      page: page,
+      page_size: 100
+    )
+    page = posts.meta.next_page
+
+    posts.each do |a_post|
+      if a_post.slug.present?
+        add buttercms_post_path(a_post.slug), :lastmod => a_post.published
+      end
+    end
+
+    break if page.nil?
   end
-  @categories.find_each do |a_categories|
-    add buttercms_tag_path(a_categories)
+
+  @authors.each do |an_author|
+    if an_author.slug.present?
+      add buttercms_author_path(an_author.slug)
+    end
   end
-  @authors.find_each do |an_authors|
-    add buttercms_tag_path(an_authors)
+
+  @tags.each do |a_tag|
+    if a_tag.slug.present?
+      add buttercms_tag_path(a_tag.slug)
+    end
   end
-  @posts.find_each do |a_post|
-    add buttercms_post_path(a_post), :lastmod => a_post.updated_at
+
+  @categories.each do |a_category|
+    if a_category.slug.present?
+      add buttercms_category_path(a_category.slug)
+    end
   end
+
+  add '/rss'
+  add '/atom'
 end
 
-SitemapGenerator::Sitemap.ping_search_engines
+# Not needed if you use the rake tasks
+# SitemapGenerator::Sitemap.ping_search_engines
