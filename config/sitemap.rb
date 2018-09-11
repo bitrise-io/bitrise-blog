@@ -3,9 +3,10 @@ require 'sitemap_generator'
 
 # Set the host name for URL creation
 SitemapGenerator::Sitemap.default_host = "https://blog.bitrise.io"
-SitemapGenerator::Sitemap.include_root = true
-SitemapGenerator::Sitemap.compress = false
 SitemapGenerator::Sitemap.create_index = true
+SitemapGenerator::Sitemap.public_path = 'public/sitemaps/'
+SitemapGenerator::Sitemap.include_root = true
+SitemapGenerator::Sitemap.compress = true
 
 SitemapGenerator::Sitemap.create do
   # Put links creation logic here.
