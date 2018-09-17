@@ -506,6 +506,11 @@ h2 {
 		padding: 0 20px;
 		@include box-sizing(border-box);
 	}
+
+	h1, h2, h3, p, ol, ul, pre, pre code, p code, li code {
+		word-wrap: break-word;
+	}
+
 	h2 {
 		color: black;
 		font-size: 26px;
@@ -526,7 +531,6 @@ h2 {
 		padding: 15px;
 		line-height: 120%;
 		white-space: pre-wrap;
-		word-wrap: break-word;
 
 		code {
 			font-family: 'Source Code Pro';
@@ -538,7 +542,6 @@ h2 {
 		padding: 1px 5px;
 		font-size: 16px;
 		font-family: 'Source Code Pro';
-		word-wrap: break-word;
 	}
 
 	p iframe {
@@ -577,6 +580,9 @@ h2 {
 				@include flex-shrink(0);
 				width: $sidebar-width;
 			}
+		}
+		@include media-below-inclusive-big {
+			font-size: 32px;
 		}
 	}
 	.publish-date-and-tags {
