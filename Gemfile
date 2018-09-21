@@ -14,6 +14,8 @@ gem 'underscore-rails'
 gem 'rest-client'
 gem 'fastimage'
 gem 'npm-rails'
+gem 'aws-sdk'
+gem 'sitemap_generator'
 
 group :development, :test do
   gem 'byebug', platform: :mri

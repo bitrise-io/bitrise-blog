@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get "/sitemap.xml.gz" => "sitemaps#sitemap", format: :xml, as: :sitemap
+
   scope :module => 'buttercms' do
     post '/subscribe_user' => 'base#subscribe_user'
 
@@ -19,7 +21,8 @@ Rails.application.routes.draw do
 
     get '/rss' => 'feeds#rss', :format => 'rss', :as => :buttercms_blog_rss
     get '/atom' => 'feeds#atom', :format => 'atom', :as => :buttercms_blog_atom
-    get '/sitemap.xml' => 'feeds#sitemap', :format => 'xml', :as => :buttercms_blog_sitemap
+    # get '/sitemap.xml' => 'feeds#sitemap', :format => 'xml', :as => :buttercms_blog_sitemap
+
 
     # Redirects
     get '/2017/09/04/august-highlights.html', to: redirect('/august-highlights')
