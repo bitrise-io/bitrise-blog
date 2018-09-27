@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  get "/sitemap.xml.gz" => "sitemaps#sitemap", format: :xml, as: :sitemap
+  get "/sitemap.xml" => "sitemaps#sitemap", format: :xml, as: :sitemap
 
   scope :module => 'buttercms' do
     post '/subscribe_user' => 'base#subscribe_user'

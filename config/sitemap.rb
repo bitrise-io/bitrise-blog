@@ -1,39 +1,23 @@
 require 'rubygems'
+# require 'aws-sdk'
 require 'sitemap_generator'
 
 # Set the host name for URL creation
 SitemapGenerator::Sitemap.default_host = "https://blog.bitrise.io"
-SitemapGenerator::Sitemap.create_index = true
-SitemapGenerator::Sitemap.public_path = 'public/sitemaps/'
+SitemapGenerator::Sitemap.create_index = false
+SitemapGenerator::Sitemap.public_path = 'tmp/'
+SitemapGenerator::Sitemap.sitemaps_path = 'sitemaps/'
+SitemapGenerator::Sitemap.sitemaps_host = "https://s3.amazonaws.com/#{ ENV['AWS_S3_BUCKET'] }/sitemap.xml"
 SitemapGenerator::Sitemap.include_root = true
-SitemapGenerator::Sitemap.compress = true
+SitemapGenerator::Sitemap.compress = false
+
+SitemapGenerator::Sitemap.adapter = SitemapGenerator::AwsSdkAdapter.new("#{ENV['AWS_S3_BUCKET']}",
+  aws_access_key_id: "#{ENV['AWS_ACCESS_KEY_ID']}",
+  aws_secret_access_key: "#{ENV['AWS_SECRET_ACCESS_KEY']}",
+  aws_region: "#{ENV['AWS_REGION']}"
+)
 
 SitemapGenerator::Sitemap.create do
-  # Put links creation logic here.
-  #
-  # The root path '/' and sitemap index file are added automatically for you.
-  # Links are added to the Sitemap in the order they are specified.
-  #
-  # Usage: add(path, options={})
-  #        (default options are used if you don't specify)
-  #
-  # Defaults: :priority => 0.5, :changefreq => 'weekly',
-  #           :lastmod => Time.now, :host => default_host
-  #
-  # Examples:
-  #
-  # Add '/articles'
-  #
-  #   add articles_path, :priority => 0.7, :changefreq => 'daily'
-  #
-  # Add all articles:
-  #
-  #   Article.find_each do |article|
-  #     add article_path(article), :lastmod => article.updated_at
-  #   end
-
-  add '/'
-
   @tags = ButterCMS::Tag.all()
   @categories = ButterCMS::Category.all()
   @authors = ButterCMS::Author.all()
@@ -48,7 +32,7 @@ SitemapGenerator::Sitemap.create do
 
     posts.each do |a_post|
       if a_post.slug.present?
-        add buttercms_post_path(a_post.slug), :lastmod => a_post.published
+        add buttercms_post_path(a_post.slug), :lastmod => a_post.published, :changefreq => 'daily', :priority => 0.9
       end
     end
 
@@ -57,19 +41,19 @@ SitemapGenerator::Sitemap.create do
 
   @authors.each do |an_author|
     if an_author.slug.present?
-      add buttercms_author_path(an_author.slug)
+      add buttercms_author_path(an_author.slug), :changefreq => 'monthly', :priority => 0.8
     end
   end
 
   @tags.each do |a_tag|
     if a_tag.slug.present?
-      add buttercms_tag_path(a_tag.slug)
+      add buttercms_tag_path(a_tag.slug), :changefreq => 'monthly', :priority => 0.7
     end
   end
 
   @categories.each do |a_category|
     if a_category.slug.present?
-      add buttercms_category_path(a_category.slug)
+      add buttercms_category_path(a_category.slug), :changefreq => 'monthly', :priority => 0.6
     end
   end
 
