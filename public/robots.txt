@@ -4,4 +4,4 @@
 # User-agent: *
 # Disallow: /
 
-Sitemap: https://blog.bitrise.io/sitemap.xml.gz
+Sitemap: https://blog.bitrise.io/sitemap.xml

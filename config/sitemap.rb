@@ -1,5 +1,4 @@
 require 'rubygems'
-# require 'aws-sdk'
 require 'sitemap_generator'
 
 # Set the host name for URL creation
