@@ -8,7 +8,11 @@ class PostContent extends React.Component {
 	}
 
 	componentDidMount() {
-		let postTitle = this.props.post_title;
+		let hashTag = "%23";
+		let pipe = "%7C";
+		let space = "%20";
+		let newLine = "%0D%0A";
+		let postTitle = this.props.post_title + space + pipe + space + hashTag + "bitrise" + newLine + this.props.post_summary + newLine;
 		var parentClass = this;
 		$("body").on("scroll", function(e){
 			let sideShareVisible = true;
