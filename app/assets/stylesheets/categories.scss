@@ -167,6 +167,7 @@
         width: 210px;
         @include no-focus-styling;
         color: white;
+        @include base-font;
 
         &::placeholder {
           color: white;
@@ -219,7 +220,6 @@
           width: 210px;
           @include no-focus-styling;
           color: $v3_default_purple;
-          font-family: 'Gotham SSm A', 'Gotham SSm B', sans-serif;
 
           &::placeholder {
             color: #b99dd2;
@@ -264,6 +264,7 @@
 }
 
 .category-select {
+  @include base-font;
   background-color: #e9d8f7;
   width: 100%;
   text-transform: uppercase;
@@ -274,7 +275,6 @@
   line-height: 45px;
   font-size: 12px;
   @include no-focus-styling;
-  font-family: 'Gotham SSm A', 'Gotham SSm B', sans-serif;
   opacity: 100;
 
   @include media-above-inclusive-big {

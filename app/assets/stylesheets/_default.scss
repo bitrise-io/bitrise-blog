@@ -54,6 +54,12 @@ $screen-small: 480px;
 $screen-tiny: 360px;
 $screen-minimum: 320px;
 
+/* Fonts */
+
+@mixin base-font {
+  font-family: 'TTNorms', sans-serif;
+}
+
 /* Media Queries */
 
 @mixin media-above($value) {

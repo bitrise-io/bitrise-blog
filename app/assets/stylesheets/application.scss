@@ -43,10 +43,10 @@ body {
   @include flex-direction(column);
   @include size(100%);
   @include min-size($screen-minimum, $screen-small);
+  @include base-font;
   margin: 0;
   -webkit-font-smoothing: subpixel-antialiased;
   background-color: #f9fbff;
-  font-family: 'Gotham SSm A', 'Gotham SSm B', sans-serif;
   margin: 0;
   height: 100%;
   overflow: auto;
@@ -497,7 +497,6 @@ h2 {
   $row-width: 700px;
   width: 1084px;
   margin: 0 auto;
-  font-family: 'freight-text-pro', serif;
 
   @media screen and (max-width: 1084px) {
     width: 100%;
@@ -522,18 +521,17 @@ h2 {
     color: black;
     font-size: 26px;
     font-weight: bold;
-    font-family: 'Gotham SSm A', 'Gotham SSm B', sans-serif;
   }
   h3 {
     color: black;
     font-size: 21px;
     font-weight: bold;
-    font-family: 'Gotham SSm A', 'Gotham SSm B', sans-serif;
   }
   p,
   ol,
   ul {
-    font-size: 21px;
+    font-size: 19px;
+    line-height: 1.5;
   }
   pre {
     font-size: 16px;
@@ -560,7 +558,7 @@ h2 {
 
   .author-info-container {
     @include display-flex;
-    font-family: 'Gotham SSm A', 'Gotham SSm B', sans-serif;
+
     @include media-above-inclusive-big {
       &::before {
         content: '';
@@ -577,7 +575,7 @@ h2 {
   .post-title {
     @include display-flex;
     font-size: 40px;
-    font-family: 'Gotham SSm A', 'Gotham SSm B', sans-serif;
+
     margin: 0;
     @include media-above-inclusive-big {
       &::before {
@@ -600,7 +598,6 @@ h2 {
     @include align-items(center);
     @include flex-wrap(wrap);
     margin: 10px auto;
-    font-family: 'Gotham SSm A', 'Gotham SSm B', sans-serif;
 
     .publish-date {
       color: #959595;
@@ -708,7 +705,6 @@ h2 {
         border: none;
         border: 1px solid #ebebeb;
         padding: 10px;
-        font-family: 'Gotham SSm A', 'Gotham SSm B', sans-serif;
       }
 
       @include media-below-big {
@@ -877,7 +873,6 @@ h2 {
   @include align-items(center);
   flex-flow: column;
   padding: 20px 0;
-  font-family: 'Gotham SSm A', 'Gotham SSm B', sans-serif;
 
   & h3 {
     color: #959595;

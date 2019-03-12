@@ -39,7 +39,7 @@
             button {
               border-radius: 5px;
               border: none;
-              font-family: 'Gotham SSm A', 'Gotham SSm B', sans-serif;
+              @include base-font;
             }
 
             input[type='text'] {
@@ -52,7 +52,6 @@
               border: solid 2px transparent;
               @include transition(color 0.2s);
               @include no-focus-styling;
-              font-family: 'Gotham SSm A', 'Gotham SSm B', sans-serif;
 
               @media screen and (max-width: 412px) {
                 width: 100%;
