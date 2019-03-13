@@ -38,7 +38,7 @@ $v3_default_notice_blue_light: #d1ecf6;
 $v3_default_notice_blue: #00aeef;
 $v3_default_notice_blue_tint: #009dd8;
 $v3_default_blue_dark: #014358;
-$v3_default_blue: #009DD8;
+$v3_default_blue: #009dd8;
 $v3_default_blue_mediumlight: #46ccf1;
 $v3_default_blue_light: #d1ecf6;
 $v3_default_focus_blue: #91c7ef;
@@ -60,7 +60,7 @@ $v3_default_vsts_purple_hover: #5e3669;
 $v3_default_status_critical: #ff434a;
 $v3_default_status_major: #f0741f;
 $v3_default_status_minor: #ffcc00;
-$v3_default_status_none:#3bc3a3;
+$v3_default_status_none: #3bc3a3;
 
 $default_darkerergrey: #6a6a6a;
 $default_darkergrey: #959595;
@@ -141,7 +141,8 @@ $default_cardheadercontent_height_small: $default_buttonheight_small;
 $default_cardheader_verticalpadding: 12px;
 $default_cardheader_verticalpadding_small: 8px;
 $default_cardheader_height: $default_cardheadercontent_height + 2 * $default_cardheader_verticalpadding;
-$default_cardheader_height_small: $default_cardheadercontent_height_small + 2 * $default_cardheader_verticalpadding_small;
+$default_cardheader_height_small: $default_cardheadercontent_height_small + 2 *
+  $default_cardheader_verticalpadding_small;
 $default_carditem_height: 64px;
 $default_carditem_height_small: 48px;
 
@@ -214,1034 +215,1019 @@ $zindex-categories-menu-list: 70;
 $zindex-top_navigation: 80;
 /* URLs */
 
-$default-url-avatar: "";
-$default-url-organization-avatar: "";
+$default-url-avatar: '';
+$default-url-organization-avatar: '';
 
 /* Fonts */
 
 @font-face {
-	font-family: "BitriseIcons";
-	src: font-url("BitriseIcons.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
-		// font-url("BitriseIcons.woff2") format("woff2"), /* Super Modern Browsers */
-		font-url("BitriseIcons.woff") format("woff"), /* Pretty Modern Browsers */
-		font-url("BitriseIcons.ttf")  format("truetype"), /* Safari, Android, iOS */
-		font-url("BitriseIcons.svg#BitriseIcons") format("svg"); /* Legacy iOS */
-	font-weight: 100;
-	font-style: normal;
+  font-family: 'BitriseIcons';
+  src: font-url('BitriseIcons.eot?#iefix') format('embedded-opentype'),
+    /* IE6-IE8 */ // font-url("BitriseIcons.woff2") format("woff2"),  Super Modern Browsers
+      font-url('BitriseIcons.woff') format('woff'),
+    /* Pretty Modern Browsers */ font-url('BitriseIcons.ttf') format('truetype'),
+    /* Safari, Android, iOS */ font-url('BitriseIcons.svg#BitriseIcons') format('svg'); /* Legacy iOS */
+  font-weight: 100;
+  font-style: normal;
 }
 
 /* Selectors */
 
 @mixin readonly {
+  &:read-only {
+    @content;
+  }
 
-	&:read-only {
-		@content;
-	}
-
-	&:-moz-read-only {
-		@content;
-	}
+  &:-moz-read-only {
+    @content;
+  }
 }
 
 /* Mixins */
 
 @mixin icon($icon_id) {
-	font-family: "BitriseIcons";
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-
-	@if ($icon_id == "lock-open") {
-		content: "\e000";
-	}
-
-	@if ($icon_id == "cloud") {
-		content: "\e001";
-	}
-
-	@if ($icon_id == "branch") {
-		content: "\e002";
-	}
-
-	@if ($icon_id == "builds") {
-		content: "\e003";
-	}
-
-	@if ($icon_id == "cog") {
-		content: "\e004";
-	}
-
-	@if ($icon_id == "folder") {
-		content: "\e005";
-	}
-
-	@if ($icon_id == "scheme") {
-		content: "\e006";
-	}
-
-	@if ($icon_id == "anchor") {
-		content: "\e007";
-	}
-
-	@if ($icon_id == "bitbucket") {
-		content: "\e008";
-	}
-
-	@if ($icon_id == "android") {
-		content: "\e009";
-	}
-
-	@if ($icon_id == "apple") {
-		content: "\e00a";
-	}
-
-	@if ($icon_id == "github") {
-		content: "\e00b";
-	}
-
-	@if ($icon_id == "linkedin") {
-		content: "\e00c";
-	}
-
-	@if ($icon_id == "twitter-inverse") {
-		content: "\e00d";
-	}
-
-	@if ($icon_id == "twitter") {
-		content: "\e00e";
-	}
-
-	@if ($icon_id == "plus") {
-		content: "\e00f";
-	}
-
-	@if ($icon_id == "download") {
-		content: "\e010";
-	}
-
-	@if ($icon_id == "trash") {
-		content: "\e011";
-	}
-
-	@if ($icon_id == "trash-open") {
-		content: "\e012";
-	}
-
-	@if ($icon_id == "disks") {
-		content: "\e013";
-	}
-
-	@if ($icon_id == "arrow-up") {
-		content: "\e014";
-	}
-
-	@if ($icon_id == "arrow-right") {
-		content: "\e015";
-	}
-
-	@if ($icon_id == "arrow-down") {
-		content: "\e016";
-	}
-
-	@if ($icon_id == "arrow-left") {
-		content: "\e017";
-	}
-
-	@if ($icon_id == "arrow-double-up") {
-		content: "\e014\e014";
-	}
-
-	@if ($icon_id == "arrow-double-right") {
-		content: "\e015\e015";
-	}
-
-	@if ($icon_id == "arrow-double-down") {
-		content: "\e016\e016";
-	}
-
-	@if ($icon_id == "arrow-double-left") {
-		content: "\e017\e017";
-	}
-
-	@if ($icon_id == "arrow-tailed-up") {
-		content: "\e018";
-	}
-
-	@if ($icon_id == "arrow-tailed-right") {
-		content: "\e019";
-	}
-
-	@if ($icon_id == "arrow-tailed-down") {
-		content: "\e01a";
-	}
-
-	@if ($icon_id == "arrow-tailed-left") {
-		content: "\e01b";
-	}
-
-	@if ($icon_id == "infinite") {
-		content: "\221e";
-	}
-
-	@if ($icon_id == "slack") {
-		content: "\e01c";
-	}
-
-	@if ($icon_id == "tick") {
-		content: "\e01d";
-	}
-
-	@if ($icon_id == "progress") {
-		content: "\e01e";
-	}
-
-	@if ($icon_id == "abort") {
-		content: "\e01f";
-	}
-
-	@if ($icon_id == "no-entry") {
-		content: "\e020";
-	}
-
-	@if ($icon_id == "dots") {
-		content: "\e021";
-	}
-
-	@if ($icon_id == "cross") {
-		content: "\e022";
-	}
-
-	@if ($icon_id == "xamarin") {
-		content: "\e023";
-	}
-
-	@if ($icon_id == "megaphone") {
-		content: "\e024";
-	}
-
-	@if ($icon_id == "stackoverflow") {
-		content: "\e025";
-	}
-
-	@if ($icon_id == "book") {
-		content: "\e026";
-	}
-
-	@if ($icon_id == "home") {
-		content: "\e027";
-	}
-
-	@if ($icon_id == "credit-card") {
-		content: "\e028";
-	}
-
-	@if ($icon_id == "bell") {
-		content: "\e029";
-	}
-
-	@if ($icon_id == "sign-out") {
-		content: "\e02a";
-	}
-
-	@if ($icon_id == "person") {
-		content: "\e02b";
-	}
-
-	@if ($icon_id == "mobile") {
-		content: "\e02c";
-	}
-
-	@if ($icon_id == "sheet") {
-		content: "\e02d";
-	}
-
-	@if ($icon_id == "workflow") {
-		content: "\e02e";
-	}
-
-	@if ($icon_id == "play") {
-		content: "\e02f";
-	}
-
-	@if ($icon_id == "person-armless") {
-		content: "\e030";
-	}
-
-	@if ($icon_id == "lines") {
-		content: "\e031";
-	}
-
-	@if ($icon_id == "eye") {
-		content: "\e032";
-	}
-
-	@if ($icon_id == "cross-slim") {
-		content: "\e033";
-	}
-
-	@if ($icon_id == "bulb") {
-		content: "\e034";
-	}
-
-	@if ($icon_id == "carriage-arrow") {
-		content: "\e035";
-	}
-
-	@if ($icon_id == "river-cross") {
-		content: "\e036";
-	}
-
-	@if ($icon_id == "hand") {
-		content: "\e037";
-	}
-
-	@if ($icon_id == "people-three") {
-		content: "\e038";
-	}
-
-	@if ($icon_id == "exclamation-sign") {
-		content: "\e039";
-	}
-
-	@if ($icon_id == "app") {
-		content: "\e03a";
-	}
-
-	@if ($icon_id == "piechart") {
-		content: "\e03b";
-	}
-
-	@if ($icon_id == "graph") {
-		content: "\e03c";
-	}
-
-	@if ($icon_id == "lock-fat") {
-		content: "\e03d";
-	}
-
-	@if ($icon_id == "vsts") {
-		content: "\e03e";
-	}
-
-	@if ($icon_id == "gitlab") {
-		content: "\e03f";
-	}
-
-	@if ($icon_id == "window-with-lines") {
-		content: "\e040";
-	}
-
-	@if ($icon_id == "lines-2") {
-		content: "\e041";
-	}
-
-	@if ($icon_id == "arrow-top-right") {
-		content: "\e042";
-	}
+  font-family: 'BitriseIcons';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  @if ($icon_id == 'lock-open') {
+    content: '\e000';
+  }
+
+  @if ($icon_id == 'cloud') {
+    content: '\e001';
+  }
+
+  @if ($icon_id == 'branch') {
+    content: '\e002';
+  }
+
+  @if ($icon_id == 'builds') {
+    content: '\e003';
+  }
+
+  @if ($icon_id == 'cog') {
+    content: '\e004';
+  }
+
+  @if ($icon_id == 'folder') {
+    content: '\e005';
+  }
+
+  @if ($icon_id == 'scheme') {
+    content: '\e006';
+  }
+
+  @if ($icon_id == 'anchor') {
+    content: '\e007';
+  }
+
+  @if ($icon_id == 'bitbucket') {
+    content: '\e008';
+  }
+
+  @if ($icon_id == 'android') {
+    content: '\e009';
+  }
+
+  @if ($icon_id == 'apple') {
+    content: '\e00a';
+  }
+
+  @if ($icon_id == 'github') {
+    content: '\e00b';
+  }
+
+  @if ($icon_id == 'linkedin') {
+    content: '\e00c';
+  }
+
+  @if ($icon_id == 'twitter-inverse') {
+    content: '\e00d';
+  }
+
+  @if ($icon_id == 'twitter') {
+    content: '\e00e';
+  }
+
+  @if ($icon_id == 'plus') {
+    content: '\e00f';
+  }
+
+  @if ($icon_id == 'download') {
+    content: '\e010';
+  }
+
+  @if ($icon_id == 'trash') {
+    content: '\e011';
+  }
+
+  @if ($icon_id == 'trash-open') {
+    content: '\e012';
+  }
+
+  @if ($icon_id == 'disks') {
+    content: '\e013';
+  }
+
+  @if ($icon_id == 'arrow-up') {
+    content: '\e014';
+  }
+
+  @if ($icon_id == 'arrow-right') {
+    content: '\e015';
+  }
+
+  @if ($icon_id == 'arrow-down') {
+    content: '\e016';
+  }
+
+  @if ($icon_id == 'arrow-left') {
+    content: '\e017';
+  }
+
+  @if ($icon_id == 'arrow-double-up') {
+    content: '\e014\e014';
+  }
+
+  @if ($icon_id == 'arrow-double-right') {
+    content: '\e015\e015';
+  }
+
+  @if ($icon_id == 'arrow-double-down') {
+    content: '\e016\e016';
+  }
+
+  @if ($icon_id == 'arrow-double-left') {
+    content: '\e017\e017';
+  }
+
+  @if ($icon_id == 'arrow-tailed-up') {
+    content: '\e018';
+  }
+
+  @if ($icon_id == 'arrow-tailed-right') {
+    content: '\e019';
+  }
+
+  @if ($icon_id == 'arrow-tailed-down') {
+    content: '\e01a';
+  }
+
+  @if ($icon_id == 'arrow-tailed-left') {
+    content: '\e01b';
+  }
+
+  @if ($icon_id == 'infinite') {
+    content: '\221e';
+  }
+
+  @if ($icon_id == 'slack') {
+    content: '\e01c';
+  }
+
+  @if ($icon_id == 'tick') {
+    content: '\e01d';
+  }
+
+  @if ($icon_id == 'progress') {
+    content: '\e01e';
+  }
+
+  @if ($icon_id == 'abort') {
+    content: '\e01f';
+  }
+
+  @if ($icon_id == 'no-entry') {
+    content: '\e020';
+  }
+
+  @if ($icon_id == 'dots') {
+    content: '\e021';
+  }
+
+  @if ($icon_id == 'cross') {
+    content: '\e022';
+  }
+
+  @if ($icon_id == 'xamarin') {
+    content: '\e023';
+  }
+
+  @if ($icon_id == 'megaphone') {
+    content: '\e024';
+  }
+
+  @if ($icon_id == 'stackoverflow') {
+    content: '\e025';
+  }
+
+  @if ($icon_id == 'book') {
+    content: '\e026';
+  }
+
+  @if ($icon_id == 'home') {
+    content: '\e027';
+  }
+
+  @if ($icon_id == 'credit-card') {
+    content: '\e028';
+  }
+
+  @if ($icon_id == 'bell') {
+    content: '\e029';
+  }
+
+  @if ($icon_id == 'sign-out') {
+    content: '\e02a';
+  }
+
+  @if ($icon_id == 'person') {
+    content: '\e02b';
+  }
+
+  @if ($icon_id == 'mobile') {
+    content: '\e02c';
+  }
+
+  @if ($icon_id == 'sheet') {
+    content: '\e02d';
+  }
+
+  @if ($icon_id == 'workflow') {
+    content: '\e02e';
+  }
+
+  @if ($icon_id == 'play') {
+    content: '\e02f';
+  }
+
+  @if ($icon_id == 'person-armless') {
+    content: '\e030';
+  }
+
+  @if ($icon_id == 'lines') {
+    content: '\e031';
+  }
+
+  @if ($icon_id == 'eye') {
+    content: '\e032';
+  }
+
+  @if ($icon_id == 'cross-slim') {
+    content: '\e033';
+  }
+
+  @if ($icon_id == 'bulb') {
+    content: '\e034';
+  }
+
+  @if ($icon_id == 'carriage-arrow') {
+    content: '\e035';
+  }
+
+  @if ($icon_id == 'river-cross') {
+    content: '\e036';
+  }
+
+  @if ($icon_id == 'hand') {
+    content: '\e037';
+  }
+
+  @if ($icon_id == 'people-three') {
+    content: '\e038';
+  }
+
+  @if ($icon_id == 'exclamation-sign') {
+    content: '\e039';
+  }
+
+  @if ($icon_id == 'app') {
+    content: '\e03a';
+  }
+
+  @if ($icon_id == 'piechart') {
+    content: '\e03b';
+  }
+
+  @if ($icon_id == 'graph') {
+    content: '\e03c';
+  }
+
+  @if ($icon_id == 'lock-fat') {
+    content: '\e03d';
+  }
+
+  @if ($icon_id == 'vsts') {
+    content: '\e03e';
+  }
+
+  @if ($icon_id == 'gitlab') {
+    content: '\e03f';
+  }
+
+  @if ($icon_id == 'window-with-lines') {
+    content: '\e040';
+  }
+
+  @if ($icon_id == 'lines-2') {
+    content: '\e041';
+  }
+
+  @if ($icon_id == 'arrow-top-right') {
+    content: '\e042';
+  }
 }
 
 @mixin position($position, $top: null, $right: null, $bottom: null, $left: null) {
-	position: $position;
+  position: $position;
 
-	@if ($top) {
-		top: $top;
-	}
+  @if ($top) {
+    top: $top;
+  }
 
-	@if ($right) {
-		right: $right;
-	}
+  @if ($right) {
+    right: $right;
+  }
 
-	@if ($bottom) {
-		bottom: $bottom;
-	}
+  @if ($bottom) {
+    bottom: $bottom;
+  }
 
-	@if ($left) {
-		left: $left;
-	}
+  @if ($left) {
+    left: $left;
+  }
 }
 
 @mixin mixin_position($position, $top, $right, $bottom, $left) {
-	@include position($position, $top, $right, $bottom, $left);
+  @include position($position, $top, $right, $bottom, $left);
 }
 
 @mixin squaresize($size) {
-	@include size($size, $size);
+  @include size($size, $size);
 }
 
 @mixin mixin_squaresize($size) {
-	@include squaresize($size);
+  @include squaresize($size);
 }
 
 @mixin size($width, $height: $width) {
-	width: $width;
-	height: $height;
+  width: $width;
+  height: $height;
 }
 
 @mixin mixin_size($width, $height) {
-	@include size($width, $height);
+  @include size($width, $height);
 }
 
 @mixin min_squaresize($size) {
-	min-width: $size;
-	min-height: $size;
+  min-width: $size;
+  min-height: $size;
 }
 
 @mixin mixin_min_squaresize($size) {
-	@include min_squaresize($size);
+  @include min_squaresize($size);
 }
 
 @mixin min_size($width, $height) {
-	min-width: $width;
-	min-height: $height;
+  min-width: $width;
+  min-height: $height;
 }
 
 @mixin mixin_min_size($width, $height) {
-	@include min_size($width, $height);
+  @include min_size($width, $height);
 }
 
 @mixin max_squaresize($size) {
-	max-width: $size;
-	max-height: $size;
+  max-width: $size;
+  max-height: $size;
 }
 
 @mixin mixin_max_squaresize($size) {
-	@include max_squaresize($size);
+  @include max_squaresize($size);
 }
 
 @mixin max_size($width, $height) {
-	max-width: $width;
-	max-height: $height;
+  max-width: $width;
+  max-height: $height;
 }
 
 @mixin mixin_max_size($width, $height) {
-	@include max_size($width, $height);
+  @include max_size($width, $height);
 }
 
 @mixin marginX($margin) {
-	margin-left: $margin;
-	margin-right: $margin;
+  margin-left: $margin;
+  margin-right: $margin;
 }
 
 @mixin mixin_marginX($margin) {
-	@include marginX($margin);
+  @include marginX($margin);
 }
 
 @mixin marginY($margin) {
-	margin-top: $margin;
-	margin-bottom: $margin;
+  margin-top: $margin;
+  margin-bottom: $margin;
 }
 
 @mixin mixin_marginY($margin) {
-	@include marginY($margin);
+  @include marginY($margin);
 }
 
 @mixin borderX($border) {
-	border-left: $border;
-	border-right: $border;
+  border-left: $border;
+  border-right: $border;
 }
 
 @mixin mixin_borderX($border) {
-	@include borderX($border);
+  @include borderX($border);
 }
 
 @mixin borderY($border) {
-	border-top: $border;
-	border-bottom: $border;
+  border-top: $border;
+  border-bottom: $border;
 }
 
 @mixin mixin_borderY($border) {
-	@include borderY($border);
+  @include borderY($border);
 }
 
 @mixin border_radius($value) {
-	border-radius: $value;
-	-moz-border-radius: $value;
-	-webkit-border-radius: $value;
+  border-radius: $value;
+  -moz-border-radius: $value;
+  -webkit-border-radius: $value;
 }
 
 @mixin border_top_left_radius($value) {
-	border-top-left-radius: $value;
-	-moz-border-top-left-radius: $value;
-	-webkit-border-top-left-radius: $value;
+  border-top-left-radius: $value;
+  -moz-border-top-left-radius: $value;
+  -webkit-border-top-left-radius: $value;
 }
 
 @mixin border_top_right_radius($value) {
-	border-top-right-radius: $value;
-	-moz-border-top-right-radius: $value;
-	-webkit-border-top-right-radius: $value;
+  border-top-right-radius: $value;
+  -moz-border-top-right-radius: $value;
+  -webkit-border-top-right-radius: $value;
 }
 
 @mixin border_bottom_left_radius($value) {
-	border-bottom-left-radius: $value;
-	-moz-border-bottom-left-radius: $value;
-	-webkit-border-bottom-left-radius: $value;
+  border-bottom-left-radius: $value;
+  -moz-border-bottom-left-radius: $value;
+  -webkit-border-bottom-left-radius: $value;
 }
 
 @mixin border_bottom_right_radius($value) {
-	border-bottom-right-radius: $value;
-	-moz-border-bottom-right-radius: $value;
-	-webkit-border-bottom-right-radius: $value;
+  border-bottom-right-radius: $value;
+  -moz-border-bottom-right-radius: $value;
+  -webkit-border-bottom-right-radius: $value;
 }
 
 @mixin border_top_radius($value) {
-	@include border_top_left_radius($value);
-	@include border_top_right_radius($value);
+  @include border_top_left_radius($value);
+  @include border_top_right_radius($value);
 }
 
 @mixin border_right_radius($value) {
-	@include border_top_right_radius($value);
-	@include border_bottom_right_radius($value);
+  @include border_top_right_radius($value);
+  @include border_bottom_right_radius($value);
 }
 
 @mixin border_bottom_radius($value) {
-	@include border_bottom_left_radius($value);
-	@include border_bottom_right_radius($value);
+  @include border_bottom_left_radius($value);
+  @include border_bottom_right_radius($value);
 }
 
 @mixin border_left_radius($value) {
-	@include border_top_left_radius($value);
-	@include border_bottom_left_radius($value);
+  @include border_top_left_radius($value);
+  @include border_bottom_left_radius($value);
 }
 
 @mixin paddingX($padding) {
-	padding-left: $padding;
-	padding-right: $padding;
+  padding-left: $padding;
+  padding-right: $padding;
 }
 
 @mixin mixin_paddingX($padding) {
-	@include paddingX($padding);
+  @include paddingX($padding);
 }
 
 @mixin paddingY($padding) {
-	padding-top: $padding;
-	padding-bottom: $padding;
+  padding-top: $padding;
+  padding-bottom: $padding;
 }
 
 @mixin mixin_paddingY($padding) {
-	@include paddingY($padding);
+  @include paddingY($padding);
 }
 
 @mixin mixin_position_absolute($x, $y) {
-	@include position(absolute, $y, null, null, $x);
+  @include position(absolute, $y, null, null, $x);
 }
 
 @mixin transform($transform...) {
-	transform: $transform;
-	-o-transform: $transform;
-	-ms-transform: $transform;
-	-moz-transform: $transform;
-	-webkit-transform: $transform;
+  transform: $transform;
+  -o-transform: $transform;
+  -ms-transform: $transform;
+  -moz-transform: $transform;
+  -webkit-transform: $transform;
 }
 
 @mixin translateX($x) {
-	@include transform(translateX($x));
+  @include transform(translateX($x));
 }
 
 @mixin mixin_translateX($x) {
-	@include transform(translateX($x));
+  @include transform(translateX($x));
 }
 
 @mixin mixin_translateY($y) {
-	@include transform(translateY($y));
+  @include transform(translateY($y));
 }
 
 @mixin mixin_rotate($deg) {
-	@include transform(rotate($deg));
+  @include transform(rotate($deg));
 }
 
 @mixin transition($transition...) {
-	transition: $transition;
-	-o-transition: $transition;
-	-moz-transition: $transition;
-	-webkit-transition: $transition;
+  transition: $transition;
+  -o-transition: $transition;
+  -moz-transition: $transition;
+  -webkit-transition: $transition;
 }
 
 @mixin mixin_transition($property, $duration) {
-	@include transition($property $duration);
+  @include transition($property $duration);
 }
 
 @mixin mixin_transition_transform($duration) {
-	transition: transform $duration;
-	transition: -ms-transform $duration;
-	-o-transition: -o-transform $duration;
-	-moz-transition: -moz-transform $duration;
-	-webkit-transition: -webkit-transform $duration;
+  transition: transform $duration;
+  transition: -ms-transform $duration;
+  -o-transition: -o-transform $duration;
+  -moz-transition: -moz-transform $duration;
+  -webkit-transition: -webkit-transform $duration;
 }
 
 @mixin mixin_transition_2($property1, $duration1, $property2, $duration2) {
-	@include transition($property1 $duration1, $property2 $duration2);
+  @include transition($property1 $duration1, $property2 $duration2);
 }
 
 @mixin mixin_transition_3($property1, $duration1, $property2, $duration2, $property3, $duration3) {
-	@include transition($property1 $duration1, $property2 $duration2, $property3 $duration3);
+  @include transition($property1 $duration1, $property2 $duration2, $property3 $duration3);
 }
 
 @mixin transitionduration($duration) {
-	transition-duration: $duration;
-	-o-transition-duration: $duration;
-	-moz-transition-duration: $duration;
-	-webkit-transition-duration: $duration;
+  transition-duration: $duration;
+  -o-transition-duration: $duration;
+  -moz-transition-duration: $duration;
+  -webkit-transition-duration: $duration;
 }
 
 @mixin transitiondelay($delay) {
-	transition-delay: $delay;
-	-o-transition-delay: $delay;
-	-moz-transition-delay: $delay;
-	-webkit-transition-delay: $delay;
+  transition-delay: $delay;
+  -o-transition-delay: $delay;
+  -moz-transition-delay: $delay;
+  -webkit-transition-delay: $delay;
 }
 
 @mixin mixin_transitiondelay($delay) {
-	@include transitiondelay($delay);
+  @include transitiondelay($delay);
 }
 
 @mixin transform_origin($value) {
-	transform-origin: $value;
-	-o-transform-origin: $value;
-	-ms-transform-origin: $value;
-	-moz-transform-origin: $value;
-	-webkit-transform-origin: $value;
+  transform-origin: $value;
+  -o-transform-origin: $value;
+  -ms-transform-origin: $value;
+  -moz-transform-origin: $value;
+  -webkit-transform-origin: $value;
 }
 
 @mixin boxsizing($value) {
-	box-sizing: $value;
-	-moz-box-sizing: $value;
-	-webkit-box-sizing: $value;
+  box-sizing: $value;
+  -moz-box-sizing: $value;
+  -webkit-box-sizing: $value;
 }
 
 @mixin mixin_boxsizing($value) {
-	@include boxsizing($value);
+  @include boxsizing($value);
 }
 
 @mixin boxshadow($value) {
-	box-shadow: $value;
-	-moz-box-shadow: $value;
-	-webkit-box-shadow: $value;
+  box-shadow: $value;
+  -moz-box-shadow: $value;
+  -webkit-box-shadow: $value;
 }
 
 @mixin mixin_boxshadow($value) {
-	@include boxshadow($value);
+  @include boxshadow($value);
 }
 
 @mixin animation($options) {
-	animation: $options;
-	-o-animation: $options;
-	-moz-animation: $options;
-	-webkit-animation: $options;
+  animation: $options;
+  -o-animation: $options;
+  -moz-animation: $options;
+  -webkit-animation: $options;
 }
 
 @mixin mixin_animation($options) {
-	@include animation($options);
+  @include animation($options);
 }
 
 @mixin ellipsis_oneliner {
-	overflow: hidden;
-	white-space: nowrap;
-	text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 @mixin mixin_ellipsis_oneliner {
-	@include ellipsis_oneliner;
+  @include ellipsis_oneliner;
 }
 
 @mixin appearance($appearance) {
-	appearance: $appearance;
-	-moz-appearance: $appearance;
-	-webkit-appearance: $appearance;
+  appearance: $appearance;
+  -moz-appearance: $appearance;
+  -webkit-appearance: $appearance;
 }
 
 @mixin mixin_appearance($appearance) {
-	@include appearance($appearance);
+  @include appearance($appearance);
 }
 
 @mixin display_flex {
-	display: flex;
-	display: -webkit-flex;
+  display: flex;
+  display: -webkit-flex;
 }
 
 @mixin mixin_display_flex() {
-	@include display_flex;
+  @include display_flex;
 }
 
 @mixin display_inline_flex {
-	display: inline-flex;
-	display: -webkit-inline-flex;
+  display: inline-flex;
+  display: -webkit-inline-flex;
 }
 
 @mixin mixin_display_inline_flex {
-	@include display_inline_flex;
+  @include display_inline_flex;
 }
 
 @mixin mixin_flex($value) {
-	flex: $value;
-	-ms-flex: $value;
-	-moz-flex: $value;
-	-webkit-flex: $value;
+  flex: $value;
+  -ms-flex: $value;
+  -moz-flex: $value;
+  -webkit-flex: $value;
 }
 
 @mixin flex_direction($value) {
-	flex-direction: $value;
-	-moz-flex-direction: $value;
-	-webkit-flex-direction: $value;
+  flex-direction: $value;
+  -moz-flex-direction: $value;
+  -webkit-flex-direction: $value;
 }
 
 @mixin mixin_flex_direction($value) {
-	@include flex_direction($value);
+  @include flex_direction($value);
 }
 
 @mixin flex_grow($value) {
-	flex-grow: $value;
-	-moz-flex-grow: $value;
-	-webkit-flex-grow: $value;
+  flex-grow: $value;
+  -moz-flex-grow: $value;
+  -webkit-flex-grow: $value;
 }
 
 @mixin mixin_flex_grow($value) {
-	flex-grow: $value;
-	-moz-flex-grow: $value;
-	-webkit-flex-grow: $value;
+  flex-grow: $value;
+  -moz-flex-grow: $value;
+  -webkit-flex-grow: $value;
 }
 
 @mixin flex_shrink($value) {
-	flex-shrink: $value;
-	-moz-flex-shrink: $value;
-	-webkit-flex-shrink: $value;
+  flex-shrink: $value;
+  -moz-flex-shrink: $value;
+  -webkit-flex-shrink: $value;
 }
 
 @mixin mixin_flex_shrink($value) {
-	@include flex_shrink($value);
+  @include flex_shrink($value);
 }
 
 @mixin justify_content($value) {
-	justify-content: $value;
-	-moz-justify-content: $value;
-	-webkit-justify-content: $value;
+  justify-content: $value;
+  -moz-justify-content: $value;
+  -webkit-justify-content: $value;
 }
 
 @mixin mixin_justify_content($value) {
-	@include justify_content($value);
+  @include justify_content($value);
 }
 
 @mixin align_items($value) {
-	align-items: $value;
-	-webkit-align-items: $value;
+  align-items: $value;
+  -webkit-align-items: $value;
 }
 
 @mixin align_content($value) {
-	align-content: $value;
-	-moz-align-content: $value;
-	-webkit-align-content: $value;
+  align-content: $value;
+  -moz-align-content: $value;
+  -webkit-align-content: $value;
 }
 
 @mixin mixin_align_items($value) {
-	@include align_items($value);
+  @include align_items($value);
 }
 
 @mixin align_self($value) {
-	align-self: $value;
-	-webkit-align-self: $value;
+  align-self: $value;
+  -webkit-align-self: $value;
 }
 
 @mixin mixin_align_self($value) {
-	align-self: $value;
-	-webkit-align-self: $value;
+  align-self: $value;
+  -webkit-align-self: $value;
 }
 
 @mixin flex_wrap($value) {
-	flex-wrap: $value;
-	-moz-flex-wrap: $value;
-	-webkit-flex-wrap: $value;
+  flex-wrap: $value;
+  -moz-flex-wrap: $value;
+  -webkit-flex-wrap: $value;
 }
 
 @mixin mixin_flex_wrap($value) {
-	flex-wrap: $value;
-	-moz-flex-wrap: $value;
-	-webkit-flex-wrap: $value;
+  flex-wrap: $value;
+  -moz-flex-wrap: $value;
+  -webkit-flex-wrap: $value;
 }
 
 @mixin flex_basis($value) {
-	flex-basis: $value;
-	-moz-flex-basis: $value;
-	-webkit-flex-basis: $value;
+  flex-basis: $value;
+  -moz-flex-basis: $value;
+  -webkit-flex-basis: $value;
 }
 
 @mixin mixin_flex_basis($value) {
-	@include flex_basis($value);
+  @include flex_basis($value);
 }
 
 @mixin order($value) {
-	order: $value;
-	-moz-order: $value;
-	-webkit-order: $value;
+  order: $value;
+  -moz-order: $value;
+  -webkit-order: $value;
 }
 
 @mixin mixin_order($value) {
-	order: $value;
-	-moz-order: $value;
-	-webkit-order: $value;
+  order: $value;
+  -moz-order: $value;
+  -webkit-order: $value;
 }
 
 @mixin background_linear_gradient($parameters...) {
-	background: -webkit-linear-gradient($parameters);
-	background: -moz-linear-gradient($parameters);
-	background: -o-linear-gradient($parameters);
-	background: linear-gradient($parameters);
+  background: -webkit-linear-gradient($parameters);
+  background: -moz-linear-gradient($parameters);
+  background: -o-linear-gradient($parameters);
+  background: linear-gradient($parameters);
 }
 
 @mixin column_count($value) {
-	-webkit-column-count: $value;
-	-moz-column-count: $value;
-	column-count: $value;
+  -webkit-column-count: $value;
+  -moz-column-count: $value;
+  column-count: $value;
 }
 
 @mixin column_gap($value) {
-	-webkit-column-gap: $value;
-	-moz-column-gap: $value;
-	column-gap: $value;
+  -webkit-column-gap: $value;
+  -moz-column-gap: $value;
+  column-gap: $value;
 }
 
 @mixin column_rule($value) {
-	-webkit-column-rule: $value;
-	-moz-column-rule: $value;
-	column-rule: $value;
+  -webkit-column-rule: $value;
+  -moz-column-rule: $value;
+  column-rule: $value;
 }
 
 @mixin column_break_inside($value) {
-	-webkit-column-break-inside: $value;
-	page-break-inside: $value;
-	break-inside: $value;
+  -webkit-column-break-inside: $value;
+  page-break-inside: $value;
+  break-inside: $value;
 }
 
 @mixin infinite_rotate($time) {
+  @-webkit-keyframes animation {
+    from {
+      @include transform(rotate(0deg));
+    }
+    to {
+      @include transform(rotate(360deg));
+    }
+  }
 
-	@-webkit-keyframes animation {
-		from {
-			@include transform(rotate(0deg));
-		}
-		to {
-			@include transform(rotate(360deg));
-		}
-	}
+  @keyframes animation {
+    from {
+      @include transform(rotate(0deg));
+    }
+    to {
+      @include transform(rotate(360deg));
+    }
+  }
 
-	@keyframes animation {
-		from {
-			@include transform(rotate(0deg));
-		}
-		to {
-			@include transform(rotate(360deg));
-		}
-	}
-
-	@include animation(animation $time linear infinite);
+  @include animation(animation $time linear infinite);
 }
 
 @mixin mixin_infinite_rotate($time) {
-	@include infinite_rotate($time);
+  @include infinite_rotate($time);
 }
 
-@mixin with_cloud_arrow($position: null, $backgroundcolor: null, $borderwidth: null, $size: null, $verticalposition: null, $horizontalposition: null) {
-	@if ($position == null) {
-		$position: "top";
-	}
+@mixin with_cloud_arrow(
+  $position: null,
+  $backgroundcolor: null,
+  $borderwidth: null,
+  $size: null,
+  $verticalposition: null,
+  $horizontalposition: null
+) {
+  @if ($position == null) {
+    $position: 'top';
+  }
 
-	@if ($backgroundcolor == null) {
-		$backgroundcolor: white;
-	}
+  @if ($backgroundcolor == null) {
+    $backgroundcolor: white;
+  }
 
-	@if ($borderwidth == null) {
-		$borderwidth: 0;
-	}
+  @if ($borderwidth == null) {
+    $borderwidth: 0;
+  }
 
-	@if ($size == null) {
-		$size: 8px;
-	}
+  @if ($size == null) {
+    $size: 8px;
+  }
 
-	@if ($verticalposition == null) {
-		$verticalposition: 50%;
-	}
+  @if ($verticalposition == null) {
+    $verticalposition: 50%;
+  }
 
-	@if ($horizontalposition == null) {
-		$horizontalposition: 50%;
-	}
+  @if ($horizontalposition == null) {
+    $horizontalposition: 50%;
+  }
 
-	&:before, &:after {
-		content: "";
-		position: absolute;
-		@include squaresize(0);
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    @include squaresize(0);
 
-		@if ($position == "top") {
-			top: - $size;
-			left: $horizontalposition;
-			margin-left: - $size;
-			border-left: $size solid transparent;
-			border-right: $size solid transparent;
-			border-bottom: $size solid;
-			border-bottom-color: inherit;
-		}
-		@else if ($position == "right") {
-			top: $verticalposition;
-			right: - $size;
-			margin-top: - $size;
-			border-top: $size solid transparent;
-			border-bottom: $size solid transparent;
-			border-left: $size solid;
-			border-left-color: inherit;
-		}
-		@else if ($position == "bottom") {
-			bottom: - $size;
-			left: $horizontalposition;
-			margin-left: - $size;
-			border-left: $size solid transparent;
-			border-right: $size solid transparent;
-			border-top: $size solid;
-			border-top-color: inherit;
-		}
-		@else if ($position == "left") {
-			top: $verticalposition;
-			left: - $size;
-			margin-top: - $size;
-			border-top: $size solid transparent;
-			border-bottom: $size solid transparent;
-			border-right: $size solid;
-			border-right-color: inherit;
-		}
-	}
+    @if ($position == 'top') {
+      top: -$size;
+      left: $horizontalposition;
+      margin-left: -$size;
+      border-left: $size solid transparent;
+      border-right: $size solid transparent;
+      border-bottom: $size solid;
+      border-bottom-color: inherit;
+    } @else if ($position == 'right') {
+      top: $verticalposition;
+      right: -$size;
+      margin-top: -$size;
+      border-top: $size solid transparent;
+      border-bottom: $size solid transparent;
+      border-left: $size solid;
+      border-left-color: inherit;
+    } @else if ($position == 'bottom') {
+      bottom: -$size;
+      left: $horizontalposition;
+      margin-left: -$size;
+      border-left: $size solid transparent;
+      border-right: $size solid transparent;
+      border-top: $size solid;
+      border-top-color: inherit;
+    } @else if ($position == 'left') {
+      top: $verticalposition;
+      left: -$size;
+      margin-top: -$size;
+      border-top: $size solid transparent;
+      border-bottom: $size solid transparent;
+      border-right: $size solid;
+      border-right-color: inherit;
+    }
+  }
 
-	@if ($borderwidth == 0) {
-		&:before {
-			content: normal;
-		}
-		@if ($position == "top") {
-			&:after {
-				border-bottom-color: $backgroundcolor;
-			}
-		}
-		@else if ($position == "right") {
-			&:after {
-				border-left-color: $backgroundcolor;
-			}
-		}
-		@else if ($position == "bottom") {
-			&:after {
-				border-top-color: $backgroundcolor;
-			}
-		}
-		@else if ($position == "left") {
-			&:after {
-				border-right-color: $backgroundcolor;
-			}
-		}
-	}
-	@else {
-		@if ($position == "top") {
-			&:before {
-				border-bottom-color: inherit;
-			}
-			&:after {
-				border-bottom-color: $backgroundcolor;
-				@include transform(translateY($borderwidth));
-			}
-		}
-		@else if ($position == "right") {
-			&:before {
-				border-left-color: inherit;
-			}
-			&:after {
-				border-left-color: $backgroundcolor;
-				@include transform(translateX(- $borderwidth));
-			}
-		}
-		@else if ($position == "bottom") {
-			&:before {
-				border-top-color: inherit;
-			}
-			&:after {
-				border-top-color: $backgroundcolor;
-				@include transform(translateY(- $borderwidth));
-			}
-		}
-		@else if ($position == "left") {
-			&:before {
-				border-right-color: inherit;
-			}
-			&:after {
-				border-right-color: $backgroundcolor;
-				@include transform(translateX($borderwidth));
-			}
-		}
-	}
+  @if ($borderwidth == 0) {
+    &:before {
+      content: normal;
+    }
+    @if ($position == 'top') {
+      &:after {
+        border-bottom-color: $backgroundcolor;
+      }
+    } @else if ($position == 'right') {
+      &:after {
+        border-left-color: $backgroundcolor;
+      }
+    } @else if ($position == 'bottom') {
+      &:after {
+        border-top-color: $backgroundcolor;
+      }
+    } @else if ($position == 'left') {
+      &:after {
+        border-right-color: $backgroundcolor;
+      }
+    }
+  } @else {
+    @if ($position == 'top') {
+      &:before {
+        border-bottom-color: inherit;
+      }
+      &:after {
+        border-bottom-color: $backgroundcolor;
+        @include transform(translateY($borderwidth));
+      }
+    } @else if ($position == 'right') {
+      &:before {
+        border-left-color: inherit;
+      }
+      &:after {
+        border-left-color: $backgroundcolor;
+        @include transform(translateX(-$borderwidth));
+      }
+    } @else if ($position == 'bottom') {
+      &:before {
+        border-top-color: inherit;
+      }
+      &:after {
+        border-top-color: $backgroundcolor;
+        @include transform(translateY(-$borderwidth));
+      }
+    } @else if ($position == 'left') {
+      &:before {
+        border-right-color: inherit;
+      }
+      &:after {
+        border-right-color: $backgroundcolor;
+        @include transform(translateX($borderwidth));
+      }
+    }
+  }
 }
 
 @mixin media_huge {
-
-	@media only screen and (max-width: $screen-hugewidth) {
-		@content;
-	}
+  @media only screen and (max-width: $screen-hugewidth) {
+    @content;
+  }
 }
 
 @mixin media_big {
-
-	@media only screen and (max-width: $screen-bigwidth) {
-		@content;
-	}
+  @media only screen and (max-width: $screen-bigwidth) {
+    @content;
+  }
 }
 
 @mixin media_mid {
-
-	@media only screen and (max-width: $screen-midwidth) {
-		@content;
-	}
+  @media only screen and (max-width: $screen-midwidth) {
+    @content;
+  }
 }
 
 @mixin media_small {
-
-	@media only screen and (max-width: $screen-smallwidth) {
-		@content;
-	}
+  @media only screen and (max-width: $screen-smallwidth) {
+    @content;
+  }
 }
 
 @mixin media_above_huge {
-
-	@media only screen and (min-width: $screen-hugewidth + 1) {
-		@content;
-	}
+  @media only screen and (min-width: $screen-hugewidth + 1) {
+    @content;
+  }
 }
 
 @mixin media_above_big {
-
-	@media only screen and (min-width: $screen-bigwidth + 1) {
-		@content;
-	}
+  @media only screen and (min-width: $screen-bigwidth + 1) {
+    @content;
+  }
 }
 
 @mixin media_above_mid {
-
-	@media only screen and (min-width: $screen-midwidth + 1) {
-		@content;
-	}
+  @media only screen and (min-width: $screen-midwidth + 1) {
+    @content;
+  }
 }
 
 @mixin media_above_small {
-
-	@media only screen and (min-width: $screen-smallwidth + 1) {
-		@content;
-	}
+  @media only screen and (min-width: $screen-smallwidth + 1) {
+    @content;
+  }
 }
 
 @mixin media_below_mid {
-
-	@media only screen and (max-width: $screen-midwidth - 1) {
-		@content;
-	}
+  @media only screen and (max-width: $screen-midwidth - 1) {
+    @content;
+  }
 }
 
 @mixin media_above_small_below_mid {
-
-	@media only screen and (min-width: $screen-smallwidth + 1) and (max-width: $screen-midwidth) {
-		@content;
-	}
+  @media only screen and (min-width: $screen-smallwidth + 1) and (max-width: $screen-midwidth) {
+    @content;
+  }
 }
 
 @mixin media_below_width($width) {
-
-	@media only screen and (max-width: $width - 1) {
-		@content;
-	}
+  @media only screen and (max-width: $width - 1) {
+    @content;
+  }
 }
