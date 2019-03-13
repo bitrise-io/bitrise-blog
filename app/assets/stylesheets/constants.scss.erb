@@ -220,6 +220,14 @@ $default-url-organization-avatar: '';
 
 /* Fonts */
 
+@mixin font-face($font-family, $font-file-url-without-extension, $font-weight) {
+  @font-face {
+    font-family: $font-family;
+    src: font-url($font-file-url-without-extension + '.ttf') format('truetype');
+    font-weight: $font-weight;
+  }
+}
+
 @font-face {
   font-family: 'BitriseIcons';
   src: font-url('BitriseIcons.eot?#iefix') format('embedded-opentype'),
@@ -230,6 +238,13 @@ $default-url-organization-avatar: '';
   font-weight: 100;
   font-style: normal;
 }
+
+@include font-face('TTNorms', 'ttnorms/35C30F_7_0', 100);
+@include font-face('TTNorms', 'ttnorms/35C30F_C_0', 200);
+@include font-face('TTNorms', 'ttnorms/35C30F_F_0', 400);
+@include font-face('TTNorms', 'ttnorms/35C30F_D_0', 500);
+@include font-face('TTNorms', 'ttnorms/35C30F_1_0', 700);
+@include font-face('TTNorms', 'ttnorms/35C30F_3_0', 900);
 
 /* Selectors */
 
