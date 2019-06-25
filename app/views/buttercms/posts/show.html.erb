@@ -48,7 +48,8 @@
 <!--
 // For sharing, we recommend https://www.addthis.com/get/sharing or https://sumome.com/app/share
 -->
-<div class="post-content">
+<%= if false %>
+ <div class="post-content">
   <div id="disqus_thread" class="disqus-container"></div>
 </div>
 <script type="text/javascript">
@@ -62,3 +63,4 @@
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
 </script>
+<%= end %>
