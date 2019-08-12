@@ -25,7 +25,9 @@
       <p class="divider-slash">/</p><%= link_to category.name.capitalize, buttercms_category_path(category.slug), :title => category.name, class: "category-element" %>
     <% end %>
     <% @post.tags.each do |tag| %>
-      <p class="divider-slash">/</p><%= link_to tag.name.capitalize, buttercms_tag_path(tag.slug), :title => tag.name, class: "category-element tag-element" %>
+      <% if tag.slug.present? %>
+        <p class="divider-slash">/</p><%= link_to tag.name.capitalize, buttercms_tag_path(tag.slug), :title => tag.name, class: "category-element tag-element" %>
+      <% end %>
     <% end %>
   </div>
 
