@@ -690,7 +690,7 @@ GEM
     multi_json (1.13.1)
     netrc (0.11.0)
     nio4r (2.3.1)
-    nokogiri (1.10.4)
+    nokogiri (1.10.8)
       mini_portile2 (~> 2.4.0)
     npm-rails (0.2.1)
       rails (>= 3.2)
