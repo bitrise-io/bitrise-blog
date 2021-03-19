@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '~> 5.0.4'
+gem 'rails', '~> 5.0.7'
 gem 'puma', '~> 3.0'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
@@ -13,7 +13,7 @@ gem 'react-rails'
 gem 'underscore-rails'
 gem 'rest-client'
 gem 'fastimage'
-gem 'npm-rails'
+gem 'npm-rails', '>= 0.2.1'
 gem 'aws-sdk'
 gem 'sitemap_generator'
 
